@@ -60,13 +60,16 @@ ul {
 
 .header-logo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 6px;
   line-height: 1.2;
 }
 
 .logo-main {
-  font-size: 15px;
-  font-weight: 500;
+  font-family: 'Yuji Syuku', serif;
+  font-size: 18px;
+  font-weight: 400;
   letter-spacing: 0.1em;
   color: #333;
 }
@@ -75,9 +78,7 @@ ul {
   font-size: 9px;
   letter-spacing: 0.05em;
   color: #888;
-  border: 1px solid #ccc;
-  padding: 1px 4px;
-  margin-top: 2px;
+  margin-bottom: 2px;
   display: inline-block;
   width: fit-content;
 }
@@ -247,23 +248,80 @@ ul {
   background: #faf6ef;
 }
 
-.hero-image img {
+.hero-image {
+  position: relative;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+.hero-image img,
+.hero-image video {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-purchase {
+  position: absolute;
+  bottom: 24px;
+  left: 20px;
+  color: #333;
+  text-shadow: none;
+  line-height: 1.8;
+}
+
+.hero-purchase-title {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.hero-purchase-cta {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-photo {
+  display: flex;
+}
+
+.hero-photo img {
+  width: 50%;
   height: auto;
   display: block;
+  object-fit: cover;
+}
+
+.hero-photo-space {
+  width: 50%;
+  background-color: #fff;
 }
 
 .hero-text {
   padding: 28px 20px 36px;
+  background-color: #fff;
 }
 
 .hero-catch {
-  font-size: 20px;
+  writing-mode: vertical-rl;
+  font-size: 22px;
   font-weight: 400;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   line-height: 1.7;
-  color: #333;
-  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 .hero-desc {
@@ -272,6 +330,7 @@ ul {
   color: #555;
   letter-spacing: 0.05em;
   margin-bottom: 20px;
+  white-space: pre-line;
 }
 
 .hero-sub {
@@ -559,8 +618,12 @@ ul {
     padding: 0 24px;
   }
 
+  .hero-image {
+    height: calc(100vh - 64px);
+  }
+
   .logo-main {
-    font-size: 18px;
+    font-size: 26px;
   }
 
   .logo-sub {

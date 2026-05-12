@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>武蔵野茶房 オンラインショップ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +16,7 @@
     <div class="header-inner">
       <div class="header-logo">
         <span class="logo-main">武蔵野茶房</span>
-        <span class="logo-sub">オンラインショップ</span>
+        <span class="logo-sub">オンライン<br>ショップ</span>
       </div>
       <nav class="header-nav">
         <a href="#" class="nav-icon">
@@ -64,11 +67,38 @@
     <!-- ヒーロービジュアル -->
     <section class="hero">
       <div class="hero-image">
-        <img src="https://placehold.co/750x560/d4b896/ffffff?text=MAIN+VISUAL" alt="武蔵野茶房 メインビジュアル">
+        <video
+          src="video/main.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+        >
+          <p>お使いのブラウザは動画の再生に対応していません。</p>
+        </video>
+        <div class="hero-overlay">
+          <p class="hero-catch">心ほどけるひとときを︑贈る︒</p>
+          <a href="cheesecake.html" class="hero-purchase">
+            <span class="hero-purchase-title">特製焼チーズケーキの</span>
+            <span class="hero-purchase-cta">ご購入はこちら＞</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://placehold.co/189x189/d4b896/ffffff?text=PHOTO" alt="武蔵野茶房">
+        <div class="hero-photo-space"></div>
       </div>
       <div class="hero-text">
-        <p class="hero-catch">心ほどけるひとときを︑ 贈る︒</p>
-        <p class="hero-desc">武蔵野茶房が大切にしてきたのは、<br>日本らしい奥ゆかしいおもてなしの心。<br>目に見える豪華さではなく、<br>素材の選び方、手間のかけ方、包み方、届け方。<br>ひとつひとつに心を込めることで、<br>人と人、時をつないでいく。<br>その想いを、かたちにしたのがこの贈りものです｡</p>
+        <p class="hero-desc">武蔵野茶房が大切にしてきたのは、
+日本らしい奥ゆかしいおもてなしの心。
+
+目に見える豪華さではなく、
+素材の選び方、手間のかけ方、包み方、届け方。
+
+ひとつひとつに心を込めることで、
+人と人、時をつないでいく。
+
+その想いを、かたちにしたのがこの贈りものです｡</p>
         <p class="hero-sub">人と人、<br>心ほどけるひとときを贈る<br>日本の贈りもの。</p>
         <a href="#" class="btn-primary">商品一覧はこちら</a>
       </div>
