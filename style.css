@@ -472,7 +472,6 @@ ul {
 }
 
 .slide {
-  min-width: calc(100% - 100px);
   flex-shrink: 0;
   background: #f7f7f7;
 }

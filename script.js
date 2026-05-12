@@ -82,8 +82,15 @@
 
   if (track && total > 0) {
 
+    /* コンテナ実寸からスライド幅をJS側で確定させる */
+    var container = document.getElementById('seasonalSlideshow');
+    var slideW = container.offsetWidth - peek * 2;
+    Array.from(track.children).forEach(function (slide) {
+      slide.style.minWidth = slideW + 'px';
+    });
+
     function slideWidth() {
-      return track.children[0].offsetWidth + gap;
+      return slideW + gap;
     }
 
     function goTo(index, animate) {
