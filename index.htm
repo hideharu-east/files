@@ -85,7 +85,7 @@
         </div>
       </div>
       <div class="hero-photo">
-        <img src="https://placehold.co/189x189/d4b896/ffffff?text=PHOTO" alt="武蔵野茶房">
+        <img src="https://placehold.co/160x160/d4b896/ffffff?text=PHOTO" alt="武蔵野茶房">
         <div class="hero-photo-space"></div>
       </div>
       <div class="hero-text">
@@ -99,22 +99,31 @@
 人と人、時をつないでいく。
 
 その想いを、かたちにしたのがこの贈りものです｡</p>
-        <p class="hero-sub">人と人、<br>心ほどけるひとときを贈る<br>日本の贈りもの。</p>
-        <a href="#" class="btn-primary">商品一覧はこちら</a>
+        <div class="hero-sub-wrap">
+          <p class="hero-sub">人と人、<br>心ほどけるひとときを贈る<br>日本の贈りもの。</p>
+          <img src="https://placehold.co/160x160/d4b896/ffffff?text=PHOTO" alt="" class="hero-sub-photo">
+        </div>
+        <a href="kodawari.html" class="btn-about">こだわりについて<span class="btn-circle-arrow">＞</span></a>
       </div>
     </section>
+
+    <div class="section-gray-bg">
 
     <!-- おしらせ -->
     <section class="section-news">
       <h2 class="section-title">おしらせ</h2>
       <ul class="news-list">
         <li class="news-item">
-          <span class="news-date">2024.04.01</span>
-          <a href="#" class="news-link">・GW 休業のお知らせ</a>
+          <a href="news_01.html" class="news-link-wrap">
+            <span class="news-date">2026.0501</span>
+            <span class="news-text">・GW休業のお知らせ</span>
+          </a>
         </li>
         <li class="news-item">
-          <span class="news-date">2024.03.15</span>
-          <a href="#" class="news-link">・サイトリニューアルのお知らせ</a>
+          <a href="news_02.html" class="news-link-wrap">
+            <span class="news-date">2024.0315</span>
+            <span class="news-text">・サイトリニューアルのお知らせ</span>
+          </a>
         </li>
       </ul>
     </section>
@@ -122,21 +131,48 @@
     <!-- 季節のおすすめ -->
     <section class="section-seasonal">
       <h2 class="section-title">季節のおすすめ</h2>
-      <div class="seasonal-grid">
-        <a href="#" class="seasonal-item">
-          <img src="https://placehold.co/340x340/e8c8a0/ffffff?text=" alt="お中元特集">
-          <span class="seasonal-label">お中元特集</span>
-        </a>
-        <a href="#" class="seasonal-item">
-          <img src="https://placehold.co/340x340/f5d0d0/ffffff?text=" alt="母の日">
-          <span class="seasonal-label">母の日</span>
-        </a>
+      <div class="seasonal-slideshow" id="seasonalSlideshow">
+        <div class="slideshow-track" id="slideshowTrack">
+          <div class="slide">
+            <a href="#" class="seasonal-item">
+              <img src="https://placehold.co/340x340/e8c8a0/ffffff?text=" alt="お中元特集">
+              <span class="seasonal-label">お中元特集</span>
+            </a>
+          </div>
+          <div class="slide">
+            <a href="#" class="seasonal-item">
+              <img src="https://placehold.co/340x340/f5d0d0/ffffff?text=" alt="母の日">
+              <span class="seasonal-label">母の日</span>
+            </a>
+          </div>
+          <div class="slide">
+            <a href="#" class="seasonal-item">
+              <img src="https://placehold.co/340x340/c8d8e8/ffffff?text=" alt="敬老の日">
+              <span class="seasonal-label">敬老の日</span>
+            </a>
+          </div>
+          <div class="slide">
+            <a href="#" class="seasonal-item">
+              <img src="https://placehold.co/340x340/d8e8c8/ffffff?text=" alt="クリスマス">
+              <span class="seasonal-label">クリスマス</span>
+            </a>
+          </div>
+        </div>
+        <div class="slideshow-dots" id="slideshowDots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
       </div>
     </section>
 
     <!-- 商品情報 -->
+    <h2 class="section-title">商品情報</h2>
+
+    </div><!-- /.section-gray-bg -->
+
     <section class="section-products">
-      <h2 class="section-title">商品情報</h2>
 
       <!-- 特製焼チーズケーキ -->
       <div class="product-featured">

@@ -71,4 +71,44 @@
     });
   });
 
+  /* スライドショー */
+  var track = document.getElementById('slideshowTrack');
+  var dots  = document.querySelectorAll('#slideshowDots .dot');
+  var total = dots.length;
+  var current = 0;
+  var timer;
+  var peek = 50;
+  var gap  = 12;
+
+  if (track && total > 0) {
+
+    function slideWidth() {
+      return track.children[0].offsetWidth + gap;
+    }
+
+    function goTo(index, animate) {
+      current = (index + total) % total;
+      track.style.transition = animate === false ? 'none' : 'transform 0.4s ease';
+      track.style.transform = 'translateX(' + (peek - current * slideWidth()) + 'px)';
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function next() {
+      goTo(current + 1, true);
+    }
+
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () {
+        clearInterval(timer);
+        goTo(i, true);
+        timer = setInterval(next, 5000);
+      });
+    });
+
+    goTo(0, false);
+    timer = setInterval(next, 5000);
+  }
+
 })();
