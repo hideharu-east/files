@@ -467,7 +467,7 @@ ul {
 
 .slideshow-track {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   transition: transform 0.4s ease;
 }
 

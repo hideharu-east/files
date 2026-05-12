@@ -82,39 +82,35 @@
 
   if (track && total > 0) {
 
-    /* コンテナ実寸からスライド幅をJS側で確定させる */
-    var container = document.getElementById('seasonalSlideshow');
-    var slideW = container.offsetWidth - peek * 2;
+    var peek = 40;
+    var gap  = 10;
+    var containerEl = document.getElementById('seasonalSlideshow');
+    var slideW = containerEl.offsetWidth - peek * 2;
+
     Array.from(track.children).forEach(function (slide) {
-      slide.style.minWidth = slideW + 'px';
+      slide.style.width = slideW + 'px';
     });
 
-    function slideWidth() {
-      return slideW + gap;
-    }
-
-    function goTo(index, animate) {
+    function goTo(index) {
       current = (index + total) % total;
-      track.style.transition = animate === false ? 'none' : 'transform 0.4s ease';
-      track.style.transform = 'translateX(' + (peek - current * slideWidth()) + 'px)';
+      var offset = peek - current * (slideW + gap);
+      track.style.transform = 'translateX(' + offset + 'px)';
       dots.forEach(function (d, i) {
         d.classList.toggle('active', i === current);
       });
     }
 
-    function next() {
-      goTo(current + 1, true);
-    }
+    function next() { goTo(current + 1); }
 
     dots.forEach(function (d, i) {
       d.addEventListener('click', function () {
         clearInterval(timer);
-        goTo(i, true);
+        goTo(i);
         timer = setInterval(next, 5000);
       });
     });
 
-    goTo(0, false);
+    goTo(0);
     timer = setInterval(next, 5000);
   }
 
