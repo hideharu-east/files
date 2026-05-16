@@ -57,6 +57,14 @@
     lastScroll = currentScroll <= 0 ? 0 : currentScroll;
   }, { passive: true });
 
+  /* ドロワーサブメニュー */
+  document.querySelectorAll('.drawer-sub-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var li = this.closest('.drawer-has-sub');
+      li.classList.toggle('is-open');
+    });
+  });
+
   /* スムーススクロール（ページ内リンク） */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
