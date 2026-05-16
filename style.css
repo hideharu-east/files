@@ -405,11 +405,19 @@ ul {
   margin-top: 32px;
 }
 
-.section-news .section-title,
+.section-news .section-title {
+  text-align: center;
+  border-bottom: none;
+  padding-top: 60px;
+  font-size: 25px;
+}
+
 .section-gray-bg > .section-title {
   text-align: center;
   border-bottom: none;
   padding-top: 60px;
+  padding-bottom: 0;
+  margin-bottom: 0;
   font-size: 25px;
 }
 
@@ -522,14 +530,14 @@ ul {
    商品情報
    ===================== */
 .section-products {
-  margin-top: 32px;
+  margin-top: 0;
 }
 
 /* 特製焼チーズケーキ（メイン商品） */
 .product-featured {
   position: relative;
-  margin-bottom: 32px;
-  min-height: 420px;
+  margin-bottom: 0;
+  min-height: 400px;
   overflow: hidden;
 }
 
@@ -578,7 +586,8 @@ ul {
   margin-bottom: 4px;
 }
 
-.product-featured-body .btn-about {
+.product-featured-body .btn-about,
+.product-card-body .btn-about {
   margin: 10px 0 0 auto;
   padding: 8px 20px;
   font-size: 11px;
@@ -586,16 +595,45 @@ ul {
 
 /* 商品カード */
 .product-card {
-  margin-bottom: 40px;
+  position: relative;
+  margin-bottom: 0;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.product-card--light .product-card-name,
+.product-card--light .product-card-sub,
+.product-card--light .product-card-desc {
+  color: #fff;
+}
+
+.product-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .product-card-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
+.product-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.45);
+}
+
 .product-card-body {
-  padding: 16px 16px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 20px 20px 24px;
 }
 
 .product-card-name {
@@ -611,15 +649,25 @@ ul {
   font-size: 13px;
   font-weight: 300;
   letter-spacing: 0.1em;
-  color: #777;
+  color: #555;
 }
 
 .product-card-desc {
   font-size: 13px;
   line-height: 1.9;
-  color: #555;
+  color: #333;
   letter-spacing: 0.04em;
   margin-bottom: 4px;
+}
+
+/* =====================
+   商品一覧ボタン
+   ===================== */
+.section-all-products {
+  display: flex;
+  justify-content: center;
+  padding: 32px 20px;
+  background: #fff;
 }
 
 /* =====================
@@ -660,10 +708,38 @@ ul {
 }
 
 /* =====================
+   リンクボックス
+   ===================== */
+.section-linkbox {
+  padding: 0 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.linkbox-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 16px 20px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: #333;
+}
+
+.linkbox-arrow {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* =====================
    フッター
    ===================== */
 #footer {
-  background: #f5f0ea;
+  background: #fef8e7;
   padding: 32px 16px 24px;
   border-top: 1px solid #e0e0e0;
 }
