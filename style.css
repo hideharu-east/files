@@ -405,7 +405,8 @@ ul {
   margin-top: 32px;
 }
 
-.section-news .section-title {
+.section-news .section-title,
+.section-gray-bg > .section-title {
   text-align: center;
   border-bottom: none;
   padding-top: 60px;
@@ -526,16 +527,39 @@ ul {
 
 /* 特製焼チーズケーキ（メイン商品） */
 .product-featured {
+  position: relative;
   margin-bottom: 32px;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.product-featured-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .product-featured-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
+.product-featured-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.45);
+}
+
 .product-featured-body {
-  padding: 20px 16px 24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 20px 20px 24px;
 }
 
 .product-featured-name {
@@ -549,9 +573,15 @@ ul {
 .product-featured-desc {
   font-size: 13px;
   line-height: 1.9;
-  color: #555;
+  color: #333;
   letter-spacing: 0.04em;
   margin-bottom: 4px;
+}
+
+.product-featured-body .btn-about {
+  margin: 10px 0 0 auto;
+  padding: 8px 20px;
+  font-size: 11px;
 }
 
 /* 商品カード */
