@@ -272,13 +272,13 @@ ul {
 .btn-about {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 10px;
+  justify-content: center;
+  gap: 6px;
   border: none;
   border-radius: 999px;
-  padding: 12px 40px;
+  padding: 8px 52px;
   font-size: 13px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.3em;
   color: #fff;
   background: #c9a84c;
   margin: 12px auto 0;
@@ -289,14 +289,16 @@ ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border: 1px solid #fff;
   border-radius: 50%;
-  font-size: 11px;
+  font-size: 9px;
   background: #fff;
   color: #c9a84c;
   flex-shrink: 0;
+  line-height: 1;
+  padding-left: 2px;
 }
 
 /* =====================
@@ -351,8 +353,8 @@ ul {
   position: absolute;
   bottom: 24px;
   left: 20px;
-  color: #333;
-  text-shadow: none;
+  color: #000;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   line-height: 1.8;
 }
 
@@ -408,15 +410,37 @@ ul {
 .hero-desc {
   font-size: 13px;
   line-height: 2;
-  color: #555;
+  color: #000;
   letter-spacing: 0.05em;
   margin-bottom: 20px;
   white-space: pre-line;
 }
 
+.hero-sumie-wrap {
+  position: relative;
+  margin-top: 44px;
+  margin-bottom: -36px;
+}
+
+.hero-sumie {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  height: auto;
+  display: block;
+  margin-top: -20px;
+  position: relative;
+  z-index: 0;
+}
+
+.hero-sumie-btn {
+  position: relative;
+  z-index: 1;
+}
+
 .hero-sub-wrap {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
@@ -436,6 +460,8 @@ ul {
   object-fit: cover;
   flex-shrink: 0;
   margin-left: 0;
+  margin-top: 24px;
+  margin-right: 16px;
 }
 
 /* =====================
@@ -575,39 +601,18 @@ ul {
 
 /* 特製焼チーズケーキ（メイン商品） */
 .product-featured {
-  position: relative;
   margin-bottom: 0;
-  min-height: 400px;
-  overflow: hidden;
-}
-
-.product-featured-image {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
 }
 
 .product-featured-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
-.product-featured-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.45);
-}
-
 .product-featured-body {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
   padding: 20px 20px 24px;
+  background: #fff;
 }
 
 .product-featured-name {
@@ -635,45 +640,18 @@ ul {
 
 /* 商品カード */
 .product-card {
-  position: relative;
   margin-bottom: 0;
-  min-height: 400px;
-  overflow: hidden;
-}
-
-.product-card--light .product-card-name,
-.product-card--light .product-card-sub,
-.product-card--light .product-card-desc {
-  color: #fff;
-}
-
-.product-card-image {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
 }
 
 .product-card-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
-.product-card-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.45);
-}
-
 .product-card-body {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  padding: 20px 20px 24px;
+  padding: 16px 20px 24px;
+  background: #fff;
 }
 
 .product-card-name {
