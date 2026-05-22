@@ -314,6 +314,7 @@
  #gnav {
    width: 100%;
    background-color: #444;
+   display: none;
  }
  #gnav div.cart-nav,
  #gnav nav {
@@ -358,6 +359,9 @@
    text-decoration: none;
  }
  */
+ #header-inner {
+   display: none;
+ }
  #contents {
    width: 1200px;
    margin: 0 auto;
