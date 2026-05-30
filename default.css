@@ -8266,7 +8266,8 @@
    武蔵野茶房 カスタムヘッダー・ドロワー・フッター
    ===================== */
 body {
-  font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.8;
   padding-top: 56px !important;
@@ -8297,6 +8298,11 @@ body {
   align-items: flex-end;
   gap: 6px;
   line-height: 1.2;
+}
+
+.header-logo img {
+  width: 200px;
+  height: auto;
 }
 
 .logo-main {
@@ -8333,8 +8339,12 @@ body {
 }
 
 .nav-icon img {
-  width: 22px;
-  height: 22px;
+  width: 35px;
+  height: auto;
+}
+
+.nav-icon img.cart-icon {
+  width: 25px;
 }
 
 .nav-menu {
