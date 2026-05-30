@@ -123,6 +123,8 @@
 
     var touchStartX = 0;
     var touchEndX = 0;
+    var mouseStartX = 0;
+    var isDragging = false;
 
     track.addEventListener('touchstart', function(e) {
       touchStartX = e.touches[0].clientX;
@@ -141,6 +143,26 @@
         timer = setInterval(next, 5000);
       }
     }, { passive: true });
+
+    track.addEventListener('mousedown', function(e) {
+      mouseStartX = e.clientX;
+      isDragging = true;
+    });
+
+    document.addEventListener('mouseup', function(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      var diff = mouseStartX - e.clientX;
+      if (Math.abs(diff) > 30) {
+        clearInterval(timer);
+        if (diff > 0) {
+          goTo(current + 1);
+        } else {
+          goTo(current - 1);
+        }
+        timer = setInterval(next, 5000);
+      }
+    });
   }
 
 })();
