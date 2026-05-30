@@ -120,6 +120,27 @@
 
     goTo(0);
     timer = setInterval(next, 5000);
+
+    var touchStartX = 0;
+    var touchEndX = 0;
+
+    track.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].clientX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 30) {
+        clearInterval(timer);
+        if (diff > 0) {
+          goTo(current + 1);
+        } else {
+          goTo(current - 1);
+        }
+        timer = setInterval(next, 5000);
+      }
+    }, { passive: true });
   }
 
 })();
