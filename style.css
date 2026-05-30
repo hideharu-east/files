@@ -722,6 +722,12 @@ ul {
   display: block;
   margin: 10px 0 0 auto;
 }
+.product-card-page-btn img {
+  width: 180px;
+  height: auto;
+  display: block;
+  margin: 10px 0 0 auto;
+}
 
 .product-card-name {
   font-size: 20px;
@@ -931,6 +937,13 @@ ul {
   .product-card-desc {
     font-size: 11px;
     line-height: 1.6;
+  }
+  .product-card-lineup-btn img,
+  .product-featured-lineup-btn img {
+    width: 160px;
+  }
+  .product-card-page-btn img {
+    width: 140px;
   }
 }
 
