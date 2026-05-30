@@ -561,6 +561,7 @@ ul {
 .section-seasonal .section-title {
   text-align: center;
   font-size: 25px;
+  border-bottom: none;
 }
 .section-seasonal .section-title img {
   width: 80px;
@@ -572,6 +573,7 @@ ul {
 .seasonal-slideshow {
   position: relative;
   overflow: hidden;
+  margin-top: 20px;
 }
 
 .slideshow-track {
@@ -599,7 +601,8 @@ ul {
 .seasonal-label {
   display: block;
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0.08em;
   color: #333;
   padding: 10px 8px;
