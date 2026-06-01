@@ -90,7 +90,7 @@ ul {
 
 .header-nav {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 16px;
 }
 
@@ -122,11 +122,12 @@ ul {
   border: none;
   cursor: pointer;
   padding: 4px;
+  margin-bottom: -5px;
 }
 
 .nav-menu span:not(.menu-text) {
   display: block;
-  width: 20px;
+  width: 24px;
   height: 1.5px;
   background: #555;
   transition: all 0.3s;
@@ -136,6 +137,7 @@ ul {
   font-size: 9px;
   color: #555;
   letter-spacing: 0.05em;
+  margin-top: 2px;
 }
 
 /* ドロワー開いた時のハンバーガー変化 */
@@ -714,6 +716,13 @@ ul {
 .product-card--light .product-card-sub,
 .product-card--light .product-card-desc {
   color: #fff;
+}
+.product-card--seasonal .product-card-name {
+  font-size: 20px;
+  color: #000;
+}
+.product-card--seasonal .product-card-desc {
+  color: #000;
 }
 
 .product-card-lineup-btn img {
