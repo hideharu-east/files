@@ -1,0 +1,115 @@
+<!-- ヘッダー -->
+<header id="header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <a href="http://sptest1131.ve.shopserve.jp/index.htm">
+        <img src="http://sptest1131.ve.shopserve.jp/pic-labo/llimg/mainlogo.png" alt="武蔵野茶房 オンラインショップ">
+      </a>
+    </div>
+    <nav class="header-nav">
+      <a href="https://cart2.shopserve.jp/sptest1131.ve/login.php" class="nav-icon">
+        <img src="http://sptest1131.ve.shopserve.jp/pic-labo/llimg/mypagelogo.png" alt="マイページ">
+      </a>
+      <a href="https://cart2.shopserve.jp/sptest1131.ve/cart.php" class="nav-icon">
+        <img src="http://sptest1131.ve.shopserve.jp/pic-labo/llimg/cartlogo.png" alt="カート" class="cart-icon">
+      </a>
+      <button class="nav-menu" id="menuBtn" aria-label="メニュー" style="margin-bottom:-5px;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="menu-text">MENU</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ドロワーメニュー -->
+<div class="drawer" id="drawer">
+  <div class="drawer-inner">
+    <button class="drawer-close" id="drawerClose">&#10005;</button>
+    <ul class="drawer-list">
+      <li class="drawer-has-sub">
+        <button class="drawer-sub-toggle">商品一覧<span class="drawer-sub-icon">＋</span></button>
+        <ul class="drawer-sub-list">
+          <li><a href="cheesecake.html">特製焼チーズケーキ</a></li>
+          <li><a href="cheesecake_sand.html">チーズケーキサンド</a></li>
+          <li><a href="santome.html">サントメショコラ</a></li>
+          <li><a href="tiramisu.html">ふんわりとろけるティラミス</a></li>
+          <li><a href="montblanc.html">和栗のモンブラン -まろんまろんまろん-</a></li>
+          <li><a href="yakigashi.html">焼菓子</a></li>
+          <li><a href="icepudding.html">とろける濃厚アイスプリン</a></li>
+          <li><a href="pecannut.html">ピーカンナッツ</a></li>
+          <li><a href="gourmet.html">グルメ・フード</a></li>
+          <li><a href="other.html">その他商品</a></li>
+        </ul>
+      </li>
+      <li><a href="kodawari.html">武蔵野茶房のこだわり</a></li>
+      <li><a href="#">お客様の声</a></li>
+      <li><a href="#">ご利用案内</a></li>
+      <li><a href="#">特定商取引法表示</a></li>
+      <li><a href="#">個人情報の取扱い</a></li>
+      <li><a href="#">サイトマップ</a></li>
+      <li><a href="#">メルマガ登録</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+      <li><a href="#">メディア掲載情報</a></li>
+      <li><a href="#">法人・大口注文のお客様へ</a></li>
+      <li><a href="#">よくあるご質問</a></li>
+      <li><a href="#">会員登録について</a></li>
+    </ul>
+  </div>
+</div>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<script>
+(function() {
+  var menuBtn     = document.getElementById('menuBtn');
+  var drawer      = document.getElementById('drawer');
+  var drawerClose = document.getElementById('drawerClose');
+  var overlay     = document.getElementById('drawerOverlay');
+  var header      = document.getElementById('header');
+
+  function openDrawer() {
+    drawer.classList.add('is-open');
+    overlay.classList.add('is-open');
+    menuBtn.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    menuBtn.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  if (menuBtn) {
+    menuBtn.addEventListener('click', function() {
+      if (drawer.classList.contains('is-open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+  }
+
+  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+
+  document.querySelectorAll('.drawer-sub-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      this.closest('.drawer-has-sub').classList.toggle('is-open');
+    });
+  });
+
+  var lastScroll = 0;
+  window.addEventListener('scroll', function() {
+    var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScroll && currentScroll > 80) {
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      header.style.transform = 'translateY(0)';
+    }
+    lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+  }, { passive: true });
+})();
+</script>

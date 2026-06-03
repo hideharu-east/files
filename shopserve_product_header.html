@@ -1,0 +1,96 @@
+<script>
+(function() {
+  function initSlideshow() {
+    var wrap = document.querySelector('.itemThumb-wrap');
+    if (!wrap) return;
+
+    var thumbImgs = wrap.querySelectorAll('.itemThumb ul li img');
+    if (thumbImgs.length < 1) return;
+
+    // すでに初期化済みならスキップ
+    if (wrap.querySelector('.sps-slideshow')) return;
+
+    var srcs = [];
+    thumbImgs.forEach(function(img) { srcs.push(img.src); });
+
+    var mainSection = wrap.querySelector('.itemThumb-main');
+    var thumbSection = wrap.querySelector('.itemThumb');
+    if (mainSection) mainSection.style.display = 'none';
+    if (thumbSection) thumbSection.style.display = 'none';
+
+    var slideshow = document.createElement('div');
+    slideshow.className = 'sps-slideshow';
+
+    var track = document.createElement('div');
+    track.className = 'sps-slideshow-track';
+
+    srcs.forEach(function(src, i) {
+      var slide = document.createElement('div');
+      slide.className = 'sps-slideshow-slide' + (i === 0 ? ' is-active' : '');
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      slide.appendChild(img);
+      track.appendChild(slide);
+    });
+
+    var dotsEl = document.createElement('div');
+    dotsEl.className = 'sps-slideshow-dots';
+    srcs.forEach(function(_, i) {
+      var dot = document.createElement('span');
+      dot.className = 'sps-slideshow-dot' + (i === 0 ? ' is-active' : '');
+      dotsEl.appendChild(dot);
+    });
+
+    slideshow.appendChild(track);
+    slideshow.appendChild(dotsEl);
+    wrap.insertBefore(slideshow, mainSection);
+
+    var current = 0;
+    var timer;
+    var dotEls = dotsEl.querySelectorAll('.sps-slideshow-dot');
+    var slideEls = track.querySelectorAll('.sps-slideshow-slide');
+
+    function goTo(index) {
+      slideEls[current].classList.remove('is-active');
+      dotEls[current].classList.remove('is-active');
+      current = (index + srcs.length) % srcs.length;
+      slideEls[current].classList.add('is-active');
+      dotEls[current].classList.add('is-active');
+    }
+
+    function next() { goTo(current + 1); }
+
+    dotEls.forEach(function(dot, i) {
+      dot.addEventListener('click', function() {
+        clearInterval(timer);
+        goTo(i);
+        timer = setInterval(next, 4000);
+      });
+    });
+
+    timer = setInterval(next, 4000);
+
+    var touchStartX = 0;
+    track.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', function(e) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 30) {
+        clearInterval(timer);
+        goTo(diff > 0 ? current + 1 : current - 1);
+        timer = setInterval(next, 4000);
+      }
+    }, { passive: true });
+  }
+
+  // DOM読み込み済みかどうかに関わらず確実に実行
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSlideshow);
+  } else {
+    initSlideshow();
+  }
+})();
+</script>
