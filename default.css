@@ -8493,6 +8493,13 @@ body {
   margin-bottom: 24px;
 }
 
+.footer-logo img {
+  width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 .footer-logo-main {
   display: block;
   font-size: 18px;
@@ -8538,6 +8545,11 @@ body {
 
 .sns-instagram {
   color: #555;
+  display: block;
+}
+.sns-instagram img {
+  width: 24px;
+  height: auto;
   display: block;
 }
 
