@@ -975,6 +975,11 @@ ul {
     height: calc(100vh - 64px);
   }
 
+  .hero-image img,
+  .hero-image video {
+    object-fit: contain;
+  }
+
   .logo-main {
     font-size: 26px;
   }
