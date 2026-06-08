@@ -7137,9 +7137,11 @@
    height: 100%;
    display: block;
  }
- #to-cart img,
  #page-top img {
    display: none;
+ }
+ #to-cart img {
+   display: block;
  }
  /*サーチボタン*/
  #header_search_form {
