@@ -667,6 +667,7 @@ ul {
   letter-spacing: 0.08em;
   color: #333;
   margin-bottom: 12px;
+  font-family: "Shippori Mincho", "游明朝", "Yu Mincho", serif;
 }
 
 .product-featured-desc {
@@ -746,6 +747,7 @@ ul {
   color: #333;
   margin-bottom: 10px;
   line-height: 1.5;
+  font-family: "Shippori Mincho", "游明朝", "Yu Mincho", serif;
 }
 
 .product-card-sub {
