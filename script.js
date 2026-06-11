@@ -88,7 +88,7 @@
   var peek = 50;
   var gap  = 12;
 
-  if (track && total > 0) {
+  if (track && total > 0 && window.innerWidth < 1024) {
 
     var peek = 40;
     var gap  = 10;

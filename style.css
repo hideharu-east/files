@@ -1088,4 +1088,28 @@ ul {
     height: auto;
     object-fit: cover;
   }
+
+  .seasonal-slideshow {
+    overflow: visible;
+  }
+
+  .slideshow-track {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    transform: none;
+  }
+
+  .slide {
+    width: auto;
+  }
+
+  .seasonal-item img {
+    width: 96%;
+    margin: 0 auto;
+  }
+
+  .slideshow-dots {
+    display: none;
+  }
 }

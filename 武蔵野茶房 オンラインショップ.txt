@@ -1,0 +1,1846 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    
+    
+    
+    
+
+
+
+
+
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>特製焼チーズ 武蔵野茶房オンラインショップ　テスト</title>
+<meta name="description" content="テスト"/>
+<link rel="mixi-check-image" type="image/jpeg" href="/pic-labo/simg/tulips_bak.jpg">
+<link rel="image_src" href="/pic-labo/simg/tulips_bak.jpg">
+<meta name="keywords" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="/SHOP/css/responsive_advance/responsive1/sps_common.css" rel="stylesheet" type="text/css" /><link href="/hpgen/HPB/theme/css/default.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="//sptest1131.ve.shopserve.jp/hpgen/HPB/rss.xml" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/SHOP/js/floating_menu.js"></script>
+
+
+
+<!--[if lt IE 9]>
+<script src="https://ie7-js.googlecode.com/svn/trunk/lib/IE9.js"></script>
+<![endif]-->
+
+<script type="text/javascript">var cartUrlDomain = 'https://cart2.shopserve.jp/sptest1131.ve';</script>
+<style>
+.wishBtnHidden {
+    display:none;
+}</style>
+<script type="text/javascript" src="/SHOP/js/member-api.js?20180725"></script>
+<script type="text/javascript">
+$(function($) {
+    $('input:not([type="submit"])').keypress(function(e){
+        return e.keyCode !== 13;
+    });
+    var is_ie =/*@cc_on@if(@_jscript_version<=9)!@end@*/false;
+    var itemId = $('p[class^="sps-wishArea_"]').attr('class').replace("sps-wishArea_", "");
+    var itemIdList = [];
+    var storeData = {"ga": "ua"};
+    itemIdList.push(itemId);
+
+        memberAPI.checkWishItem({"data": {"itemList": itemIdList}, "storeData": storeData,
+                             "success": function(list){
+                                            $.each(list, function(){
+                                                $('.sps-wishArea_' + this.itemno + ' .sps-wishAddItemOk').removeClass('wishBtnHidden');
+                                                $('.sps-wishArea_' + this.itemno + ' .sps-wishAddItem').addClass('wishBtnHidden');
+                                            });
+                                        }
+    });
+    $('.sps-wishAddItem').click(function(){
+        if (is_ie) { alert('お使いのブラウザには対応していません。');return false;}
+        var itemNo = $(this).parent().parent().attr("class").replace("sps-wishArea_", "");
+        memberAPI.addWishItem({"data": {"itemNo": itemNo}, "storeData": storeData,
+                               "success": function(){
+                                                $('.sps-wishArea_' + itemNo + ' .sps-wishAddItemOk').removeClass('wishBtnHidden');
+                                                $('.sps-wishArea_' + itemNo + ' .sps-wishAddItem').addClass('wishBtnHidden');
+                                          }
+        });
+    });
+    
+    $('.sps-wishAddItemOk').click(function(){
+        if (is_ie) {alert('お使いのブラウザには対応していません。');return false;}
+        var itemNo = $(this).parent().parent().attr("class").replace("sps-wishArea_", "");
+        memberAPI.delWishItem({"data": {"itemNo": itemNo},"storeData": storeData,
+                                       "success": function(){
+                                                $('.sps-wishArea_' + itemNo + ' .sps-wishAddItem').removeClass('wishBtnHidden');
+                                                $('.sps-wishArea_' + itemNo + ' .sps-wishAddItemOk').addClass('wishBtnHidden');
+                                       }
+                             });
+    });
+});
+</script>
+
+<script type="text/javascript">
+if(!S) var S = {};
+S.jQuery = jQuery.noConflict(true);
+</script>
+
+<script type="text/javascript">
+<!--
+
+// global functions
+var zoomitem;
+var win_open;
+var cartin_from_list;
+var cartin;
+var changeImg;
+var setElapsedTime;
+var getElapsedTime;
+var addCartBackground = 0;
+
+(function($){
+function _zoomitem(link)
+  {
+    var container = $(link).closest('.itemThumb-wrap');
+    var image = $('.mainImg', container);
+    var filename = image.attr('src').replace(/.+\//, '');
+
+      var width  = 640;
+    var height = 480;
+      
+
+  var zoom = $('form[name=ZOOM]')[0];
+  if($('input[name=PICNAME]', zoom).length <= 0){
+    $('<input type="hidden" name="PICNAME" value="" />').appendTo(zoom);
+  }
+  $('input[name=PICNAME]', zoom).attr('value', filename);
+
+      width  = 720;
+    height = height + 268;
+
+    if($('input[name=ITEMNO]', zoom).length <= 0){
+      $('<input type="hidden" name="ITEMNO" value="test1" />').appendTo(zoom);
+    }
+  
+    var w = window.open('about:blank', 'zoom', 'toolbar=no,scrollbars=yes,location=no,resizable=yes,directories=no,status=no,menubar=no,width=' + width +  ',height=' + height);
+    zoom.submit();
+      if( navigator.userAgent.indexOf('AppleWebKit/') > -1 ) {
+          // SafariとChromeだけ
+          w.window.blur();
+      }
+
+      // 後に単独表示することを考慮し、削除
+     if($('input[name=ITEMNO]', zoom).length){
+         $('input[name=ITEMNO]', zoom).remove();
+     }
+    w.window.focus();
+  }
+  function _win_open(url, winname, width, height)
+  {
+    var linkerUrl = url;
+        var w = window.open(linkerUrl , winname,'scrollbars=yes,resizable=yes,width=' + width +  ',height=' + height);
+    try {
+        w.window.focus();
+    } catch (e) {
+        return false;
+    }
+
+    return false;
+  }
+  function trimInputTextBox(val){
+    //Replace space 2 byte to 1 byte
+    if (val.match(/^　+|　+$/g) != null) {
+      val = val.replace(/^　+|　+$/g, '');
+    }
+    //trim string
+    if (val.match(/^\s+|\s+$/g) != null) {
+      val = val.replace(/^\s+|\s+$/g, '');
+    }
+    return val;
+  }
+
+  function _cartin_from_list(t, var1, var2, var3) {
+    var cartform = t.form;
+    for (i=1; i<=3; i++){
+      var var_num = 'VAR' + i + '-1';
+      var var_item = eval('var'+i);
+      var input = $('input[name='+var_num + ']', cartform);
+      if(input.length < 1){
+        input = $('<input type="hidden" />').attr('name', var_num).appendTo(cartform);
+      }
+      if (var_item == undefined) {
+        input.attr('value', '');
+      } else {
+        input.attr('value', var_item);
+      }
+    }
+    return _cartin(t);
+  }
+
+  function cartInErrorDisplay(addCartBackgroundType, errMessage) {
+    if (addCartBackgroundType == 1 || addCartBackgroundType == 2) {
+      cartAddModule.blurFocus();
+      cartAddModule.clearMessage();
+      cartAddModule.showError('.sps-cartaddErrDetail', '.sps-cartaddErrMsg', cartAddModule.ajaxErrorList.errMsg, errMessage);
+      cartAddModule.openDialog();
+    } else {
+      alert(errMessage);
+    }
+  }
+
+  function _cartin(t) {
+    var varstr          = '';
+    var varstrSelect    = '';
+    var varstrText      = '';
+    var varlenghtOption = '';
+    var varstrOption    = '';
+    var varstrAssort = '';
+    var i;
+    var isValidMerchantId = false;
+    var ssCartInfoList = [];
+
+    
+    if (typeof merchantIdStaffStart != 'undefined' && merchantIdStaffStart) {
+      isValidMerchantId = true;
+    }
+
+    var form = t.form;
+        for(i = 2;i <= 41;i++){
+      if( document.PATIN){
+        if( document.PATIN.elements['CNT-' + i] && document.PATIN.elements['ITM-' + i]){
+          if (document.PATIN.elements['CNT-' + i].value.match(/[^0-9０-９]+/)) {
+              cartInErrorDisplay(addCartBackground, '数量は数字を入力してください。');
+              return false;
+          }
+          form.elements["CNT-" + i ].value = document.PATIN.elements['CNT-' + i].value;
+          form.elements["ITM-" + i ].value = document.PATIN.elements['ITM-' + i].value;
+          if (isValidMerchantId && parseInt(document.PATIN.elements['CNT-' + i].value) > 0) {
+            ssCartInfoList.push([document.PATIN.elements['ITM-' + i].value, document.PATIN.elements['CNT-' + i].value]);
+          }
+          if (document.PATIN.elements['RLTITM-' + i] && document.PATIN.elements['RLTITM-' + i].value && +document.PATIN.elements['CNT-' + i].value > 0) {
+            if (!form.elements['RLTITM-' + i]) {
+              var rltitmInput = document.createElement('input');
+              rltitmInput.type = 'hidden';
+              rltitmInput.name = 'RLTITM-' + i;
+              rltitmInput.value = document.PATIN.elements['RLTITM-' + i].value;
+              form.appendChild(rltitmInput);
+            } else {
+              form.elements["RLTITM-" + i].value = document.PATIN.elements['RLTITM-' + i].value;
+            }
+          }
+        }
+      }
+    }
+
+  
+                                            if ( varstr != '' ) {
+      t.disabled = false;
+      cartInErrorDisplay(addCartBackground, varstr + ' を指定してください');
+      return false;
+    }
+
+  
+  
+          var order = $(form).find('input[name="CNT-1"]').val();
+      if(typeof order === 'string' && order.match(/[^0-9０-９]+/)) {
+        cartInErrorDisplay(addCartBackground, '数量は数字を入力してください。');
+        return false;
+      }
+    
+    
+    if ( varstrAssort != '' ) {
+      t.disabled = false;
+      cartInErrorDisplay(addCartBackground, varstrAssort + 'を選択してください。');
+      return false;
+    }
+
+    let maxLen, optionMaxLength, rawOptionMaxLength, inputText, halfWidthCount, fullWidthCount, totalChars, errorText;
+          var optChoiceName = "test1";
+                              if ( form.elements["OPTION1-1"].selectedIndex == 0 ) {
+            if ( varstrSelect != '' ) {
+              varstrSelect += ":";
+            }
+            varstrSelect += optChoiceName;
+          }
+              
+              var selected_index = form.elements["OPTION1-1"].selectedIndex;
+        if ( selected_index > 0 ) {
+          var optionName =form.elements["OPTION1-1"].options[selected_index].value;
+          varlenghtOption = form.elements["OPTION1-1"].value.length;
+          if (varlenghtOption > 255) {
+            if ( varstrOption != '' ) {
+              varstrOption += ":";
+            }
+            varstrOption += optChoiceName;
+          }
+        }
+                      var optChoiceName = "てすと２";
+                              if ( form.elements["OPTION2-1"].selectedIndex == 0 ) {
+            if ( varstrSelect != '' ) {
+              varstrSelect += ":";
+            }
+            varstrSelect += optChoiceName;
+          }
+              
+              var selected_index = form.elements["OPTION2-1"].selectedIndex;
+        if ( selected_index > 0 ) {
+          var optionName =form.elements["OPTION2-1"].options[selected_index].value;
+          varlenghtOption = form.elements["OPTION2-1"].value.length;
+          if (varlenghtOption > 255) {
+            if ( varstrOption != '' ) {
+              varstrOption += ":";
+            }
+            varstrOption += optChoiceName;
+          }
+        }
+                      var optChoiceName = "てすと３てすと３";
+                              if ( form.elements["OPTION3-1"].selectedIndex == 0 ) {
+            if ( varstrSelect != '' ) {
+              varstrSelect += ":";
+            }
+            varstrSelect += optChoiceName;
+          }
+              
+              var selected_index = form.elements["OPTION3-1"].selectedIndex;
+        if ( selected_index > 0 ) {
+          var optionName =form.elements["OPTION3-1"].options[selected_index].value;
+          varlenghtOption = form.elements["OPTION3-1"].value.length;
+          if (varlenghtOption > 255) {
+            if ( varstrOption != '' ) {
+              varstrOption += ":";
+            }
+            varstrOption += optChoiceName;
+          }
+        }
+                    if ( varstrSelect != '' ) {
+      t.disabled = false;
+      cartInErrorDisplay(addCartBackground, varstrSelect + ' を指定してください');
+      return false;
+    }
+    if ( varstrText != '' ) {
+      t.disabled = false;
+      cartInErrorDisplay(addCartBackground, varstrText + ' を入力してください');
+      return false;
+    }
+    if ( varstrOption != '' ) {
+      t.disabled = false;
+      cartInErrorDisplay(addCartBackground, varstrOption);
+      return false;
+    }
+
+    
+    if (isValidMerchantId) {
+      var productCode = '';
+      var productCodeItemNormal = '';
+      if ($(form).find('input[name="ITM-1"]').val()) {
+        productCodeItemNormal = $(form).find('input[name="ITM-1"]').val();
+      }
+      if ($(form).find('input[name="VAR1-1"]').val() || $(form).find('select[name="VAR1-1"]').val()) {
+        var var1Value = '';
+        var var2Value = '';
+        var var3Value = '';
+        if ($(form).find('input[name="VAR1-1"]').val()) {
+          var1Value = $(form).find('input[name="VAR1-1"]').val();
+        } else if ($(form).find('select[name="VAR1-1"]').val()) {
+          var1Value = $(form).find('select[name="VAR1-1"]').val();
+        }
+
+        if ($(form).find('input[name="VAR2-1"]').val()) {
+          var2Value = $(form).find('input[name="VAR2-1"]').val();
+        } else if ($(form).find('select[name="VAR2-1"]').val()) {
+          var2Value = $(form).find('select[name="VAR2-1"]').val();
+        }
+
+        if ($(form).find('input[name="VAR3-1"]').val()) {
+          var3Value = $(form).find('input[name="VAR3-1"]').val();
+        } else if ($(form).find('select[name="VAR3-1"]').val()) {
+          var3Value = $(form).find('select[name="VAR3-1"]').val();
+        }
+
+              } else if (productCodeItemNormal) {
+        productCode = productCodeItemNormal;
+      }
+
+      if (productCode) {
+        ssCartInfoList.push([productCode, order]);
+      }
+
+      for (var key in ssCartInfoList) {
+        let ssCartInfo = {
+          product_code: ssCartInfoList[key][0],
+          count: ssCartInfoList[key][1]
+        };
+        staffStart.cart.sendTrackingRequest(merchantIdStaffStart, ssCartInfo);
+      }
+    }
+
+          
+        setTimeout( function () {
+            $('div[id^="cartButton"]').each(function () {
+                $(this).find('input').prop('disabled', true);
+            });
+
+            $('div[class^="cartArea"]').each(function () {
+                $(this).find('input').prop('disabled', true);
+            });
+
+            $('table.variation input[type=image]').each(function () {
+                $(this).prop('disabled', true);
+            });
+        }, 0);
+        t.form.submit();
+      
+        return false;
+  }
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+        $('div[id^="cartButton"]').each(function () {
+            $(this).find('input').prop('disabled', false);
+        });
+
+        $('div[class^="cartArea"]').each(function () {
+            $(this).find('input').prop('disabled', false);
+        });
+
+        $('table.variation input[type=image]').each(function () {
+            $(this).prop('disabled', false);
+        });
+    }
+  });
+
+  function _changeImg(thumbnail){
+
+      var container = $(thumbnail).closest('.itemThumb-wrap');
+
+      var item_image = $('.mainImg', container);
+
+      item_image.attr('alt', $(thumbnail).attr('alt'));
+      item_image.attr('src', $(thumbnail).attr('src').replace(/\/timg\//, '/limg/'));
+
+     var zoom = $('form[name=ZOOM]');
+      $('input[name=IMGALT]', zoom).attr('value', item_image.attr('alt'));
+      if($('input[name=PICNAME]', zoom).length <= 0){
+        $('<input type="hidden" name="PICNAME" value="" />').appendTo(zoom);
+      }
+      $('input[name=PICNAME]', zoom).attr('value', $(thumbnail).attr('src').replace(/.+\//, ''));
+      var position = item_image.attr('src').lastIndexOf('?');
+      if ( position > 0) {
+        var setdate = item_image.attr('src').substring(position+3);
+      } else {
+        var setdate = '';
+      }
+      $('input[name=SETDATE]').attr('value', setdate);
+      if($('input[name=ITEMNO]', zoom).length <= 0){
+        $('<input type="hidden" name="ITEMNO" value="test1" />').appendTo(zoom);
+      }
+
+      $('.itemThumb img.thumbnail', container).css({
+        'borderColor':'#CCC'
+      });
+      $(thumbnail).css({
+        'borderColor':'#900'
+      });
+      var i = $(thumbnail).attr('id').match(/thumb[0-9]+/g)[0].replace('thumb', '');
+      item_image.attr('id', i);
+  }
+
+  var sTime = new Date();
+
+  function _setElapsedTime( frmObj )
+  {
+      frmObj.elapsed_time.value = _getElapsedTime();
+  }
+
+  function _getElapsedTime()
+  {
+      curTime = new Date();
+      return Math.floor((curTime.getTime()-sTime.getTime())/1000);
+  }
+
+  // global functions
+  zoomitem = function (src){
+    if(typeof src == 'string'){
+    var filename = src.replace(/.+\//, '');
+      // 追加
+     var zoom = $('form[name=ZOOM]')[0];
+     if($('input[name=ITEMNO]', zoom).length){
+         $('input[name=ITEMNO]', zoom).remove();
+     }
+    if($('input[name=PICNAME]', zoom).length <= 0){
+        $('<input type="hidden" name="PICNAME" value="" />').appendTo(zoom);
+    }
+      $('input[name=PICNAME]', zoom).attr('value', filename);
+      // 旧API
+      var width  = arguments[1] + 40;
+      var height = arguments[2] + 140;
+      var w = window.open('', 'zoom', 'toolbar=no,scrollbars=yes,location=no,resizable=yes,directories=no,status=no,menubar=no,width=' + width +  ',height=' + height);
+      return zoom.submit();
+    }else{
+      return _zoomitem(src);
+    }
+  };
+
+  function setDisplayEGiftText() {
+    let isShowEGiftText = false;
+    const relatedItemTextList = document.querySelectorAll('.eGiftRelatedText');
+    const eGiftCheckboxList = $('input[name=EGIFT-1]');
+
+    eGiftCheckboxList.each(function() {
+      if ($(this).prop('checked')) {
+        isShowEGiftText = true;
+      }
+    });
+
+    relatedItemTextList.forEach(function(element) {
+      if (isShowEGiftText) {
+        element.style.display = 'block';
+      } else {
+        element.style.display = 'none';
+      }
+    });
+  }
+
+  $(document).ready(function() {
+    setDisplayEGiftText();
+    $('input[name=EGIFT-1]').on('change', function() {
+      setDisplayEGiftText();
+    });
+  });
+
+  win_open = _win_open;
+  cartin_from_list = _cartin_from_list;
+  cartin = _cartin;
+  changeImg = _changeImg;
+  setElapsedTime = _setElapsedTime;
+  getElapsedTime = _getElapsedTime;
+})(S.jQuery);
+//-->
+</script>
+
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/jquery-ui-1.10.3.min.js"></script>
+<script type="text/javascript">
+
+//Create announceMail Jquery conflict
+if(!announceMail) var announceMail = {};
+announceMail.jQuery = jQuery.noConflict(true);
+
+</script>
+<script type="text/javascript" src="/SHOP/js/announce-mail.js" charset="shift_jis" defer></script>
+
+<script type="text/javascript">
+
+<!--
+(function($){
+  $(function($){
+
+  /*価格と在庫一覧ダイアログ*/
+    $('div[id^=spsVarpriceStockDialog]').dialog({
+      modal:true,
+      autoOpen:false,
+      width:720,
+      maxHeight:$(window).height()-20,
+      hide:"fade",
+      title:'価格と在庫一覧',
+      open: function(event, ui) {
+        $('.ui-widget-overlay').bind('click', function(){ $('div[id^=spsVarpriceStockDialog]').dialog('close'); });
+        $(this).scrollTop(0);
+      }
+  /*
+      buttons: {
+        '閉じる': function() {
+          $(this).dialog("close");
+        }
+      }
+  */
+    });
+
+  /*
+    $(document).on('click','.spsVarpriceLink',function () {
+      $('#spsVarpriceStockDialog1').dialog('open');return false;
+    });
+  */
+
+  /*オプションダイアログ*/
+    $('div[id=spsVarpriceOptionDialog]').dialog({
+      modal:true,
+      autoOpen:false,
+      width:720,
+      maxHeight:$(window).height()-20,
+      hide:"fade",
+      title:'購入情報',
+  /*
+      buttons: {
+        '閉じる': function() {
+          $(this).dialog("close");
+        }
+      }
+  */
+    });
+
+
+  /*入荷連絡登録ダイアログ*/
+    $('div[id=variationPriceAnnounceMailDialog]').dialog({
+      modal:true,
+      autoOpen:false,
+      width:650,
+      maxHeight:$(window).height()-20,
+      hide:"fade",
+      title:'入荷連絡を希望する',
+      open: function(event, ui) { $('.ui-widget-overlay').bind('click', function(){ $('div[id^=variationPriceAnnounceMailDialog]').dialog('close'); }); }
+
+  /*    ,
+      buttons: {
+        '登録する': function() {
+          if(!$('#announcemailadd').val()){
+            alert("メールアドレスは80文字以内で入力してください。");
+            return false;
+          }else{
+            $(this).dialog("close");
+            $('#variPriceAnomailDialog2').dialog('open');return false;
+          }
+        },
+        '閉じる': function() {
+          $(this).dialog("close");
+        }
+      }
+  */
+    });
+
+  /*入荷連絡完了ダイアログ*/
+    $('div[id=variationPriceAnnounceMailDialog2]').dialog({
+      modal:true,
+      autoOpen:false,
+      width:650,
+      maxHeight:$(window).height()-20,
+      hide:"fade",
+      title:'入荷連絡を希望する'
+  /*
+      ,
+      buttons: {
+        '閉じる': function() {
+          $(this).dialog("close");
+        }
+      }
+  */
+    });
+  });
+})(announceMail.jQuery);
+//-->
+
+</script>
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/jquery-ui-1.10.3.min.js"></script>
+<script type="text/javascript">
+
+//Create S jquery conflict
+if(!S) var S = {};
+S.jQuery = jQuery.noConflict(true);
+(function($){
+  zoomPicItem = function (obj){
+  var main = $(obj).closest('.itemThumb-wrap').find('.mainImg');
+  $('.fl_main_img').attr('src', '');
+  $('.fl_main_img').attr('src', main.attr('src').replace(/\/llimg\//, '\/'));
+  $('.fl_main_img').ready(function(){
+    $('#dialog').dialog('open');
+    $('#dialog').scrollTop(0);
+  });
+  var i = main.attr('id');
+  $('.fl_t_item').removeClass('fl_img_selected');
+  $('#fl_t_img_' + i).addClass('fl_img_selected');
+}
+var ieversion_old = false;
+
+if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+  var ieversion = new Number(RegExp.$1);
+  if (ieversion <= 10) {
+    ieversion_old = true;
+  }
+}
+$(function() {
+  $('#dialog').dialog({
+    autoOpen  : false,
+    draggable : false,
+    resizable : false,
+    modal     : true,
+    show      : 'fade',
+    hide      : 'fade',
+    minWidth  : 100,
+    height    : Math.ceil($(window).height() - 100),
+    width     : Math.ceil($(window).width() - 100),
+    open : function (){
+      if (ieversion_old == true) {
+          // IE10 and old more
+          $('.fl_main_img').attr('src', $('.fl_main_img').attr('src') + '?' + new Date().getTime());
+        }
+      setTimeout(function(){$('html').css("overflow","hidden")}, 500);
+      setTimeout(function(){$('.ui-dialog :button').blur();}, 450);
+      setTimeout(function(){setMainImageSize(1);},100);
+    },
+    close :function (){
+      $('.fl_main_img').attr('src', $('.mainImg').attr('src').replace(/\/llimg\//, '\/'));
+      $('html').css("overflow","auto");
+    }
+  });
+  $('.fl_t_item').click(function (){
+    changeImage(this);
+    $('#dialog').animate({
+      scrollTop: 0
+    }, 500);
+  });
+  $('.mainImg').ready(function () {
+    $('.zoomItemPic').attr('onClick', 'zoomPicItem(this); return false;');
+  });
+
+  $('#thum_next, #thum_prev').click(function(){
+    var is_prev = $(this).attr('id') == 'thum_next'?false:true;
+    var id = is_prev?$('.fl_t_item:last-child').attr('id'):$('.fl_t_item:first-child').attr('id');
+    var selected = false;
+    $.each($('.fl_t_item'), function(){
+      if(selected){
+        id = $(this).attr('id');
+        return false;
+      }
+      if($(this).attr('id') == $('.fl_img_selected').attr('id')){
+        selected = true;
+        return is_prev?false:true;
+      }
+      if(is_prev) id = $(this).attr('id');
+    });
+
+    changeImage($('#'+id));
+  });
+
+  setMainImageSize = function (onloadFlag) {
+    $('.fl_main_img').css('padding-top',0);
+    $('#thum_prev, #thum_next').css('margin-top', 0);
+    var w = Math.ceil($('#dialog').width() - $('.fl_thumbnail').width() - 100);
+    if(w < 375) w = 375;
+    var h = Math.ceil($('#dialog').height() - 20);
+    if(h < 50) h = 50;
+    $('.fl_main').css('width', w);
+
+    var img = new Image();
+    img.src = $('.fl_main_img').attr('src');
+    $('.fl_main_img').css('display', 'none');
+
+    if (onloadFlag){
+      img.onload = function() {
+      setImageSize(img, w, h);
+    }
+    } else {
+      setImageSize(img, w, h);
+    }
+
+  }
+
+  changeImage = function (obj) {
+    try{
+      var url = $(obj).find('.fl_t_img').attr('style').match(/\/\/image1.shopserve.jp\/sptest1131.ve.shopserve.jp\/pic-labo[-_.!~*'()a-zA-Z0-9;\/?:@&=+$,%#]+[a-zA-Z=0-9]/g)[0].replace('/timg/','/');
+    } catch(e) {
+    }
+    $('.fl_t_item').removeClass('fl_img_selected');
+    $(obj).addClass('fl_img_selected');
+
+    $('.fl_main_img').fadeOut('normal',function(){
+      var alt = $('.fl_main_img').attr('alt');
+      $('.fl_main_img').attr('alt', '');
+      $('.fl_main_img').attr('src', '');
+      $(this).attr('src', url);
+      setTimeout(function(){
+        if (ieversion_old == true) {
+          // IE10 and old more
+        setMainImageSize(0);
+        } else {
+          setMainImageSize(1);
+        }
+        $('.fl_main_img').attr('alt', alt);
+      },100);
+    });
+  }
+
+  setImageSize = function (img, w, h) {
+    var org_w = img.width;
+    var org_h = img.height;
+    $('.fl_main_img').css('height', org_h);
+    $('.fl_main_img').css('width', org_w);
+
+
+    $('.fl_main_img').css('max-width', 'none');
+    if(org_h > h || org_h <= 0){
+      $('.fl_main_img').css('height', h);
+    }
+
+    $('.fl_main_img').css('width', 'auto');
+    if($('.fl_main_img').width() > w - 100){
+      $('.fl_main_img').css('width',w - 100);
+      $('.fl_main_img').css('height', 'auto');
+    }
+    $('.fl_main_img, #thum_prev, #thum_next').css('padding-top',(h - $('.fl_main_img').height()) / 2);
+    $('#thum_prev, #thum_next').css('margin-top', $('.fl_main_img').height() / 2 - 15);
+    $('#thum_prev, #thum_next').css('display', 'initial');
+    $('.fl_main div').css('left', ($('.fl_main').width() - $('.fl_main_img').width()) / 2 - 20);
+
+    $('.fl_contents').css('width', $('.fl_main').outerWidth(true)
+                                   + $('.fl_thumbnail').outerWidth(true)
+                                   + parseInt($('#dialog').css('padding-right'), 10));
+    $('.fl_main_img').css('display', 'block');
+  }
+  var timer = false;
+  $(window).resize(function() {
+      if (timer !== false) {
+          clearTimeout(timer);
+      }
+      timer = setTimeout(function() {
+        $('#dialog').dialog('option', 'height', Math.ceil($(window).height() - 100));
+        $('#dialog').dialog('option', 'width', Math.ceil($(window).width() - 100));
+        if($('#dialog').dialog('isOpen')){
+          setMainImageSize(0); //For All Browsers
+        };
+      }, 200);
+  });
+  if(window.orientationchange){
+    $(window).on('orientationchange',function(){
+      setMainImageSize(0);
+    });
+  }
+  $(document).on('click', '.ui-widget-overlay', function(){
+    $('#dialog').dialog('close');
+  });
+});
+})(S.jQuery);
+
+</script>
+
+
+
+
+
+
+
+
+
+                                
+
+
+
+</head>
+<body>
+    <div id="wrapper">
+
+    <header>
+      
+      <SCRIPT TYPE="text/javascript">
+      <!--
+      function search_back(){
+        var isMSIE = /*@cc_on!@*/false;
+        if (isMSIE) {
+          if(document.charset!="utf-8"){
+            document.charset="utf-8";
+          }
+        }
+      }
+      function openPage(url, form){
+        var linkerUrl = url;
+        window.open(linkerUrl,form,'width=640,height=580,scrollbars=yes').focus();
+        return false;
+      }
+      //-->
+      </SCRIPT>
+      <SCRIPT TYPE="text/javascript">
+      <!--
+      function goCart(){
+        document.CART.REFERER.value = document.URL;
+        document.CART.TIME.value    = (new Date()).getTime();
+              document.CART.submit();
+      }
+      //-->
+      </SCRIPT>
+      
+<!-- WISHLIST SCRIPT START -->
+<form method="POST" action="https://cart2.shopserve.jp/sptest1131.ve/wish_member.php" name="WISHLOGIN"></form>
+<SCRIPT>
+function goWishList() {
+  var reqUrl = "https://cart2.shopserve.jp/sptest1131.ve/member-api.php?CMD=checkLogin&tn="+(new Date()).getTime();
+  var is_ie =/*@cc_on@if(@_jscript_version<=9)!@end@*/false;
+  if ( is_ie) {
+      alert('お使いのブラウザには対応していません。');
+      return;
+  }
+  var xhr = new XMLHttpRequest();
+  xhr.open('get', reqUrl, true);
+  xhr.withCredentials = true;
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == xhr.DONE) {
+          var data = JSON.parse(xhr.responseText);
+          if (data.status == 'success' ){
+          var linkerParam = '';
+              window.location = 'http://sptest1131.ve.shopserve.jp/SHOP/wishlist.php' + linkerParam;
+          } else if (data.status == 'not_login' ) {
+              loginUrl = data.loginUrl;
+              document.WISHLOGIN.submit();
+          } else if (data.status == 'FORCED_LOGOUT' ) {
+              window.location = 'http://sptest1131.ve.shopserve.jp/SHOP/wish_member.php';
+          }
+      }
+  }
+  xhr.send();
+}
+</SCRIPT>
+<!-- WISHLIST SCRIPT END -->
+
+      
+      <form method="POST" action="https://cart2.shopserve.jp/sptest1131.ve/cart.php" name="CART">
+        <input type="hidden" name="REFERER" value=""/>
+        <input type="hidden" name="TIME" value=""/>
+      </form>
+      
+
+
+      
+    </header>
+
+        <div id="contents">
+            <article id="Detail">
+                <div id="main-column">
+                                            <section>
+                            <div class="header_area">
+                                <!-- ヘッダー -->
+<header id="header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <a href="http://sptest1131.ve.shopserve.jp/index.htm">
+        <img src="/USERTHEMEIMG/vol1/sptest1131.ve.shopserve.jp/llimg/mainlogo.png" alt="武蔵野茶房 オンラインショップ">
+      </a>
+    </div>
+    <nav class="header-nav">
+      <a href="https://cart2.shopserve.jp/sptest1131.ve/login.php" class="nav-icon">
+        <img src="/USERTHEMEIMG/vol1/sptest1131.ve.shopserve.jp/llimg/mypagelogo.png" alt="マイページ">
+      </a>
+      <a href="https://cart2.shopserve.jp/sptest1131.ve/cart.php" class="nav-icon">
+        <img src="/USERTHEMEIMG/vol1/sptest1131.ve.shopserve.jp/llimg/cartlogo.png" alt="カート" class="cart-icon">
+      </a>
+      <button class="nav-menu" id="menuBtn" aria-label="メニュー" style="margin-bottom:-10px;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="menu-text">MENU</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ドロワーメニュー -->
+<div class="drawer" id="drawer">
+  <div class="drawer-inner">
+    <button class="drawer-close" id="drawerClose">&#10005;</button>
+    <ul class="drawer-list">
+      <li class="drawer-has-sub">
+        <button class="drawer-sub-toggle">商品一覧<span class="drawer-sub-icon">＋</span></button>
+        <ul class="drawer-sub-list">
+          <li><a href="cheesecake.html">特製焼チーズケーキ</a></li>
+          <li><a href="cheesecake_sand.html">チーズケーキサンド</a></li>
+          <li><a href="santome.html">サントメショコラ</a></li>
+          <li><a href="tiramisu.html">ふんわりとろけるティラミス</a></li>
+          <li><a href="montblanc.html">和栗のモンブラン -まろんまろんまろん-</a></li>
+          <li><a href="yakigashi.html">焼菓子</a></li>
+          <li><a href="icepudding.html">とろける濃厚アイスプリン</a></li>
+          <li><a href="pecannut.html">ピーカンナッツ</a></li>
+          <li><a href="gourmet.html">グルメ・フード</a></li>
+          <li><a href="other.html">その他商品</a></li>
+        </ul>
+      </li>
+      <li><a href="kodawari.html">武蔵野茶房のこだわり</a></li>
+      <li><a href="#">お客様の声</a></li>
+      <li><a href="#">ご利用案内</a></li>
+      <li><a href="#">特定商取引法表示</a></li>
+      <li><a href="#">個人情報の取扱い</a></li>
+      <li><a href="#">サイトマップ</a></li>
+      <li><a href="#">メルマガ登録</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+      <li><a href="#">メディア掲載情報</a></li>
+      <li><a href="#">法人・大口注文のお客様へ</a></li>
+      <li><a href="#">よくあるご質問</a></li>
+      <li><a href="#">会員登録について</a></li>
+    </ul>
+  </div>
+</div>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<script>
+(function() {
+  var menuBtn     = document.getElementById('menuBtn');
+  var drawer      = document.getElementById('drawer');
+  var drawerClose = document.getElementById('drawerClose');
+  var overlay     = document.getElementById('drawerOverlay');
+  var header      = document.getElementById('header');
+
+  function openDrawer() {
+    drawer.classList.add('is-open');
+    overlay.classList.add('is-open');
+    menuBtn.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    menuBtn.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  if (menuBtn) {
+    menuBtn.addEventListener('click', function() {
+      if (drawer.classList.contains('is-open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+  }
+
+  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+
+  document.querySelectorAll('.drawer-sub-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      this.closest('.drawer-has-sub').classList.toggle('is-open');
+    });
+  });
+
+  var lastScroll = 0;
+  window.addEventListener('scroll', function() {
+    var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScroll && currentScroll > 80) {
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      header.style.transform = 'translateY(0)';
+    }
+    lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+  }, { passive: true });
+})();
+</script>
+                            </div>
+                        </section>
+                                        
+
+
+<div id="bread-crumb">
+                <nav id="bread-crumb-listTop">
+                    <ol><li><a href="/" title="TOP">TOP</a></li><li><a href="./185946/list.html" title="商品一覧">商品一覧</a></li> </ol>
+                </nav>
+            </div>
+
+
+    
+<link type="text/css" rel="stylesheet" href="./css/jquery-ui-1.10.3.min.css" />
+<style type="text/css">
+/** スタイルの変更を行うもの */
+.ui-widget-header {
+  border : 0px;
+  background : #ffffff;
+}
+.ui-dialog {
+  position : fixed !important;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+  margin: -5px 0 0 0;
+}
+.ui-dialog .ui-dialog-titlebar-close .ui-button-icon-primary {
+  margin: -8px;
+}
+.fl_main {
+  float: left;
+  margin: 0 10px 10px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.fl_main div {
+  float: left;
+  position: relative;
+}
+.fl_thumbnail {
+  float: left;
+  border: 1px solid #C9E1F4;
+  padding: 5px;
+  max-width: 132px;
+}
+.fl_t_item {
+  float: left;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  width: 54px;
+  margin: 5px;
+}
+.fl_t_img {
+  height: 50px;
+}
+.fl_img_selected {
+  border: 2px solid #E47911;
+  margin: 4px;
+}
+#thum_prev, #thum_next {
+  cursor: pointer;
+}
+
+</style>
+
+<!--[if lte IE 8]>
+<style type="text/css">
+.ui-dialog .ui-dialog-content {
+  float: left;
+  width: 95% !important;
+}
+</style>
+<![endif]-->
+
+<div id="dialog" style="display:none">
+  <div class="fl_contents">
+  <div class="fl_main">
+        <div>
+      <img src="./img/thum_prev.png" id="thum_prev">
+    </div>
+        <div>
+      <img class="fl_main_img" src="//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/tulips_bak.jpg" alt="特製焼チーズ">
+    </div>
+        <div>
+      <img src="./img/thum_next.png" id="thum_next">
+    </div>
+      </div>
+      <div class="fl_thumbnail">
+                                        <div class="fl_t_item" id="fl_t_img_1">
+            <div class="fl_t_img" style="background: url(//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/timg/tulips_bak.jpg?t=20260509160756) center no-repeat"></div>
+          </div>
+                                                <div class="fl_t_item" id="fl_t_img_2">
+            <div class="fl_t_img" style="background: url(//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/timg/DSC_4946_e9542d1c0d39004e1e03e78b7208e2d1.jpg?t=20260519173519) center no-repeat"></div>
+          </div>
+                                                <div class="fl_t_item" id="fl_t_img_3">
+            <div class="fl_t_img" style="background: url(//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/timg/summ_d8256e35b23f0b15daaf3932c3eb89e3.jpg?t=20260530150537) center no-repeat"></div>
+          </div>
+                                                <div class="fl_t_item" id="fl_t_img_4">
+            <div class="fl_t_img" style="background: url(//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/timg/fathers_bake25_c274e26074820e5be3755ddcbda13a0d.jpg?t=20260530150552) center no-repeat"></div>
+          </div>
+                  </div>
+    </div>
+</div>
+
+
+
+
+<section id="itemDetail-wrap">
+    <div id="itemDetail-cont">
+        
+<form name="ZOOM" method="POST" action="/SHOP/zoomitem.php" target="zoom">
+<input type="hidden" name="ITEMNAME" value="特製焼チーズ" />
+<input type="hidden" name="IMGURL" value="" />
+<input type="hidden" name="IMGALT" value="特製焼チーズ" />
+</form>
+<form name="CARTIN" class="shopping_form" method="POST" action="https://cart2.shopserve.jp/sptest1131.ve/cart.php">
+<input type="hidden" name="ITM-1" value="test1"/>
+<input type="hidden" name="ITM-2" value=""/>
+<input type="hidden" name="CNT-2" value=""/>
+<input type="hidden" name="ITM-3" value=""/>
+<input type="hidden" name="CNT-3" value=""/>
+<input type="hidden" name="ITM-4" value=""/>
+<input type="hidden" name="CNT-4" value=""/>
+<input type="hidden" name="ITM-5" value=""/>
+<input type="hidden" name="CNT-5" value=""/>
+<input type="hidden" name="ITM-6" value=""/>
+<input type="hidden" name="CNT-6" value=""/>
+<input type="hidden" name="ITM-7" value=""/>
+<input type="hidden" name="CNT-7" value=""/>
+<input type="hidden" name="ITM-8" value=""/>
+<input type="hidden" name="CNT-8" value=""/>
+<input type="hidden" name="ITM-9" value=""/>
+<input type="hidden" name="CNT-9" value=""/>
+<input type="hidden" name="ITM-10" value=""/>
+<input type="hidden" name="CNT-10" value=""/>
+<input type="hidden" name="ITM-11" value=""/>
+<input type="hidden" name="CNT-11" value=""/>
+<input type="hidden" name="ITM-12" value=""/>
+<input type="hidden" name="CNT-12" value=""/>
+<input type="hidden" name="ITM-13" value=""/>
+<input type="hidden" name="CNT-13" value=""/>
+<input type="hidden" name="ITM-14" value=""/>
+<input type="hidden" name="CNT-14" value=""/>
+<input type="hidden" name="ITM-15" value=""/>
+<input type="hidden" name="CNT-15" value=""/>
+<input type="hidden" name="ITM-16" value=""/>
+<input type="hidden" name="CNT-16" value=""/>
+<input type="hidden" name="ITM-17" value=""/>
+<input type="hidden" name="CNT-17" value=""/>
+<input type="hidden" name="ITM-18" value=""/>
+<input type="hidden" name="CNT-18" value=""/>
+<input type="hidden" name="ITM-19" value=""/>
+<input type="hidden" name="CNT-19" value=""/>
+<input type="hidden" name="ITM-20" value=""/>
+<input type="hidden" name="CNT-20" value=""/>
+<input type="hidden" name="ITM-21" value=""/>
+<input type="hidden" name="CNT-21" value=""/>
+<input type="hidden" name="ITM-22" value=""/>
+<input type="hidden" name="CNT-22" value=""/>
+<input type="hidden" name="ITM-23" value=""/>
+<input type="hidden" name="CNT-23" value=""/>
+<input type="hidden" name="ITM-24" value=""/>
+<input type="hidden" name="CNT-24" value=""/>
+<input type="hidden" name="ITM-25" value=""/>
+<input type="hidden" name="CNT-25" value=""/>
+<input type="hidden" name="ITM-26" value=""/>
+<input type="hidden" name="CNT-26" value=""/>
+<input type="hidden" name="ITM-27" value=""/>
+<input type="hidden" name="CNT-27" value=""/>
+<input type="hidden" name="ITM-28" value=""/>
+<input type="hidden" name="CNT-28" value=""/>
+<input type="hidden" name="ITM-29" value=""/>
+<input type="hidden" name="CNT-29" value=""/>
+<input type="hidden" name="ITM-30" value=""/>
+<input type="hidden" name="CNT-30" value=""/>
+<input type="hidden" name="ITM-31" value=""/>
+<input type="hidden" name="CNT-31" value=""/>
+<input type="hidden" name="ITM-32" value=""/>
+<input type="hidden" name="CNT-32" value=""/>
+<input type="hidden" name="ITM-33" value=""/>
+<input type="hidden" name="CNT-33" value=""/>
+<input type="hidden" name="ITM-34" value=""/>
+<input type="hidden" name="CNT-34" value=""/>
+<input type="hidden" name="ITM-35" value=""/>
+<input type="hidden" name="CNT-35" value=""/>
+<input type="hidden" name="ITM-36" value=""/>
+<input type="hidden" name="CNT-36" value=""/>
+<input type="hidden" name="ITM-37" value=""/>
+<input type="hidden" name="CNT-37" value=""/>
+<input type="hidden" name="ITM-38" value=""/>
+<input type="hidden" name="CNT-38" value=""/>
+<input type="hidden" name="ITM-39" value=""/>
+<input type="hidden" name="CNT-39" value=""/>
+<input type="hidden" name="ITM-40" value=""/>
+<input type="hidden" name="CNT-40" value=""/>
+<input type="hidden" name="ITM-41" value=""/>
+<input type="hidden" name="CNT-41" value=""/>
+<input type="hidden" name="ITEM_NO" value="test1"/>
+<input type="hidden" name="elapsed_time"/>
+<div class="itemThumb-wrap">
+<input type="hidden" name="mainImageURL" src="//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/llimg/tulips_bak.jpg">
+<input type="hidden" name="mainPositionId" value="1">
+<div class="itemThumb-main">
+    <a href="javascript:void(0);" class="zoomItemPic">
+        <img class="mainImg" src="//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/llimg/tulips_bak.jpg"
+          id="1"
+          alt="特製焼チーズ" />
+        <input type="hidden" name="SETDATE" value="20260509160756"/>
+    </a>
+</div>
+
+<div class="itemThumb">
+    <ul>
+                                    <li>
+            <img src="//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/llimg/tulips_bak.jpg?t=20260509160756" alt="" onMouseover="changeImg(this);" id="thumb1" />
+        </li>
+                                            <li>
+            <img src="//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/llimg/DSC_4946_e9542d1c0d39004e1e03e78b7208e2d1.jpg?t=20260519173519" alt="" onMouseover="changeImg(this);" id="thumb2" />
+        </li>
+                                            <li>
+            <img src="//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/llimg/summ_d8256e35b23f0b15daaf3932c3eb89e3.jpg?t=20260530150537" alt="" onMouseover="changeImg(this);" id="thumb3" />
+        </li>
+                                            <li>
+            <img src="//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/llimg/fathers_bake25_c274e26074820e5be3755ddcbda13a0d.jpg?t=20260530150552" alt="" onMouseover="changeImg(this);" id="thumb4" />
+        </li>
+                </ul>
+</div>
+
+</div>
+
+
+
+
+  
+
+<div id="pi_cart" class="itemOutline">
+<div class='icons'>
+
+    <ul class='ico_itemType'>
+        <li><img src="/hpgen/HPB/theme/img/icon_new.png" align="absmiddle" alt=""></li>
+        <li><img src="/hpgen/HPB/theme/img/icon_pickup.png" align="absmiddle" alt=""></li>
+        
+        
+        
+        
+    </ul>
+</div>
+<h1>特製焼チーズ</h1>
+    <table class="price">
+    <tbody>
+              <tr class="price">
+        <th style="width: 40%; vertical-align: top; padding: 0 5px 0 0;">
+          <span class="selling_price_str">価格:</span>
+        </th>
+        <td>
+                      
+                    <span class="selling_price">&#165;1,000</span>
+          <span class="taxin">(税込)</span>
+                              </td>
+      </tr>
+        
+            </tbody>
+  </table>
+
+<table class="spec">
+    <tr class="date" style="display: none;">
+                <th>販売期間：</th>
+                <td id="dateString"></td>
+    </tr>
+        
+
+  
+    <tr class="option_area">
+                  <th>test1:</th>
+        <td>
+                          <div class="option_comment">ttteeee </div>
+                        <select class="option_parts" name="OPTION1-1">
+                <option value="">選択してください</option>
+                                                <option value="あり">あり<div class="option_prc">（&#165;0）</div></option>
+                                                <option value="なし">なし<div class="option_prc">（&#165;0）</div></option>
+                            </select>
+        </td>
+            </tr>
+    <tr class="option_area">
+                  <th>てすと２:</th>
+        <td>
+                          <div class="option_comment">てすと２２２ </div>
+                        <select class="option_parts" name="OPTION2-1">
+                <option value="">選択してください</option>
+                                                <option value="通常">通常<div class="option_prc">（&#165;0）</div></option>
+                                                <option value="帯あり">帯あり<div class="option_prc">（&#165;0）</div></option>
+                                                <option value="ありより">ありより<div class="option_prc">（&#165;0）</div></option>
+                                                <option value="あり">あり<div class="option_prc">（&#165;0）</div></option>
+                            </select>
+        </td>
+            </tr>
+    <tr class="option_area">
+                  <th>てすと３てすと３:</th>
+        <td>
+                          <div class="option_comment">あああ </div>
+                        <select class="option_parts" name="OPTION3-1">
+                <option value="">選択してください</option>
+                                                <option value="なし">なし<div class="option_prc">（&#165;0）</div></option>
+                                                <option value="275円">275円<div class="option_prc">（&#165;275）</div></option>
+                            </select>
+        </td>
+            </tr>
+                      <tr>
+          <th>数量:</th>
+          <td>
+            <input size="3" maxlength="3" name="CNT-1" value="1" type="text"/>
+              個
+          </td>
+        </tr>
+            
+                        <th>在庫:</th>
+          <td colspan="2">
+            在庫あり
+                      </td>
+              
+
+</table>
+
+
+<script language="Javascript">
+  
+  if (typeof pDRequested === 'undefined') {
+    let pDRequested = false;
+  }
+  var arrVari = [];
+  var variationImageList = [];
+  //Key => data
+  //0 => has stock
+  //1 => item prc with tax
+  //2 => tax layout of item prc
+  //3 => fixed prc  with tax
+  //4 => tax layout of fixed prc
+  //5 => discount rate
+  //6 => regular prc first with tax
+  //7 => tax layout of regular prc first
+  //8 => css class of tax layout
+  //9 => announce_query
+  //10 => var 1 name
+  //11 => var 2 name
+    
+  var countVar1 = 0;
+  var countVar2 = 0;;
+  var countVar3 = 0;;
+  var fixedPriceType = 'dispn';
+  var double_price_strikethrough = 0;
+  var isInSaleTime = 0;
+  var without_tax_layout = 0;
+      var regularPrcFirstFlag = 0;
+        var isUseVariationPrice = 0;
+    var stockInfo = '在庫あり';
+  var masterId = null;
+        masterId = '2233861';
+    var nontaxFlag = 0;
+
+  function showVariInfo(selectElement, pos) {
+    var tableSelectElement = null;
+    if(pos == '') {
+      // select
+      tableSelectElement = selectElement.parentElement.parentElement.parentElement.parentElement;
+    } else {
+      // radio
+      tableSelectElement = selectElement;
+      // Set value variation
+      tableSelectElement.querySelector('input[name="VAR1-1"]').value = tableSelectElement.querySelector('#'+pos).getAttribute('data-rel1');
+          }
+    var fixedPrcElement = tableSelectElement.parentElement.querySelector('#fixedPrc');
+    var itemPrcElement = tableSelectElement.parentElement.querySelector('#itemPrc');
+    var regularFirstPrcElement = tableSelectElement.parentElement.querySelector('#regularFirstPrc');
+    var hasStockElement = tableSelectElement.parentElement.querySelector('#hasStock');
+    var noStockElement = tableSelectElement.parentElement.querySelector('#noStock');
+    var stockElement = tableSelectElement.parentElement.querySelector('#stock');
+    var announceMailElement = tableSelectElement.parentElement.querySelector('#announceMail');
+    var itemCntElement = tableSelectElement.parentElement.querySelector('#item_cnt');
+    var show = 1;
+    if(pos == '') {
+      var var1SelectElement = tableSelectElement.querySelector("select[name='VAR1-1']");
+      var var2SelectElement = tableSelectElement.querySelector("select[name='VAR2-1']");
+      var var3SelectElement = tableSelectElement.querySelector("select[name='VAR3-1']");
+
+      if (countVar1 > 0) {
+        var x1 = var1SelectElement.selectedIndex;
+        var y1 = var1SelectElement.options;
+      }
+      if (countVar2 > 0) {
+        var x2 = var2SelectElement.selectedIndex;
+        var y2 = var2SelectElement.options;
+      }
+      if (countVar3 > 0) {
+        var x3 = var3SelectElement.selectedIndex;
+        var y3 = var3SelectElement.options;
+      }
+      show = 0;
+      if (countVar3 > 0) {
+          var pos = 'pos_' + y1[x1].index + '_' + y2[x2].index + '_' + y3[x3].index;
+          if (y1[x1].index != 0 && y2[x2].index != 0 && y3[x3].index != 0) {
+            show = 1;
+          }
+      } else if (countVar2 > 0) {
+          var pos = 'pos_' + y1[x1].index + '_' + y2[x2].index + '_';
+          if (y1[x1].index != 0 && y2[x2].index != 0 ) {
+            show = 1;
+          }
+      } else if (countVar1 > 0) {
+          var pos = 'pos_' + y1[x1].index + '_' + '_' ;
+          if (y1[x1].index != 0) {
+            show = 1;
+          }
+      }
+    }
+
+    var mainImageElement = tableSelectElement.parentElement.parentElement.querySelector('.mainImg');
+    if (mainImageElement != null && pos != '') {
+      setVariationImage(mainImageElement, pos, tableSelectElement);
+    }
+
+    var dateElement = tableSelectElement.parentElement.querySelector('.date');
+    var dateOriginalElement = tableSelectElement.parentElement.querySelector('#dateStringDisplayOriginal');
+    if (dateElement != null && pos != '' && arrVari[pos] && arrVari[pos][10] != '') {
+      if (dateElement.style.display === 'none') {
+        dateElement.style.display = 'table-row';
+      }
+      dateElement.querySelector('#dateString').innerHTML = arrVari[pos][10];
+    } else if (dateOriginalElement != null && dateOriginalElement.value != null) {
+      if (dateElement.style.display === 'none') {
+        dateElement.style.display = 'table-row';
+      }
+      dateElement.querySelector('#dateString').innerHTML = dateOriginalElement.value;
+    } else {
+      dateElement.style.display = 'none';
+    }
+
+    var cartButtonElement = tableSelectElement.parentElement.querySelector('#cartButton');
+    if (cartButtonElement != null && pos != '') {
+      if (arrVari[pos] && arrVari[pos][11] == 0) {
+        cartButtonElement.style.display = 'none';
+      } else {
+        cartButtonElement.style.display = '';
+      }
+    }
+
+      }
+
+  function showVariationDetail(selectElement) {
+    var tableSelectElement = selectElement.parentElement.parentElement.parentElement.parentElement;
+    var var1SelectElement = tableSelectElement.querySelector("select[name='VAR1-1']");
+    var var2SelectElement = tableSelectElement.querySelector("select[name='VAR2-1']");
+    var var3SelectElement = tableSelectElement.querySelector("select[name='VAR3-1']");
+
+    if (countVar1 > 0) {
+      var var1SelectedIndex = var1SelectElement.selectedIndex;
+      var var1Options = var1SelectElement.options;
+    }
+    if (countVar2 > 0) {
+      var var2SelectedIndex = var2SelectElement.selectedIndex;
+      var var2Options = var2SelectElement.options;
+    }
+    if (countVar3 > 0) {
+      var var3SelectedIndex = var3SelectElement.selectedIndex;
+      var var3Options = var3SelectElement.options;
+    }
+
+    var position = '';
+    if (countVar3 > 0) {
+        position = 'pos_' + var1Options[var1SelectedIndex].index + '_' + var2Options[var2SelectedIndex].index + '_' + var3Options[var3SelectedIndex].index;
+    } else if (countVar2 > 0) {
+        position = 'pos_' + var1Options[var1SelectedIndex].index + '_' + var2Options[var2SelectedIndex].index + '_';
+    } else if (countVar1 > 0) {
+        position = 'pos_' + var1Options[var1SelectedIndex].index + '_' + '_' ;
+    }
+
+    var mainImageElement = tableSelectElement.parentElement.parentElement.querySelector('.mainImg');
+    if (mainImageElement != null && position != '') {
+      setVariationImage(mainImageElement, position, tableSelectElement);
+    }
+
+    var dateElement = tableSelectElement.parentElement.querySelector('.date');
+    var dateOriginalElement = tableSelectElement.parentElement.querySelector('#dateStringDisplayOriginal');
+    if (dateElement != null && position != '' && arrVari[position] && arrVari[position][10] != '') {
+      if (dateElement.style.display === 'none') {
+        dateElement.style.display = 'table-row';
+      }
+      dateElement.querySelector('#dateString').innerHTML = arrVari[position][10];
+    } else if (dateOriginalElement != null && dateOriginalElement.value != null) {
+      if (dateElement.style.display === 'none') {
+        dateElement.style.display = 'table-row';
+      }
+      dateElement.querySelector('#dateString').innerHTML = dateOriginalElement.value;
+    } else {
+      dateElement.style.display = 'none';
+    }
+
+    var cartButtonElement = tableSelectElement.parentElement.querySelector('#cartButton');
+    if (cartButtonElement != null && position !== '') {
+      if (arrVari[position] && arrVari[position][11] == 0) {
+        cartButtonElement.style.display = 'none';
+      } else {
+        cartButtonElement.style.display = '';
+      }
+    }
+  }
+
+  function setVariationImage(mainImageElement, position, tableSelectElement) {
+    var variationList = position.split("_");
+    var positionImage = '';
+    if (variationImageList['selectVarImageNumber']) {
+      if (variationImageList['selectVarImageNumber'] == 1 && variationImageList['positionImageList'][variationList[1]]) {
+        positionImage = variationImageList['positionImageList'][variationList[1]];
+      } else if (variationImageList['selectVarImageNumber'] == 2 && variationImageList['positionImageList'][variationList[2]]) {
+        positionImage = variationImageList['positionImageList'][variationList[2]];
+      } else if (variationImageList['selectVarImageNumber'] == 3 && variationImageList['positionImageList'][variationList[3]]) {
+        positionImage = variationImageList['positionImageList'][variationList[3]];
+      }
+    }
+
+    var mainImageURL = '';
+    if (document.querySelector("input[name='mainImageURL']")) {
+      mainImageURL = document.querySelector("input[name='mainImageURL']").getAttribute("src");
+    }
+    var mainPositionId = '';
+    if (document.querySelector("input[name='mainPositionId']")) {
+      mainPositionId = document.querySelector("input[name='mainPositionId']").value;
+    }
+
+    if (positionImage !== '' && (typeof changeImg === 'function') && tableSelectElement.parentElement.parentElement.querySelector("#thumb" + positionImage)) {
+      changeImg(tableSelectElement.parentElement.parentElement.querySelector("#thumb" + positionImage));
+    } else if ((typeof changeImg === 'function') && tableSelectElement.parentElement.parentElement.querySelector("#thumb" + mainPositionId)) {
+      changeImg(tableSelectElement.parentElement.parentElement.querySelector("#thumb" + mainPositionId));
+    } else if (mainImageURL && mainPositionId) {
+      mainImageElement.setAttribute("src", mainImageURL);
+      mainImageElement.setAttribute("id", mainPositionId);
+    }
+  }
+
+      if(typeof loadBtnToCart === 'function') {
+      loadBtnToCart();
+    }
+  
+</script>
+
+
+<!-- 価格と在庫一覧ダイアログ（まとめて在庫＋在庫あり） -->
+<div id="spsVarpriceStockDialog1" style="display: none;">
+  <input type='hidden' autofocus>
+  <div id="itemStocklist">
+    <table class="contType">
+    <tbody><tr>
+      <td class="backcolor1"><p>在庫</p></td>
+      <td class="backcolor2">
+                <p>在庫あり</p>
+              </td>
+    </tr>
+    </tbody></table>
+  </div>
+  <div class="cartArea">
+              <div class="cartArea"><table class="variation"><tr class="t-variation"></tr></table>
+</div>
+<input type="hidden" id="announceMailUrl" value="http://sptest1131.ve.shopserve.jp/SHOP/announce_mail.php" />
+<div id="variationPriceAnnounceMailDialog">
+</div>
+
+
+      </div>
+
+  <div>
+    <input class="closeDialogSStock" name="close" value="閉じる" type="button">
+  </div>
+</div>
+
+
+            <div class="cartArea">
+      
+                <div id="cartButton"><input type="image" src="/hpgen/HPB/theme/img/btn_cartl.gif" align="absmiddle" onClick="setElapsedTime(this.form); return cartin(this);" /></div>
+      </div>
+
+
+        <p class="sps-wishArea_2233861">
+      <a>
+                        <span class="sps-wishAddItem"><img src="/SHOP/img/responsive1/btn_wishl_on.png" alt=""></span>
+                          <span class="sps-wishAddItemOk wishBtnHidden"><img src="/SHOP/img/responsive1/btn_wishl.png" alt=""></span>
+                    </a>
+    </p>
+
+    <p class="cancel">
+        <a id="_gaBizRetStn" href="/hpgen/HPB/shop/business.html#return" target="_blank" title="返品についての詳細はこちら" >返品についての詳細はこちら</a>
+    </p>
+
+<table class="snsArea">
+  <tr>
+
+    
+
+    
+    
+      </tr>
+</table>
+
+
+
+<ul class="infoArea">
+</ul>
+
+</div>
+
+
+  
+
+</form>
+
+
+
+
+    </div>
+    <div class="description">
+            <p>これはメイン紹介文です
+
+ここまでメイン紹介文です</p>
+        </div>
+</section>
+
+
+
+
+
+
+
+ 
+  
+
+<script language="javascript">
+  function escape_html (string) {
+    if(typeof string !== 'string') {
+      return string;
+    }
+    return string.replace(/[&'`"<>]/g, function(match) {
+      return {
+        '&': '&amp;',
+        "'": '&#039;',
+        '`': '&#x60;',
+        '"': '&quot;',
+        '<': '&lt;',
+        '>': '&gt;',
+      }[match]
+    });
+  }
+</script>
+  <script type="text/javascript">
+    let element = document.querySelectorAll('div.radio_on');
+    if (element.length > 0) {
+      for (let i = 0; i < element.length; i++) {
+        doVariationCheckedSPS(element[i]);
+      }
+    } else {
+      doVariationSelectedSPS();
+    }
+
+    function doVariationCheckedSPS(element) {
+      if (element !== null) {
+        let matrixRadioOn = element;
+        let parentMatrixRadio = matrixRadioOn.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+        let postion = element.getAttribute("id");
+
+        parentMatrixRadio.querySelector('input[name="VAR_MATRIX"]').checked = true;
+        showVariInfo(parentMatrixRadio, postion);
+      }
+    }
+
+    function doVariationSelectedSPS() {
+      let selectQuantity = document.querySelectorAll('select[name^="VAR1"]');
+      for (let i = 0; i < selectQuantity.length; i++) {
+        selectQuantity[i].onchange();
+      }
+    }
+  </script>
+
+
+                                            <section>
+                            <div class="footer_area">
+                                <!-- フッター -->
+<!-- ※ フッターロゴは mainlogo.png を代用。専用画像があれば差し替えてください。 -->
+<!-- ※ Instagramアイコンは instagram.png を pic-labo にアップして使用。不要なら footer-sns ブロックごと削除。 -->
+
+<footer id="footer">
+  <div class="footer-logo">
+    <img src="/USERTHEMEIMG/vol1/sptest1131.ve.shopserve.jp/llimg/footermusashino.png" alt="武蔵野茶房 MUSASHINO SABO" style="width:140px;height:auto;display:block;margin:0 auto;">
+  </div>
+  <nav class="footer-nav">
+    <ul>
+      <li><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">お店のトップへ戻る</a></li>
+      <li><a href="https://cart2.shopserve.jp/sptest1131.ve/cart.php">カートを見る</a></li>
+      <li><a href="https://cart2.shopserve.jp/sptest1131.ve/login.php">マイページへ</a></li>
+      <li><a href="#">お客様の声</a></li>
+      <li><a href="#">ご利用案内</a></li>
+      <li><a href="#">特定商取引法表示</a></li>
+      <li><a href="#">個人情報の取扱い</a></li>
+      <li><a href="#">サイトマップ</a></li>
+      <li><a href="#">メルマガ登録</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+      <li><a href="#">メディア掲載情報</a></li>
+      <li><a href="#">法人・大口注文のお客様へ</a></li>
+      <li><a href="#">よくあるご質問</a></li>
+      <li><a href="#">会員登録について</a></li>
+    </ul>
+  </nav>
+  <div class="footer-sns">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="sns-instagram" aria-label="Instagram">
+      <img src="/USERTHEMEIMG/vol1/sptest1131.ve.shopserve.jp/llimg/instagram.png" alt="Instagram" style="width:24px;height:auto;display:block;">
+    </a>
+  </div>
+  <p class="footer-copy">&copy; 2009 Musashinosabo co.ltd, Allrights reserved.</p>
+</footer>
+                            </div>
+                        </section>
+                                                            
+                    <SCRIPT type="text/javascript">
+                    <!--
+                    var ref;
+                    ref = document.referrer;
+                    ref = ref.replace(/&/ig,"%26");
+                    ref = ref.replace(/\?/ig,"%3F");
+                    var u = document.URL.replace(/&/ig,"%26").replace(/</ig,"%3C").replace(/\'/ig,"%27");
+                    document.write("<img src='https://b.shopserve.jp/TRACKING/tracking.php?");
+                    document.write("U="+u+"&S="+document.domain+"&W="+screen.width+"&H="+screen.height+"&");
+                    document.write("V=66262&C=&R="+ref+"' width=1 height=1>");
+                    // -->
+                    </SCRIPT>
+                    
+                </div>
+            </article>
+            
+            <div id="sub-column">
+            
+
+
+
+
+            </div>
+            
+        </div>
+    </div>
+
+    <footer>
+        
+    </footer>
+
+    <div id="floating-menu">
+            <p id="to-cart" style="display: none;"><a href="#pi_cart" title="カートへ"><img src="/SHOP/img/responsive1/cart.png" alt="カートへ"/></a></p>
+                <p id="page-top"><a title="ページトップへ"><img src="/SHOP/img/responsive1/pagetop.gif" alt="ページトップへ"/></a></p>
+        </div>
+
+
+
+
+
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "特製焼チーズ",
+    "image": "//image1.shopserve.jp/sptest1131.ve.shopserve.jp/pic-labo/llimg/tulips_bak.jpg?t=20260509160756",
+    "description": "これはメイン紹介文です\r\n\r\nここまでメイン紹介文です",
+    "sku": "test1",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "JPY",
+      "price": "1000",
+      "itemCondition": "http://schema.org/NewCondition",
+      "availability": "http://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "武蔵野茶房オンラインショップ　テスト"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position":1,
+        "name": "TOP",
+        "item": "http://sptest1131.ve.shopserve.jp"
+      },
+      {
+        "@type": "ListItem",
+        "position":2,
+        "name": "商品一覧",
+        "item": "http://sptest1131.ve.shopserve.jp/SHOP/185946/list.html"
+      }
+    ]
+  }
+]
+</script>
+
+<script type="text/javascript">
+  var esShopKey = "sptest1131.ve";
+</script>
+<script type="text/javascript" src="https://cdn02.estore.jp/beacon/estore_beacon.js"></script>
+
+</body>
+</html>
+
