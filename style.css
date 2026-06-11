@@ -1063,4 +1063,25 @@ ul {
   .header-inner {
     padding: 0 40px;
   }
+
+  main {
+    max-width: 1200px;
+  }
+
+  .section-products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 0 24px;
+  }
+
+  .product-card--seasonal {
+    grid-column: span 2;
+  }
+
+  .product-card--seasonal .product-card-image img {
+    aspect-ratio: 1152 / 771;
+    height: auto;
+    object-fit: cover;
+  }
 }
