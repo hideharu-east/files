@@ -498,8 +498,8 @@ ul {
   font-size: 25px;
 }
 .section-news .section-title img {
-  width: 140px;
-  height: auto;
+  width: auto;
+  height: 24px;
   display: block;
   margin: 0 auto;
 }
@@ -513,8 +513,8 @@ ul {
   font-size: 25px;
 }
 .section-gray-bg > .section-title img {
-  width: 120px;
-  height: auto;
+  width: auto;
+  height: 24px;
   display: block;
   margin: 0 auto;
 }
@@ -568,8 +568,8 @@ ul {
   border-bottom: none;
 }
 .section-seasonal .section-title img {
-  width: 80px;
-  height: auto;
+  width: auto;
+  height: 24px;
   display: block;
   margin: 0 auto;
 }
