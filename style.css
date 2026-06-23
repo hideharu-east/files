@@ -420,32 +420,34 @@ ul {
 }
 
 .hero-desc {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 2;
   color: #000;
   letter-spacing: 0.05em;
-  margin-bottom: 20px;
+  text-align: center;
+  font-family: "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+  margin-top: 16px;
   white-space: pre-line;
 }
 
 .hero-sumie-wrap {
   position: relative;
-  margin-top: 64px;
-  margin-bottom: -36px;
-}
-
-.hero-sumie {
   width: calc(100% + 40px);
   margin-left: -20px;
   margin-right: -20px;
-  height: auto;
-  display: block;
+  margin-top: 0;
+  margin-bottom: -36px;
+  aspect-ratio: 706 / 347;
+  background-image: url('picture/sin_sumie.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-sumie-btn {
   position: absolute;
-  top: 20px;
+  bottom: 20px;
   left: 0;
   right: 0;
   z-index: 1;
@@ -456,32 +458,6 @@ ul {
   height: auto;
   display: block;
   margin: 0 auto;
-}
-
-.hero-sub-wrap {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.hero-sub {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.8;
-  letter-spacing: 0.08em;
-  color: #333;
-}
-
-.hero-sub-photo {
-  width: 200px;
-  height: 160px;
-  object-fit: cover;
-  flex-shrink: 0;
-  margin-left: 0;
-  margin-top: 60px;
-  margin-right: 16px;
 }
 
 /* =====================
@@ -929,14 +905,6 @@ ul {
    PC レスポンシブ対応
    ===================== */
 @media (max-width: 375px) {
-  .hero-photo img {
-    width: 160px;
-    height: 120px;
-  }
-  .hero-sub-photo {
-    width: 145px;
-    height: 115px;
-  }
   .product-card-body {
     padding: 10px 12px 16px;
   }
