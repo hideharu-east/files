@@ -420,14 +420,14 @@ ul {
 }
 
 .hero-desc {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 2;
   color: #000;
   letter-spacing: 0.05em;
   text-align: center;
   font-family: "Shippori Mincho", "游明朝", "Yu Mincho", serif;
-  margin-top: 16px;
+  margin-top: 24px;
   white-space: pre-line;
 }
 
