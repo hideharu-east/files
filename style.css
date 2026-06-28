@@ -458,7 +458,9 @@ ul {
 
 .hero-sumie-btn {
   display: block;
-  margin-top: 24px;
+  position: relative;
+  z-index: 2;
+  margin-top: -55px;
 }
 .hero-sumie-btn img {
   width: 100%;
@@ -1124,7 +1126,10 @@ ul {
   }
 
   .hero-sumie-btn {
-    margin-top: 70px;
+    position: static;
+    z-index: auto;
+    max-width: 900px;
+    margin: 70px auto 0;
   }
 
   .hero-sumie-wrap {
