@@ -1102,9 +1102,9 @@ ul {
   .hero-text {
     padding: 120px 80px 140px;
     background-image: url('picture/d_sumie1.jpg');
-    background-size: 60% auto;
+    background-size: 614px auto;
     background-repeat: no-repeat;
-    background-position: 70% 77%;
+    background-position: calc(50vw - 225px) 77%;
   }
 
   .hero-text-col {
