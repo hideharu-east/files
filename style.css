@@ -422,13 +422,24 @@ ul {
 .hero-desc {
   font-size: 16px;
   font-weight: 700;
-  line-height: 2;
   color: #000;
   letter-spacing: 0.05em;
   text-align: center;
   font-family: "Shippori Mincho", "游明朝", "Yu Mincho", serif;
   margin-top: 70px;
-  white-space: pre-line;
+}
+
+.hero-desc p {
+  line-height: 2.4;
+  margin-bottom: 1.2em;
+}
+
+.hero-desc p:last-child {
+  margin-bottom: 0;
+}
+
+.hero-desc p.tight {
+  margin-bottom: 0;
 }
 
 .hero-sumie-wrap {
@@ -446,11 +457,8 @@ ul {
 }
 
 .hero-sumie-btn {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  z-index: 1;
+  display: block;
+  margin-top: 24px;
 }
 .hero-sumie-btn img {
   width: 100%;
@@ -902,8 +910,25 @@ ul {
 }
 
 /* =====================
-   PC レスポンシブ対応
+   SP / PC レスポンシブ対応
    ===================== */
+
+/* ヒーローPC用画像（デフォルト非表示） */
+.hero-image-pc {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-image-pc img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 小さめスマホ調整 */
 @media (max-width: 375px) {
   .product-card-body {
     padding: 10px 12px 16px;
@@ -923,6 +948,7 @@ ul {
   }
 }
 
+/* 大きめSP（タブレット縦含む、SP表示） */
 @media (min-width: 768px) {
   body {
     padding-top: 64px;
@@ -942,11 +968,6 @@ ul {
     height: calc(100vh - 64px);
   }
 
-  .hero-image img,
-  .hero-image video {
-    object-fit: contain;
-  }
-
   .logo-main {
     font-size: 26px;
   }
@@ -957,11 +978,6 @@ ul {
 
   .nav-icon {
     font-size: 10px;
-  }
-
-  main {
-    max-width: 768px;
-    margin: 0 auto;
   }
 
   .hero-text {
@@ -986,30 +1002,6 @@ ul {
     margin-top: 40px;
   }
 
-  .section-products {
-    margin-top: 0;
-  }
-
-  .seasonal-grid {
-    gap: 4px;
-  }
-
-  .product-featured-body {
-    padding: 28px 24px 32px;
-  }
-
-  .product-featured-name {
-    font-size: 20px;
-  }
-
-  .product-card-body {
-    padding: 20px 24px 28px;
-  }
-
-  .product-card-name {
-    font-size: 20px;
-  }
-
   .section-all-products-btn img {
     width: 340px;
   }
@@ -1019,15 +1011,8 @@ ul {
     margin-bottom: 60px;
   }
 
-  .section-birthday img {
-    width: 85%;
-    margin: 0 auto;
-  }
-
   #footer {
     padding: 40px 24px 32px;
-    max-width: 768px;
-    margin: 0 auto;
   }
 
   .btn-primary,
@@ -1037,38 +1022,175 @@ ul {
   }
 }
 
+/* =====================
+   PC（1024px以上）
+   ===================== */
 @media (min-width: 1024px) {
+
+  /* ── グローバル ── */
+  body {
+    padding-top: 80px;
+  }
+
+  /* ── ヘッダー ── */
+  #header {
+    height: 80px;
+  }
+
   .header-inner {
-    padding: 0 40px;
+    padding: 0 60px 0 32px;
+    max-width: 1440px;
   }
 
-  .section-gray-bg > .section-title {
-    padding-top: 16px;
+  .header-logo img {
+    width: 400px;
   }
 
-  main {
-    max-width: 1200px;
-  }
-
-  #footer {
-    max-width: 1200px;
-  }
-
-  .section-products {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    padding: 0 24px;
-  }
-
-  .product-card--seasonal {
-    grid-column: span 2;
-  }
-
-  .product-card--seasonal .product-card-image img {
-    aspect-ratio: 1152 / 771;
+  /* ── ヒーロー ── */
+  .hero-image {
     height: auto;
-    object-fit: cover;
+  }
+
+  /* 動画は完成まで非表示、PC用静止画を表示 */
+  .hero-image video {
+    display: none;
+  }
+
+  .hero-image-pc {
+    display: block;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-image-pc img {
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+  }
+
+  .hero-overlay {
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 80px;
+  }
+
+  .hero-catch {
+    display: none;
+  }
+
+  .hero-purchase {
+    left: 80px;
+    bottom: 48px;
+  }
+
+  .hero-purchase-title {
+    font-size: 13px;
+  }
+
+  .hero-purchase-cta {
+    font-size: 15px;
+  }
+
+  /* ── ヒーローphoto非表示 ── */
+  .hero-photo {
+    display: none;
+  }
+
+  /* ── ヒーローテキスト（詩・墨絵） ── */
+  .hero-text {
+    padding: 120px 80px 140px;
+    background-image: url('picture/d_sumie1.jpg');
+    background-size: 60% auto;
+    background-repeat: no-repeat;
+    background-position: 70% 77%;
+  }
+
+  .hero-text-col {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-desc {
+    text-align: center;
+    margin-top: 0;
+    font-size: 16px;
+  }
+
+  .hero-desc p {
+    line-height: 2;
+    margin-bottom: 24px;
+  }
+
+  .hero-sumie-btn {
+    margin-top: 70px;
+  }
+
+  .hero-sumie-wrap {
+    display: none;
+  }
+
+  br.sp-br {
+    display: none;
+  }
+
+  /* ── main（フルワイド） ── */
+  main {
+    max-width: none;
+  }
+
+  /* ── グレー背景エリア ── */
+  .section-gray-bg {
+    padding-bottom: 60px;
+    background-color: #fff;
+  }
+
+  /* ── おしらせ ── */
+  .section-news {
+    max-width: none;
+    margin: 0;
+    padding: 0 0 60px;
+    background-color: #f7f7f7;
+  }
+
+  .section-news .section-title,
+  .section-news .news-list {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-news .section-title {
+    padding-top: 60px;
+  }
+
+  .section-news .news-item {
+    padding: 14px 0;
+  }
+
+  .section-news .news-link-wrap {
+    width: 100%;
+  }
+
+  .section-news .news-date {
+    flex: 0 0 120px;
+  }
+
+  .section-news .news-text {
+    flex: 1;
+  }
+
+  /* ── 特集（4列） ── */
+  .section-seasonal {
+    max-width: none;
+    margin: 0;
+    padding: 60px;
+    background-color: #fff;
+  }
+
+  .section-seasonal .section-title {
+    padding: 0 0 24px;
   }
 
   .seasonal-slideshow {
@@ -1077,8 +1199,8 @@ ul {
 
   .slideshow-track {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
     transform: none;
   }
 
@@ -1087,18 +1209,154 @@ ul {
   }
 
   .seasonal-item img {
-    width: 96%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .seasonal-label {
+    background: #fff;
+    text-align: left;
   }
 
   .slideshow-dots {
     display: none;
   }
 
+  /* ── 商品情報タイトル ── */
+  .section-gray-bg > .section-title {
+    padding-top: 60px;
+    padding-bottom: 16px;
+    background-color: #fff;
+  }
+
+  /* ── 商品セクション（縦積みフルワイド） ── */
+  .section-products {
+    display: block;
+    padding: 0;
+    max-width: none;
+  }
+
+  .product-card,
+  .product-featured {
+    margin-bottom: 6px;
+  }
+
+  /* ── 商品カード PC（テキスト左・画像フルワイド） ── */
+  .product-card-image img,
+  .product-featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .product-card-body {
+    position: absolute;
+    left: 7%;
+    top: 72%;
+    transform: translateY(-50%);
+    bottom: auto;
+    width: 32%;
+    padding: 0;
+    background: transparent;
+  }
+
+  .product-featured-body {
+    position: absolute;
+    left: 7%;
+    top: 72%;
+    transform: translateY(-50%);
+    bottom: auto;
+    width: 32%;
+    padding: 0;
+    background: transparent;
+  }
+
+  .product-card-name,
+  .product-featured-name {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .product-card-desc,
+  .product-featured-desc {
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 10px;
+  }
+
+  .product-card-lineup-btn img,
+  .product-card-page-btn img,
+  .product-featured-lineup-btn img {
+    width: 170px;
+    margin: 12px 0 0 0;
+  }
+
+  .product-card--seasonal .product-card-name {
+    font-size: 24px;
+  }
+
+  /* ── 商品一覧ボタン ── */
+  .section-all-products {
+    padding: 80px 20px 60px;
+  }
+
+  .section-all-products-btn img {
+    width: 280px;
+  }
+
+  /* ── バースデーバナー ── */
+  .section-birthday {
+    padding: 0 60px;
+    margin: 80px 0 60px;
+  }
+
+  .section-birthday img {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ── リンクボックス（2×2） ── */
   .section-linkbox {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    padding: 0 24px 40px;
+    gap: 32px;
+    padding: 40px 60px 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+
+  /* ── フッター ── */
+  #footer {
+    max-width: none;
+    padding: 60px 80px 40px;
+  }
+
+  .footer-logo img {
+    width: 180px;
+  }
+
+  .footer-nav ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: none;
+    gap: 0 24px;
+  }
+
+  .footer-nav ul li a {
+    font-size: 11px;
+    padding: 10px 0;
+    justify-content: flex-start;
+  }
+
+  .footer-nav ul li a::after {
+    display: none;
+  }
+
+  .footer-sns {
+    margin-top: 40px;
   }
 }

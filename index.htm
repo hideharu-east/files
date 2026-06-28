@@ -19,7 +19,10 @@
   <header id="header">
     <div class="header-inner">
       <div class="header-logo">
-        <img src="SVG/title_musashinosabou_onlineshop.svg" alt="武蔵野茶房 オンラインショップ">
+        <picture>
+          <source media="(min-width: 1024px)" srcset="picture/d_title_big.png">
+          <img src="SVG/title_musashinosabou_onlineshop.svg" alt="武蔵野茶房 オンラインショップ">
+        </picture>
       </div>
       <nav class="header-nav">
         <a href="https://cart2.shopserve.jp/sptest1131.ve/login.php" class="nav-icon" target="_blank" rel="noopener">
@@ -91,6 +94,9 @@
         >
           <p>お使いのブラウザは動画の再生に対応していません。</p>
         </video>
+        <picture class="hero-image-pc">
+          <img src="picture/d_cheese1.jpg" alt="武蔵野茶房 特製焼チーズケーキ">
+        </picture>
         <div class="hero-overlay">
           <p class="hero-catch">心ほどけるひとときを、贈る</p>
           <a href="cheesecake.html" class="hero-purchase">
@@ -103,21 +109,20 @@
         <div class="hero-photo-space"></div>
       </div>
       <div class="hero-text">
-        <p class="hero-desc">武蔵野茶房からの贈りもの。
-
-奥ゆかしき おもてなしの心で
-人と人、時をつなぐ。
-
-贈る喜び、
-贈られる喜び。
-
-ひとつひとつに心を込めて
-その ひとときを贈る。
-
-日本の贈りもの。</p>
-        <div class="hero-sumie-wrap">
-          <a href="kodawari.html" class="hero-sumie-btn"><img src="SVG/kodawarinituite.svg" alt="こだわりについて"></a>
+        <div class="hero-text-col">
+          <div class="hero-desc">
+            <p>武蔵野茶房からの贈りもの。</p>
+            <p>奥ゆかしき おもてなしの心で<br class="sp-br">　人と人、時をつなぐ。</p>
+            <p>贈る喜び、<br class="sp-br">贈られる喜び。</p>
+            <p class="tight">ひとつひとつに心を込めて</p>
+            <p>その ひとときを贈る。</p>
+            <p>日本の贈りもの。</p>
+          </div>
+          <a href="kodawari.html" class="hero-sumie-btn">
+            <img src="SVG/kodawarinituite.svg" alt="こだわりについて">
+          </a>
         </div>
+        <div class="hero-sumie-wrap"></div>
       </div>
     </section>
 
@@ -149,25 +154,37 @@
         <div class="slideshow-track" id="slideshowTrack">
           <div class="slide">
             <a href="seasonal_jamcookie.html" class="seasonal-item">
-              <img src="picture/jam.jpg" alt="新商品">
+              <picture>
+                <source media="(min-width: 1024px)" srcset="picture/d_tokusyuu_zeri.jpg">
+                <img src="picture/jam.jpg" alt="新商品">
+              </picture>
               <span class="seasonal-label">新商品</span>
             </a>
           </div>
           <div class="slide">
             <a href="seasonal_ochugen.html" class="seasonal-item">
-              <img src="picture/ume.jpg" alt="お中元におすすめ">
+              <picture>
+                <source media="(min-width: 1024px)" srcset="picture/d_tokusyuu_otyuugen.jpg">
+                <img src="picture/ume.jpg" alt="お中元におすすめ">
+              </picture>
               <span class="seasonal-label">お中元におすすめ</span>
             </a>
           </div>
           <div class="slide">
             <a href="seasonal_hahanohi.html" class="seasonal-item">
-              <img src="picture/web_summersweets_br.jpg" alt="夏のひんやりスイーツ">
+              <picture>
+                <source media="(min-width: 1024px)" srcset="picture/d_tokusyuu_ice.jpg">
+                <img src="picture/web_summersweets_br.jpg" alt="夏のひんやりスイーツ">
+              </picture>
               <span class="seasonal-label">夏のひんやりスイーツ</span>
             </a>
           </div>
           <div class="slide">
             <a href="seasonal_other.html" class="seasonal-item">
-              <img src="picture/web_souryoumuryou_br.jpg" alt="送料無料キャンペーン">
+              <picture>
+                <source media="(min-width: 1024px)" srcset="picture/d_tokusyuu_souryou.jpg">
+                <img src="picture/web_souryoumuryou_br.jpg" alt="送料無料キャンペーン">
+              </picture>
               <span class="seasonal-label">送料無料キャンペーン</span>
             </a>
           </div>
@@ -191,7 +208,10 @@
       <!-- 季節のおすすめ -->
       <div class="product-card product-card--seasonal">
         <div class="product-card-image">
-          <img src="picture/kisetunoosusume.jpg" alt="季節のおすすめ">
+          <picture>
+            <source media="(min-width: 1024px)" srcset="picture/d_zeri1.jpg">
+            <img src="picture/kisetunoosusume.jpg" alt="季節のおすすめ">
+          </picture>
         </div>
         <div class="product-card-body">
           <h3 class="product-card-name">季節のおすすめ</h3>
@@ -203,7 +223,10 @@
       <!-- 特製焼チーズケーキ -->
       <div class="product-featured">
         <div class="product-featured-image">
-          <img src="picture/bake_long.jpg" alt="特製焼チーズケーキ">
+          <picture>
+            <source media="(min-width: 1024px)" srcset="picture/d_cheese3.jpg">
+            <img src="picture/bake_long.jpg" alt="特製焼チーズケーキ">
+          </picture>
         </div>
         <div class="product-featured-body">
           <h3 class="product-featured-name">特製焼チーズケーキ</h3>
@@ -215,7 +238,10 @@
       <!-- 焼菓子 詰め合わせ -->
       <div class="product-card">
         <div class="product-card-image">
-          <img src="picture/top_mumado.jpg" alt="焼菓子 詰め合わせ">
+          <picture>
+            <source media="(min-width: 1024px)" srcset="picture/d_mado1.jpg">
+            <img src="picture/top_mumado.jpg" alt="焼菓子 詰め合わせ">
+          </picture>
         </div>
         <div class="product-card-body">
           <h3 class="product-card-name">焼菓子 詰め合わせ</h3>
@@ -227,7 +253,10 @@
       <!-- ふんわりとろけるティラミス -->
       <div class="product-card product-card--light">
         <div class="product-card-image">
-          <img src="picture/tirami_long.jpg" alt="ふんわりとろけるティラミス">
+          <picture>
+            <source media="(min-width: 1024px)" srcset="picture/d_tira1.jpg">
+            <img src="picture/tirami_long.jpg" alt="ふんわりとろけるティラミス">
+          </picture>
         </div>
         <div class="product-card-body">
           <h3 class="product-card-name">ふんわりとろけるティラミス</h3>
@@ -239,7 +268,10 @@
       <!-- サントメ ショコラ -->
       <div class="product-card product-card--light">
         <div class="product-card-image">
-          <img src="picture/sanome_long.jpg" alt="サントメ ショコラ">
+          <picture>
+            <source media="(min-width: 1024px)" srcset="picture/d_choco.jpg">
+            <img src="picture/sanome_long.jpg" alt="サントメ ショコラ">
+          </picture>
         </div>
         <div class="product-card-body">
           <h3 class="product-card-name">サントメ ショコラ</h3>
@@ -251,7 +283,10 @@
       <!-- 和栗のモンブラン -->
       <div class="product-card product-card--light">
         <div class="product-card-image">
-          <img src="picture/maron_long.jpg" alt="和栗のモンブラン">
+          <picture>
+            <source media="(min-width: 1024px)" srcset="picture/d_monbran1.jpg">
+            <img src="picture/maron_long.jpg" alt="和栗のモンブラン">
+          </picture>
         </div>
         <div class="product-card-body">
           <h3 class="product-card-name">和栗のモンブラン<br><span class="product-card-sub">まろん まろん まろん</span></h3>
@@ -263,11 +298,14 @@
       <!-- グルメ・フード -->
       <div class="product-card product-card--light">
         <div class="product-card-image">
-          <img src="picture/top_pasta.jpg" alt="グルメ・フード">
+          <picture>
+            <source media="(min-width: 1024px)" srcset="picture/d_gurume1.jpg">
+            <img src="picture/top_pasta.jpg" alt="グルメ・フード">
+          </picture>
         </div>
         <div class="product-card-body">
           <h3 class="product-card-name">グルメ・フード</h3>
-          <p class="product-card-desc">中華料理『墨花居』と伊太利料理『武蔵野食堂』から、<br>特製ギフトをご用意しました。</p>
+          <p class="product-card-desc">中華料理『墨花居』と<br>伊太利料理『武蔵野食堂』から、<br>特製ギフトをご用意しました。</p>
           <a href="gourmet.html" class="product-card-lineup-btn"><img src="SVG/syouhin_lineuphe.svg" alt="商品ラインナップへ"></a>
         </div>
       </div>
