@@ -736,6 +736,10 @@ ul {
   font-family: "Shippori Mincho", "游明朝", "Yu Mincho", serif;
 }
 
+.product-card-name--tight {
+  letter-spacing: 0.04em;
+}
+
 .product-card-sub {
   font-size: 13px;
   font-weight: 700;
@@ -1040,12 +1044,12 @@ ul {
   }
 
   .header-inner {
-    padding: 0 60px 0 32px;
+    padding: 0 32px;
     max-width: 1440px;
   }
 
   .header-logo img {
-    width: 400px;
+    width: 320px;
   }
 
   /* ── ヒーロー ── */
@@ -1161,7 +1165,7 @@ ul {
 
   .section-news .section-title,
   .section-news .news-list {
-    max-width: 520px;
+    max-width: 620px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1295,7 +1299,7 @@ ul {
   .product-card-page-btn img,
   .product-featured-lineup-btn img {
     width: 170px;
-    margin: 12px 0 0 0;
+    margin: 20px 0 0 0;
   }
 
   .product-card--seasonal .product-card-name {
@@ -1338,6 +1342,10 @@ ul {
   #footer {
     max-width: none;
     padding: 60px 80px 40px;
+  }
+
+  .footer-logo {
+    margin-bottom: 40px;
   }
 
   .footer-logo img {
