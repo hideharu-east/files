@@ -159,6 +159,6 @@
   }
 
   initSlideshow('seasonalSlideshow', 'slideshowTrack', 'slideshowDots');
-  initSlideshow('materialSlideshow', 'materialTrack', 'materialDots', 16);
+  initSlideshow('materialSlideshow', 'materialTrack', 'materialDots', 64);
 
 })();
