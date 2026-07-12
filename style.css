@@ -423,7 +423,7 @@ ul {
   color: #000;
   letter-spacing: 0.05em;
   text-align: center;
-  font-family: "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+  font-family: "A-OTF リュウミン Pro", "A-OTF Ryumin Pro", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
   margin-top: 70px;
 }
 
@@ -647,7 +647,7 @@ ul {
 
 .product-featured-name {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   color: #333;
   margin-bottom: 12px;
@@ -726,7 +726,7 @@ ul {
 
 .product-card-name {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   color: #333;
   margin-bottom: 10px;
