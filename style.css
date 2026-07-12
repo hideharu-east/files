@@ -617,6 +617,45 @@ ul {
   background: #888;
 }
 
+/* 素材紹介スライドショー（こだわりページ） */
+.kodawari-material-slideshow-wrap {
+  background: #fdfcf9;
+  margin-top: 24px;
+  padding: 24px 0;
+}
+
+.material-slideshow {
+  position: relative;
+  overflow: hidden;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.material-item {
+  display: block;
+}
+
+.material-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.material-title {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  padding: 14px 16px 0;
+}
+
+.material-desc {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #555;
+  padding: 8px 16px 16px;
+}
+
 /* =====================
    商品情報
    ===================== */
@@ -911,6 +950,167 @@ ul {
   color: #aaa;
   margin-top: 20px;
   letter-spacing: 0.05em;
+}
+
+/* =====================
+   こだわりについてページ
+   ===================== */
+
+/* 見出し（緑・DF中楷書体）共通 */
+.kodawari-heading-green {
+  color: #758f60;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "DF中楷書体", "DF Chuu Kaisho Tai", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+/* 見出し（黒・DF中楷書体）共通 */
+.kodawari-heading-dark {
+  color: #333;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "DF中楷書体", "DF Chuu Kaisho Tai", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+/* 本文（グレー）共通 */
+.kodawari-text {
+  font-size: 13px;
+  line-height: 2;
+  color: #555;
+  text-align: center;
+}
+
+.kodawari-quote {
+  background: #f7f6f0;
+  padding: 96px 24px 96px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 2.2;
+  letter-spacing: 0.15em;
+  font-family: "DF中楷書体", "DF Chuu Kaisho Tai", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+.kodawari-scroll {
+  background: #f7f6f0;
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.kodawari-scroll img {
+  width: 40px;
+  height: auto;
+}
+
+.kodawari-origin {
+  background: #f7f6f0;
+  padding: 40px 20px;
+}
+
+.kodawari-origin-photo {
+  margin-bottom: 40px;
+}
+
+.kodawari-origin-lead {
+  font-size: 14px;
+  text-align: left;
+  letter-spacing: 0.15em;
+  margin-bottom: 32px;
+  margin-left: 1em;
+  font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+.kodawari-origin-text {
+  font-size: 14px;
+  line-height: 2;
+  color: #555;
+  text-align: left;
+  letter-spacing: 0.15em;
+  margin-left: 1em;
+  font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+.kodawari-concept {
+  background: #f7f6f0;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.kodawari-concept .kodawari-heading-green {
+  margin-bottom: 24px;
+}
+
+.kodawari-concept-text {
+  font-size: 14px;
+  line-height: 2.4;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin-top: 48px;
+  font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+.kodawari-concept img + .kodawari-concept-text {
+  margin-top: 64px;
+}
+
+.kodawari-concept-text:last-of-type {
+  margin-bottom: 32px;
+}
+
+.kodawari-cafe-scene img {
+  display: block;
+}
+
+.kodawari-heart-heading-wrap {
+  background: #f7f6f0;
+  padding: 40px 20px 24px;
+}
+
+.kodawari-material-section {
+  background: #efeee6;
+  padding: 24px 20px 40px;
+}
+
+.kodawari-material-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.kodawari-material-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  z-index: 0;
+}
+
+.kodawari-material-overlay {
+  position: relative;
+  z-index: 1;
+  margin-top: 50%;
+  padding: 24px 20px 40px;
+}
+
+.kodawari-material-card {
+  text-align: center;
+  padding-top: 8px;
+}
+
+.kodawari-material-card p {
+  font-size: 13px;
+  line-height: 2;
+  color: #555;
+  margin-top: 16px;
 }
 
 /* =====================

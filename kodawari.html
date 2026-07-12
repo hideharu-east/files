@@ -1,9 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>こだわりについて | 武蔵野茶房 オンラインショップ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@400;600;700&family=Shippori+Mincho+B1:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,16 +19,17 @@
   <header id="header">
     <div class="header-inner">
       <div class="header-logo">
-        <img src="picture/mainlogo.png" alt="武蔵野茶房 オンラインショップ">
+        <picture>
+          <source media="(min-width: 1024px)" srcset="picture/d_title_big.png">
+          <img src="SVG/title_musashinosabou_onlineshop.svg" alt="武蔵野茶房 オンラインショップ">
+        </picture>
       </div>
       <nav class="header-nav">
-        <a href="#" class="nav-icon">
-          <img src="https://placehold.co/24x24/888888/ffffff?text=" alt="">
-          <span>MYPAGE</span>
+        <a href="https://cart2.shopserve.jp/sptest1131.ve/login.php" class="nav-icon" target="_blank" rel="noopener">
+          <img src="SVG/mypage_logo_tuki.svg" alt="マイページ">
         </a>
-        <a href="#" class="nav-icon">
-          <img src="https://placehold.co/24x24/888888/ffffff?text=" alt="">
-          <span>CART</span>
+        <a href="https://cart2.shopserve.jp/sptest1131.ve/cart.php" class="nav-icon">
+          <img src="SVG/cart_logo_tuki.svg" alt="カート" class="cart-icon">
         </a>
         <button class="nav-menu" id="menuBtn" aria-label="メニュー">
           <span></span>
@@ -33,12 +41,222 @@
     </div>
   </header>
 
+  <!-- ドロワーメニュー -->
+  <div class="drawer" id="drawer">
+    <div class="drawer-inner">
+      <button class="drawer-close" id="drawerClose">&#10005;</button>
+      <ul class="drawer-list">
+        <li class="drawer-has-sub">
+          <button class="drawer-sub-toggle">商品一覧<span class="drawer-sub-icon">＋</span></button>
+          <ul class="drawer-sub-list">
+            <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/186945/list.html">特製焼チーズケーキ</a></li>
+            <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/188251/list.html">チーズケーキサンド</a></li>
+            <li><a href="santome.html">サントメショコラ</a></li>
+            <li><a href="tiramisu.html">ふんわりとろけるティラミス</a></li>
+            <li><a href="montblanc.html">和栗のモンブラン -まろんまろんまろん-</a></li>
+            <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/188255/list.html">焼菓子</a></li>
+            <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/188256/list.html">とろける濃厚アイスプリン</a></li>
+            <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/188257/list.html">ピーカンナッツ</a></li>
+            <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/188258/list.html">グルメ・フード</a></li>
+            <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/185946/list.html">全商品</a></li>
+          </ul>
+        </li>
+        <li><a href="kodawari.html">武蔵野茶房のこだわり</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/rating_list.html">お客様の声</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/hpgen/HPB/shop/shoppinguide.html">ご利用案内</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/hpgen/HPB/shop/business.html">特定商取引法表示</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/hpgen/HPB/shop/policy.html">個人情報の取扱い</a></li>
+        <li><a href="#">サイトマップ</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/mailmag.html">メルマガ登録</a></li>
+        <li><a href="https://cart2.shopserve.jp/sptest1131.ve/FORM/contact.cgi">お問い合わせ</a></li>
+        <li><a href="#">メディア掲載情報</a></li>
+        <li><a href="#">法人・大口注文のお客様へ</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/hpgen/HPB/entries/1.html">よくあるご質問</a></li>
+        <li><a href="#">会員登録について</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- メインコンテンツ -->
   <main>
-    <section style="padding: 40px 20px;">
-      <h1 style="font-size: 20px; font-weight: 400; letter-spacing: 0.1em; margin-bottom: 24px;">こだわりについて</h1>
-      <p style="font-size: 13px; color: #555; line-height: 2;">（コンテンツ準備中）</p>
+
+    <!-- ヒーロー -->
+    <section class="kodawari-hero">
+      <img src="picture/kodawari1.jpg" alt="武蔵野茶房 店内" class="kodawari-hero-photo">
+      <p class="kodawari-quote">
+        心安らぐ時間を<br>
+        過ごしていただきたい。<br>
+        武蔵野茶房創業からの想い。<br>
+        そのひと時を、<br>
+        大切な方への贈りものとして<br>
+        お届けします。
+      </p>
     </section>
+
+    <!-- 武蔵野茶房の誕生 -->
+    <section class="kodawari-origin">
+      <h2 class="kodawari-heading-green">武蔵野茶房の誕生</h2>
+      <img src="picture/kodawari2.png" alt="武蔵野茶房 店内・創業の石碑" class="kodawari-origin-photo">
+      <p class="kodawari-origin-lead">心地よいひとときを過ごしていただきたい</p>
+      <p class="kodawari-origin-text">
+        1989年、東京郊外に誕生した武蔵野茶房。<br>
+        創業以来大切にしてきたのは、<br>
+        日本らしい「おもてなしの心」<br><br>
+        今日の出逢いがより<br>
+        豊かなものになりますように<span style="letter-spacing: normal;">———</span>。
+        <span style="letter-spacing: 0.1em; display: block; margin-top: 40px;">
+          武蔵野茶房は、人と人、そして時をつなぐ<br>
+          そんな場所でありたいと願い、<br>
+          これからも歩み続けてまいります。
+        </span>
+      </p>
+    </section>
+
+    <!-- スクロール矢印 -->
+    <div class="kodawari-scroll">
+      <img src="picture/kodawari3.png" alt="">
+    </div>
+
+    <!-- 想いを一つのチーズケーキに -->
+    <section class="kodawari-concept">
+      <h2 class="kodawari-heading-green">武蔵野茶房の想いを、<br>一つのチーズケーキに。</h2>
+      <img src="picture/kodawari4.jpg" alt="特製焼チーズケーキ 木箱入り">
+      <p class="kodawari-concept-text">
+        創業当時から喫茶メニューとして多くの<br>
+        お客様に愛され続けてきた<br>
+        こだわりの焼チーズケーキ。
+      </p>
+      <p class="kodawari-concept-text">
+        長年親しまれてきた味わいを大切にしながら、<br>
+        素材からパッケージまで一つ一つを見直し、<br>
+        より特別感のある木箱入の<br>
+        “特製焼チーズケーキ”が誕生しました。
+      </p>
+      <p class="kodawari-concept-text">
+        長く愛されてきた味わいを、<br>
+        これからも多くの方へお届けいたします。
+      </p>
+    </section>
+
+    <!-- 喫茶シーン -->
+    <section class="kodawari-cafe-scene">
+      <img src="picture/kodawari5.png" alt="武蔵野茶房 喫茶シーン">
+    </section>
+
+    <!-- すべては大切な想いを届けるために -->
+    <div class="kodawari-heart-heading-wrap">
+      <h2 class="kodawari-heading-green">すべては大切な想いを<br>届けるために。</h2>
+    </div>
+    <!-- 選び抜いた素材（写真の白い部分の上にテキスト＆スライドショーを重ねる） -->
+    <div class="kodawari-material-section">
+      <div class="kodawari-material-visual">
+        <img src="picture/kodawari6.png" alt="特製焼チーズケーキとコーヒー" class="kodawari-material-photo">
+
+        <div class="kodawari-material-overlay">
+          <div class="kodawari-material-card">
+            <h2>選び抜いた素材</h2>
+            <p>
+              特製焼チーズケーキのおいしさの秘密は、<br>
+              こだわりの素材選びにあります。<br>
+              それぞれの素材の魅力を丁寧に引き出し、<br>
+              心に残る味わいに仕上げています。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="kodawari-material-slideshow-wrap">
+        <div class="material-slideshow" id="materialSlideshow">
+          <div class="slideshow-track" id="materialTrack">
+            <div class="slide material-item">
+              <img src="picture/kodawari7.png" alt="2種のチーズ" class="material-photo">
+            </div>
+            <div class="slide material-item">
+              <img src="picture/kodawari8.png" alt="卵黄" class="material-photo">
+            </div>
+            <div class="slide material-item">
+              <img src="picture/kodawari9.png" alt="バター" class="material-photo">
+            </div>
+          </div>
+          <div class="slideshow-dots" id="materialDots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 職人の手仕事 -->
+    <div>
+      <img src="picture/kodawari10.png" alt="職人の手仕事">
+      <h2>ひとつひとつを丁寧に。</h2>
+      <p>
+        職人が一つ一つ手づくりでつくり上げます。<br>
+        生地はあえて泡立てずに仕立てることで、<br>
+        濃厚で重厚感のある味わいに。<br>
+        なめらかに裏ごしした生地を<br>
+        オーブンでじっくり蒸し焼きにし、<br>
+        生クリームや薄力粉を使わず、<br>
+        チーズ本来の風味を存分に引き出しました。
+      </p>
+    </div>
+
+    <!-- 贈りものの心遣い -->
+    <div>
+      <img src="picture/kodawari11.png" alt="のし・メッセージカード">
+    </div>
+
+    <!-- 最終セクション：あなたの想いを届ける -->
+    <div>
+      <h2>あなたの想いを届ける</h2>
+      <p>
+        大切な方への贈りものだからこそ、<br>
+        一つ一つ心を込めてご用意しています。<br>
+        お祝い、お礼、ご挨拶など、<br>
+        さまざまな贈答シーンにご利用いただけますよう、<br>
+        のしやメッセージカードを無料で承ります。
+      </p>
+      <p>
+        大切なひと時に寄り添う贈りものとして、<br>
+        お選びいただけましたら幸いです。
+      </p>
+      <a href="http://sptest1131.ve.shopserve.jp/SHOP/186945/list.html">ご購入はこちらから＞</a>
+    </div>
+
   </main>
+
+  <!-- フッター -->
+  <footer id="footer">
+    <div class="footer-logo">
+      <img src="SVG/fooder_musashinosabou.svg" alt="武蔵野茶房 MUSASHINO SABO">
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="index.htm">お店のトップへ戻る</a></li>
+        <li><a href="https://cart2.shopserve.jp/sptest1131.ve/cart.php">カートを見る</a></li>
+        <li><a href="https://cart2.shopserve.jp/sptest1131.ve/login.php" target="_blank" rel="noopener">マイページへ</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/rating_list.html">お客様の声</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/hpgen/HPB/shop/shoppinguide.html">ご利用案内</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/hpgen/HPB/shop/business.html">特定商取引法表示</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/hpgen/HPB/shop/policy.html">個人情報の取扱い</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/SHOP/mailmag.html">メルマガ登録</a></li>
+        <li><a href="https://cart2.shopserve.jp/sptest1131.ve/FORM/contact.cgi">お問い合わせ</a></li>
+        <li><a href="media.html">メディア掲載情報</a></li>
+        <li><a href="corporate.html">法人・大口注文のお客様へ</a></li>
+        <li><a href="http://sptest1131.ve.shopserve.jp/hpgen/HPB/entries/1.html">よくあるご質問</a></li>
+        <li><a href="membership.html">会員登録について</a></li>
+      </ul>
+    </nav>
+    <div class="footer-sns">
+      <a href="https://www.instagram.com/m_dish_onlineshop/" target="_blank" rel="noopener noreferrer" class="sns-instagram" aria-label="Instagram">
+        <img src="SVG/instagram.svg" alt="Instagram">
+      </a>
+    </div>
+    <p class="footer-copy">&copy; 2009 Musashinosabo co.ltd, Allrights reserved.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
