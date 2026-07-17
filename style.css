@@ -1800,7 +1800,7 @@ ul {
   }
 
   .kodawari-material-card {
-    max-width: 760px;
+    max-width: 840px;
     margin: 0 auto;
   }
 
@@ -1962,6 +1962,19 @@ ul {
 
   .kodawari-final-sub {
     font-size: 22px;
+  }
+
+  .kodawari-concept-text {
+    font-size: 22px;
+  }
+
+  .kodawari-origin-lead,
+  .kodawari-origin-text {
+    font-size: 22px;
+  }
+
+  .kodawari-material-card p {
+    font-size: 20px;
   }
 
   .kodawari-material-card p {
