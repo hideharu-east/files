@@ -1041,6 +1041,7 @@ ul {
   letter-spacing: 0.15em;
   margin-bottom: 32px;
   margin-left: 1em;
+  max-width: 640px;
   font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
 }
 
@@ -1051,6 +1052,7 @@ ul {
   text-align: left;
   letter-spacing: 0.15em;
   margin-left: 1em;
+  max-width: 640px;
   font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
 }
 
@@ -1169,7 +1171,7 @@ ul {
 }
 
 .kodawari-gift-scene {
-  padding: 0 20px;
+  padding: 0;
 }
 
 .kodawari-gift-scene img {
@@ -1698,6 +1700,11 @@ ul {
     margin-right: auto;
   }
 
+  .kodawari-origin-copy {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
   .kodawari-origin-lead,
   .kodawari-origin-text {
     max-width: 640px;
@@ -1817,14 +1824,17 @@ ul {
   .kodawari-craft {
     display: flex;
     align-items: stretch;
-    gap: 64px;
-    max-width: 1200px;
+    gap: 0;
+    width: calc(100% - 60px);
+    max-width: 1340px;
     margin: 0 auto;
-    padding: 80px 20px;
+    padding: 80px 0;
   }
 
   .kodawari-craft-photo {
     margin: 0;
+    height: 100%;
+    object-fit: cover;
   }
 
   .kodawari-craft > picture {
@@ -1851,10 +1861,11 @@ ul {
   .kodawari-final-row {
     display: flex;
     align-items: stretch;
-    gap: 64px;
-    max-width: 1200px;
+    gap: 0;
+    width: calc(100% - 60px);
+    max-width: 1340px;
     margin: 0 auto;
-    padding: 80px 20px 0;
+    padding: 80px 0 0;
   }
 
   .kodawari-gift-scene {
@@ -1862,8 +1873,15 @@ ul {
     padding: 0;
   }
 
+  .kodawari-gift-scene picture {
+    display: block;
+    height: 100%;
+  }
+
   .kodawari-gift-scene img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .kodawari-final-card {
