@@ -80,11 +80,13 @@
   });
 
   /* スライドショー */
-  function initSlideshow(containerId, trackId, dotsId, peekAmount) {
+  function initSlideshow(containerId, trackId, dotsId, peekAmount, prevId, nextId) {
     var track       = document.getElementById(trackId);
-    var dots        = document.querySelectorAll('#' + dotsId + ' .dot');
+    var dots        = dotsId ? document.querySelectorAll('#' + dotsId + ' .dot') : [];
+    var prevBtn     = prevId ? document.getElementById(prevId) : null;
+    var nextBtn     = nextId ? document.getElementById(nextId) : null;
     var containerEl = document.getElementById(containerId);
-    var total       = dots.length;
+    var total       = track ? track.children.length : 0;
     var current     = 0;
     var timer;
     var slideW      = 0;
@@ -122,6 +124,20 @@
               timer = setInterval(next, 5000);
             });
           });
+          if (prevBtn) {
+            prevBtn.addEventListener('click', function () {
+              clearInterval(timer);
+              goTo(current - 1);
+              timer = setInterval(next, 5000);
+            });
+          }
+          if (nextBtn) {
+            nextBtn.addEventListener('click', function () {
+              clearInterval(timer);
+              goTo(current + 1);
+              timer = setInterval(next, 5000);
+            });
+          }
           track.addEventListener('touchstart', function (e) {
             touchStartX = e.touches[0].clientX;
           }, { passive: true });
@@ -159,6 +175,6 @@
   }
 
   initSlideshow('seasonalSlideshow', 'slideshowTrack', 'slideshowDots');
-  initSlideshow('materialSlideshow', 'materialTrack', 'materialDots', 64);
+  initSlideshow('materialSlideshow', 'materialTrack', null, 64, 'materialPrev', 'materialNext');
 
 })();

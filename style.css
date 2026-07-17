@@ -287,7 +287,7 @@ ul {
   gap: 6px;
   border: none;
   border-radius: 999px;
-  padding: 8px 52px;
+  padding: 8px 16px;
   font-size: 13px;
   letter-spacing: 0.3em;
   color: #fff;
@@ -370,13 +370,13 @@ ul {
 
 .hero-purchase-title {
   display: block;
-  font-size: 12px;
+  font-size: clamp(12px, calc(12px + 3 * (100vw - 375px) / 649), 15px);
   letter-spacing: 0.08em;
 }
 
 .hero-purchase-cta {
   display: block;
-  font-size: 13px;
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   letter-spacing: 0.08em;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -409,7 +409,7 @@ ul {
 
 .hero-catch {
   writing-mode: vertical-rl;
-  font-size: 22px;
+  font-size: clamp(22px, calc(22px + 6 * (100vw - 375px) / 649), 28px);
   font-weight: 700;
   letter-spacing: 0.15em;
   line-height: 1.7;
@@ -418,7 +418,7 @@ ul {
 }
 
 .hero-desc {
-  font-size: 16px;
+  font-size: clamp(16px, calc(16px + 4 * (100vw - 375px) / 649), 20px);
   font-weight: 700;
   color: #000;
   letter-spacing: 0.05em;
@@ -520,7 +520,7 @@ ul {
 }
 
 .news-date {
-  font-size: 11px;
+  font-size: clamp(11px, calc(11px + 3 * (100vw - 375px) / 649), 14px);
   color: #888;
   white-space: nowrap;
   letter-spacing: 0.05em;
@@ -535,7 +535,7 @@ ul {
 }
 
 .news-text {
-  font-size: 13px;
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   letter-spacing: 0.05em;
 }
 
@@ -589,7 +589,7 @@ ul {
 .seasonal-label {
   display: block;
   text-align: center;
-  font-size: 15px;
+  font-size: clamp(15px, calc(15px + 4 * (100vw - 375px) / 649), 19px);
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #333;
@@ -655,6 +655,23 @@ ul {
   padding: 8px 16px 16px;
 }
 
+.material-slide-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 32px 4px;
+}
+
+.material-slide-arrow {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  font-size: 20px;
+  line-height: 1;
+  color: #c9a84c;
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
 /* =====================
    商品情報
    ===================== */
@@ -684,7 +701,7 @@ ul {
 }
 
 .product-featured-name {
-  font-size: 20px;
+  font-size: clamp(20px, calc(20px + 5 * (100vw - 375px) / 649), 25px);
   font-weight: 600;
   letter-spacing: 0.08em;
   color: #333;
@@ -693,7 +710,7 @@ ul {
 }
 
 .product-featured-desc {
-  font-size: 13px;
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   font-weight: 500;
   line-height: 1.9;
   color: #333;
@@ -742,7 +759,7 @@ ul {
   color: #fff;
 }
 .product-card--seasonal .product-card-name {
-  font-size: 20px;
+  font-size: clamp(20px, calc(20px + 5 * (100vw - 375px) / 649), 25px);
   color: #000;
 }
 .product-card--seasonal .product-card-desc {
@@ -763,7 +780,7 @@ ul {
 }
 
 .product-card-name {
-  font-size: 20px;
+  font-size: clamp(20px, calc(20px + 5 * (100vw - 375px) / 649), 25px);
   font-weight: 600;
   letter-spacing: 0.08em;
   color: #333;
@@ -777,14 +794,14 @@ ul {
 }
 
 .product-card-sub {
-  font-size: 13px;
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   font-weight: 700;
   letter-spacing: 0.1em;
   color: #555;
 }
 
 .product-card-desc {
-  font-size: 13px;
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   font-weight: 500;
   line-height: 1.9;
   color: #333;
@@ -958,7 +975,8 @@ ul {
 /* 見出し（緑・DF中楷書体）共通 */
 .kodawari-heading-green {
   color: #758f60;
-  font-size: 18px;
+  font-size: clamp(18px, calc(18px + 5 * (100vw - 375px) / 649), 23px);
+  font-weight: 400;
   letter-spacing: 0.12em;
   line-height: 1.6;
   text-align: center;
@@ -969,7 +987,7 @@ ul {
 /* 見出し（黒・DF中楷書体）共通 */
 .kodawari-heading-dark {
   color: #333;
-  font-size: 18px;
+  font-size: clamp(18px, calc(18px + 5 * (100vw - 375px) / 649), 23px);
   letter-spacing: 0.12em;
   line-height: 1.6;
   text-align: center;
@@ -979,7 +997,7 @@ ul {
 
 /* 本文（グレー）共通 */
 .kodawari-text {
-  font-size: 13px;
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   line-height: 2;
   color: #555;
   text-align: center;
@@ -989,7 +1007,8 @@ ul {
   background: #f7f6f0;
   padding: 96px 24px 96px;
   text-align: center;
-  font-size: 14px;
+  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
+  font-weight: 600;
   line-height: 2.2;
   letter-spacing: 0.15em;
   font-family: "DF中楷書体", "DF Chuu Kaisho Tai", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
@@ -1017,7 +1036,7 @@ ul {
 }
 
 .kodawari-origin-lead {
-  font-size: 14px;
+  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
   text-align: left;
   letter-spacing: 0.15em;
   margin-bottom: 32px;
@@ -1026,7 +1045,7 @@ ul {
 }
 
 .kodawari-origin-text {
-  font-size: 14px;
+  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
   line-height: 2;
   color: #555;
   text-align: left;
@@ -1046,7 +1065,7 @@ ul {
 }
 
 .kodawari-concept-text {
-  font-size: 14px;
+  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
   line-height: 2.4;
   letter-spacing: 0.1em;
   color: #555;
@@ -1062,17 +1081,20 @@ ul {
   margin-bottom: 32px;
 }
 
+.kodawari-cafe-scene {
+  background: #f7f6f0;
+}
+
 .kodawari-cafe-scene img {
   display: block;
 }
 
 .kodawari-heart-heading-wrap {
   background: #f7f6f0;
-  padding: 40px 20px 24px;
+  padding: 80px 20px 24px;
 }
 
 .kodawari-material-section {
-  background: #efeee6;
   padding: 24px 20px 40px;
 }
 
@@ -1106,10 +1128,91 @@ ul {
 }
 
 .kodawari-material-card p {
-  font-size: 13px;
-  line-height: 2;
+  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
+  line-height: 2.4;
+  letter-spacing: 0.1em;
   color: #555;
   margin-top: 16px;
+  font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+.kodawari-warm-bg {
+  background: #f1eee2;
+  display: flow-root;
+}
+
+.kodawari-craft {
+  padding: 40px 20px 64px;
+}
+
+.kodawari-craft-photo {
+  display: block;
+  width: 100%;
+}
+
+.kodawari-craft-textbox {
+  background: #fff;
+  padding: 32px 0 64px;
+}
+
+.kodawari-craft-textbox .kodawari-heading-dark {
+  font-weight: 400;
+}
+
+.kodawari-craft-text {
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
+  line-height: 2.4;
+  letter-spacing: 0.1em;
+  color: #555;
+  text-align: center;
+  font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+.kodawari-gift-scene {
+  padding: 0 20px;
+}
+
+.kodawari-gift-scene img {
+  display: block;
+  width: 100%;
+}
+
+.kodawari-final {
+  padding: 0 20px 64px;
+  text-align: center;
+}
+
+.kodawari-final-card {
+  background: #fff;
+  padding: 40px 16px;
+  margin-bottom: 40px;
+}
+
+.kodawari-final-card .kodawari-heading-dark {
+  font-weight: 400;
+}
+
+.kodawari-final-text {
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
+  line-height: 2.4;
+  letter-spacing: 0.01em;
+  color: #555;
+  font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+.kodawari-final-sub {
+  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
+  font-weight: 600;
+  line-height: 2.4;
+  letter-spacing: 0.2em;
+  color: #555;
+  margin-bottom: 70px;
+  font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+}
+
+/* PC専用：素材3カラムグリッド（SPでは非表示） */
+.kodawari-material-grid {
+  display: none;
 }
 
 /* =====================
@@ -1568,5 +1671,251 @@ ul {
 
   .footer-sns {
     margin-top: 40px;
+  }
+
+  /* ── こだわりページ ── */
+
+  /* ヒーロー */
+  .kodawari-hero {
+    background: #f7f6f0;
+  }
+
+  .kodawari-quote {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 96px 24px;
+    font-size: 22px;
+  }
+
+  /* 武蔵野茶房の誕生 */
+  .kodawari-origin {
+    padding: 80px 20px;
+  }
+
+  .kodawari-origin-photo {
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .kodawari-origin-lead,
+  .kodawari-origin-text {
+    max-width: 640px;
+    margin-left: calc((100% - 640px) / 4);
+    margin-right: auto;
+  }
+
+  .kodawari-origin-text {
+    margin-top: 0;
+  }
+
+  /* 想いを一つのチーズケーキに */
+  .kodawari-concept {
+    padding: 80px 20px;
+  }
+
+  .kodawari-concept img {
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+  }
+
+  .kodawari-concept-text {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .kodawari-concept img + .kodawari-concept-text {
+    margin-top: 64px;
+  }
+
+  /* 喫茶シーン */
+  .kodawari-cafe-scene img {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  /* すべては大切な想いを届けるために */
+  .kodawari-heart-heading-wrap {
+    padding: 96px 20px 80px;
+  }
+
+  /* 選び抜いた素材 */
+  .kodawari-material-section {
+    background: #fff;
+    width: calc(100% - 60px);
+    max-width: 1340px;
+    margin: 80px auto 0;
+    padding: 0 0 56px;
+  }
+
+  .kodawari-material-visual {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  .kodawari-material-photo {
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+  }
+
+  .kodawari-material-overlay {
+    position: static;
+    margin-top: 0;
+    padding: 40px 20px 0;
+  }
+
+  .kodawari-material-card {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .kodawari-material-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 56px auto 0;
+    padding: 0 20px;
+  }
+
+  .kodawari-material-grid-item img {
+    display: block;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .kodawari-material-grid-item h3 {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 12px;
+    font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+  }
+
+  .kodawari-material-grid-item p {
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    color: #555;
+    font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+  }
+
+  .kodawari-material-slideshow-wrap {
+    display: none;
+  }
+
+  /* 職人の手仕事 */
+  .kodawari-craft {
+    display: flex;
+    align-items: stretch;
+    gap: 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+
+  .kodawari-craft-photo {
+    margin: 0;
+  }
+
+  .kodawari-craft > picture {
+    flex: 1 1 50%;
+    min-width: 0;
+  }
+
+  .kodawari-craft-textbox {
+    flex: 1 1 50%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px 40px 40px;
+    text-align: left;
+  }
+
+  .kodawari-craft-textbox .kodawari-heading-dark,
+  .kodawari-craft-text {
+    text-align: left;
+  }
+
+  /* 贈りものの心遣い～あなたの想いを届ける */
+  .kodawari-final-row {
+    display: flex;
+    align-items: stretch;
+    gap: 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 0;
+  }
+
+  .kodawari-gift-scene {
+    flex: 1 1 50%;
+    padding: 0;
+  }
+
+  .kodawari-gift-scene img {
+    width: 100%;
+  }
+
+  .kodawari-final-card {
+    flex: 1 1 50%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px 40px 40px;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .kodawari-final-card .kodawari-heading-dark,
+  .kodawari-final-text {
+    text-align: left;
+  }
+
+  .kodawari-final-sub {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* こだわりページ：文字サイズ・行間（PDF実測に合わせて上書き） */
+  .kodawari-heading-green,
+  .kodawari-heading-dark {
+    font-size: 32px;
+    line-height: 1.6;
+  }
+
+  .kodawari-quote {
+    line-height: 2.6;
+  }
+
+  .kodawari-origin-lead,
+  .kodawari-origin-text,
+  .kodawari-concept-text,
+  .kodawari-material-card p,
+  .kodawari-craft-text,
+  .kodawari-final-text,
+  .kodawari-final-sub {
+    font-size: 18px;
+    line-height: 2.6;
+  }
+
+  .kodawari-origin-lead,
+  .kodawari-origin-text {
+    line-height: 3.2;
+  }
+
+  .kodawari-material-card p {
+    text-align: center;
   }
 }
