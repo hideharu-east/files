@@ -1689,9 +1689,23 @@ ul {
     font-size: 22px;
   }
 
+  /* スクロール矢印 */
+  .kodawari-scroll {
+    padding: 80px 0;
+  }
+
+  .kodawari-scroll img {
+    width: 80px;
+  }
+
   /* 武蔵野茶房の誕生 */
   .kodawari-origin {
     padding: 80px 20px;
+  }
+
+  .kodawari-origin .kodawari-heading-green {
+    margin-top: 40px;
+    margin-bottom: 56px;
   }
 
   .kodawari-origin-photo {
@@ -1702,7 +1716,7 @@ ul {
 
   .kodawari-origin-copy {
     max-width: 950px;
-    margin: 0 auto;
+    margin: 56px auto;
   }
 
   .kodawari-origin-lead,
@@ -1721,6 +1735,11 @@ ul {
     padding: 80px 20px;
   }
 
+  .kodawari-concept .kodawari-heading-green {
+    margin-top: 64px;
+    margin-bottom: 80px;
+  }
+
   .kodawari-concept img {
     width: 100vw;
     max-width: 100vw;
@@ -1731,13 +1750,14 @@ ul {
 
   .kodawari-concept-text {
     max-width: 640px;
+    margin-top: 96px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
   }
 
   .kodawari-concept img + .kodawari-concept-text {
-    margin-top: 64px;
+    margin-top: 104px;
   }
 
   /* 喫茶シーン */
@@ -1748,7 +1768,7 @@ ul {
 
   /* すべては大切な想いを届けるために */
   .kodawari-heart-heading-wrap {
-    padding: 96px 20px 80px;
+    padding: 450px 20px 120px;
   }
 
   /* 選び抜いた素材 */
@@ -1776,7 +1796,7 @@ ul {
   .kodawari-material-overlay {
     position: static;
     margin-top: 0;
-    padding: 40px 20px 0;
+    padding: 40px 20px 50px;
   }
 
   .kodawari-material-card {
@@ -1800,7 +1820,7 @@ ul {
   }
 
   .kodawari-material-grid-item h3 {
-    font-size: 17px;
+    font-size: 22px;
     font-weight: 400;
     line-height: 1.6;
     color: #333;
@@ -1809,7 +1829,7 @@ ul {
   }
 
   .kodawari-material-grid-item p {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.9;
     letter-spacing: 0.02em;
     color: #555;
@@ -1828,7 +1848,7 @@ ul {
     width: calc(100% - 60px);
     max-width: 1340px;
     margin: 0 auto;
-    padding: 80px 0;
+    padding: 150px 0 80px;
   }
 
   .kodawari-craft-photo {
@@ -1902,8 +1922,15 @@ ul {
 
   .kodawari-final-sub {
     max-width: 640px;
+    margin-top: 200px;
+    margin-bottom: 64px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .kodawari-final .btn-about {
+    padding: 16px 32px;
+    font-size: 16px;
   }
 
   /* こだわりページ：文字サイズ・行間（PDF実測に合わせて上書き） */
@@ -1931,6 +1958,10 @@ ul {
   .kodawari-origin-lead,
   .kodawari-origin-text {
     line-height: 3.2;
+  }
+
+  .kodawari-final-sub {
+    font-size: 22px;
   }
 
   .kodawari-material-card p {
