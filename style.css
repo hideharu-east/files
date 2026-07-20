@@ -1150,6 +1150,10 @@ ul {
   padding: 32px 0 64px;
 }
 
+.kodawari-craft-textbox .kodawari-heading-dark {
+  font-weight: 400;
+}
+
 .kodawari-craft-text {
   font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   line-height: 2.4;
@@ -1177,6 +1181,10 @@ ul {
   background: #fff;
   padding: 40px 16px;
   margin-bottom: 40px;
+}
+
+.kodawari-final-card .kodawari-heading-dark {
+  font-weight: 400;
 }
 
 
@@ -1723,7 +1731,7 @@ ul {
 
   .kodawari-concept .kodawari-heading-green {
     margin-top: 64px;
-    margin-bottom: 160px;
+    margin-bottom: 130px;
   }
 
   .kodawari-concept img {
@@ -1807,7 +1815,7 @@ ul {
   }
 
   .kodawari-material-grid-text {
-    border-left: 1px solid #c9c3ae;
+    border-left: 1px solid #c2a878;
     padding-left: 1.5em;
     width: 85%;
   }
@@ -1878,6 +1886,10 @@ ul {
     max-width: 1340px;
     margin: 0 auto;
     padding: 80px 0 0;
+  }
+
+  .kodawari-final {
+    padding-bottom: 120px;
   }
 
   .kodawari-gift-scene {
