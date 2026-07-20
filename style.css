@@ -281,35 +281,14 @@ ul {
 }
 
 .btn-about {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  border: none;
-  border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 13px;
-  letter-spacing: 0.3em;
-  color: #fff;
-  background: #c9a84c;
+  display: block;
   margin: 12px auto 0;
   width: fit-content;
 }
 
-.btn-circle-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  font-size: 9px;
-  background: #fff;
-  color: #c9a84c;
-  flex-shrink: 0;
-  line-height: 1;
-  padding-left: 2px;
+.btn-about img {
+  width: 240px;
+  max-width: 100%;
 }
 
 /* =====================
@@ -633,6 +612,7 @@ ul {
 
 .material-item {
   display: block;
+  background: transparent;
 }
 
 .material-photo {
@@ -1010,7 +990,7 @@ ul {
   font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
   font-weight: 600;
   line-height: 2.2;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   font-family: "DF中楷書体", "DF Chuu Kaisho Tai", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
 }
 
@@ -1036,7 +1016,7 @@ ul {
 }
 
 .kodawari-origin-lead {
-  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   text-align: left;
   letter-spacing: 0.15em;
   margin-bottom: 32px;
@@ -1046,7 +1026,7 @@ ul {
 }
 
 .kodawari-origin-text {
-  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   line-height: 2;
   color: #555;
   text-align: left;
@@ -1066,8 +1046,15 @@ ul {
   margin-bottom: 24px;
 }
 
+.kodawari-concept picture {
+  display: block;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
 .kodawari-concept-text {
-  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
+  font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
   line-height: 2.4;
   letter-spacing: 0.1em;
   color: #555;
@@ -1089,6 +1076,8 @@ ul {
 
 .kodawari-cafe-scene img {
   display: block;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .kodawari-heart-heading-wrap {
@@ -1129,6 +1118,10 @@ ul {
   padding-top: 8px;
 }
 
+.kodawari-material-card .kodawari-heading-dark {
+  font-weight: 400;
+}
+
 .kodawari-material-card p {
   font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
   line-height: 2.4;
@@ -1155,10 +1148,6 @@ ul {
 .kodawari-craft-textbox {
   background: #fff;
   padding: 32px 0 64px;
-}
-
-.kodawari-craft-textbox .kodawari-heading-dark {
-  font-weight: 400;
 }
 
 .kodawari-craft-text {
@@ -1190,9 +1179,6 @@ ul {
   margin-bottom: 40px;
 }
 
-.kodawari-final-card .kodawari-heading-dark {
-  font-weight: 400;
-}
 
 .kodawari-final-text {
   font-size: clamp(13px, calc(13px + 4 * (100vw - 375px) / 649), 17px);
@@ -1685,8 +1671,8 @@ ul {
   .kodawari-quote {
     max-width: 640px;
     margin: 0 auto;
-    padding: 96px 24px;
-    font-size: 22px;
+    padding: 150px 24px 96px;
+    font-size: 21px;
   }
 
   /* スクロール矢印 */
@@ -1704,12 +1690,12 @@ ul {
   }
 
   .kodawari-origin .kodawari-heading-green {
-    margin-top: 40px;
+    margin-top: 100px;
     margin-bottom: 56px;
   }
 
   .kodawari-origin-photo {
-    max-width: 950px;
+    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1737,7 +1723,7 @@ ul {
 
   .kodawari-concept .kodawari-heading-green {
     margin-top: 64px;
-    margin-bottom: 80px;
+    margin-bottom: 160px;
   }
 
   .kodawari-concept img {
@@ -1762,7 +1748,7 @@ ul {
 
   /* 喫茶シーン */
   .kodawari-cafe-scene img {
-    max-width: 950px;
+    max-width: 850px;
     margin: 0 auto;
   }
 
@@ -1776,12 +1762,13 @@ ul {
     background: #fff;
     width: calc(100% - 60px);
     max-width: 1340px;
-    margin: 80px auto 0;
-    padding: 0 0 56px;
+    margin: 50px auto 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
 
   .kodawari-material-visual {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     overflow: visible;
   }
@@ -1819,8 +1806,14 @@ ul {
     margin-bottom: 24px;
   }
 
+  .kodawari-material-grid-text {
+    border-left: 1px solid #c9c3ae;
+    padding-left: 1.5em;
+    width: 85%;
+  }
+
   .kodawari-material-grid-item h3 {
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 400;
     line-height: 1.6;
     color: #333;
@@ -1829,11 +1822,10 @@ ul {
   }
 
   .kodawari-material-grid-item p {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.9;
     letter-spacing: 0.02em;
     color: #555;
-    font-family: "Shippori Mincho B1", "Shippori Mincho", "游明朝", "Yu Mincho", serif;
   }
 
   .kodawari-material-slideshow-wrap {
@@ -1923,25 +1915,24 @@ ul {
   .kodawari-final-sub {
     max-width: 640px;
     margin-top: 200px;
-    margin-bottom: 64px;
+    margin-bottom: 100px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .kodawari-final .btn-about {
-    padding: 16px 32px;
-    font-size: 16px;
+  .kodawari-final .btn-about img {
+    width: 320px;
   }
 
   /* こだわりページ：文字サイズ・行間（PDF実測に合わせて上書き） */
   .kodawari-heading-green,
   .kodawari-heading-dark {
-    font-size: 32px;
+    font-size: 31px;
     line-height: 1.6;
   }
 
   .kodawari-quote {
-    line-height: 2.6;
+    line-height: 3;
   }
 
   .kodawari-origin-lead,
@@ -1951,7 +1942,7 @@ ul {
   .kodawari-craft-text,
   .kodawari-final-text,
   .kodawari-final-sub {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 2.6;
   }
 
@@ -1961,20 +1952,20 @@ ul {
   }
 
   .kodawari-final-sub {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .kodawari-concept-text {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .kodawari-origin-lead,
   .kodawari-origin-text {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .kodawari-material-card p {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .kodawari-material-card p {
