@@ -178,3 +178,21 @@
   initSlideshow('materialSlideshow', 'materialTrack', null, 64, 'materialPrev', 'materialNext');
 
 })();
+
+/* =====================
+   TOP PCヒーロー画像スライドショー
+   ===================== */
+(function () {
+  var wrap = document.getElementById('heroPcSlideshow');
+  if (!wrap) return;
+
+  var slides = wrap.querySelectorAll('.hero-pc-slide');
+  if (slides.length < 2) return;
+
+  var current = 0;
+  setInterval(function () {
+    slides[current].classList.remove('is-active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('is-active');
+  }, 5000);
+})();
