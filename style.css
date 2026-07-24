@@ -161,9 +161,12 @@ ul {
   width: 80%;
   max-width: 320px;
   height: calc(100vh - 56px);
+  height: calc(100dvh - 56px);
   background: #fff;
   z-index: 999;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   transition: right 0.3s ease;
   border-left: 1px solid #e0e0e0;
 }
@@ -572,7 +575,7 @@ ul {
 .seasonal-label {
   display: block;
   text-align: center;
-  font-size: clamp(15px, calc(15px + 4 * (100vw - 375px) / 649), 19px);
+  font-size: clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px);
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #333;
@@ -1562,6 +1565,7 @@ ul {
   .seasonal-label {
     background: #fff;
     text-align: left;
+    font-size: 15px;
   }
 
   .slideshow-dots {
