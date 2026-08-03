@@ -566,6 +566,8 @@
  }
  table.variation span.selling_price, table.variation span.special_price {
    white-space: nowrap;
+   color: #000;
+   font-size: 100%;
  }
  p.sp_price span.special_price_str, p.sp_price span.selling_price_str,
  p.sp_price span.selling_price, p.sp_price span.taxin, p.sp_price span.discount_rate {
