@@ -459,6 +459,7 @@ ul {
    ===================== */
 .section-news {
   margin-top: 32px;
+  background-color: #f7f7f7;
 }
 
 .section-news .section-title {
@@ -481,6 +482,7 @@ ul {
   padding-bottom: 16px;
   margin-bottom: 0;
   font-size: 25px;
+  background-color: #fff;
 }
 .section-gray-bg > .section-title img {
   width: auto;
@@ -530,6 +532,7 @@ ul {
    ===================== */
 .section-seasonal {
   margin-top: 32px;
+  background-color: #fff;
 }
 
 .section-seasonal .section-title {
@@ -580,7 +583,7 @@ ul {
   letter-spacing: 0.08em;
   color: #333;
   padding: 10px 8px;
-  background: #f7f7f7;
+  background: #fff;
 }
 
 .slideshow-dots {
