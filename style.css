@@ -818,10 +818,14 @@ ul {
 
 /* 季節休止注意書き（SP専用、PCでは非表示） */
 .product-card-caution {
-  font-size: clamp(12px, calc(12px + 1 * (100vw - 375px) / 649), 13px);
+  display: inline-block;
+  padding: 4px 14px;
+  margin-bottom: 8px;
+  font-size: clamp(13px, calc(13px + 1 * (100vw - 375px) / 649), 14px);
   color: #fff;
   letter-spacing: 0.02em;
-  text-decoration: underline;
+  border: 1px solid #fff;
+  border-radius: 4px;
 }
 
 /* =====================
@@ -1653,11 +1657,11 @@ ul {
     display: inline-block;
     padding: 4px 18px;
     margin-bottom: 14px;
-    font-size: 12px;
+    font-size: 16px;
     letter-spacing: 0.04em;
     color: #fff;
     border: 1px solid #fff;
-    border-radius: 999px;
+    border-radius: 4px;
   }
 
   .product-card-caution {
