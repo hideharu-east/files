@@ -10,7 +10,8 @@
   .pc-gap-60::after,
   .pc-gap-80::after,
   .pc-gap-130::after,
-  .pc-gap-215::after {
+  .pc-gap-215::after,
+  .pc-gap-80-before::before {
     content: "";
     display: block;
     height: 0;
@@ -37,6 +38,8 @@
     .pc-gap-80::after { height: 80px; }
     .pc-gap-130::after { height: 130px; }
     .pc-gap-215::after { height: 215px; }
+    /* 写真→見出し：PDF実測で約80〜85px */
+    .pc-gap-80-before::before { height: 80px; }
   }
 </style>
 
@@ -80,7 +83,7 @@
       <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026waguri_page2.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
     </picture>
 
-    <p style="font-size:clamp(22px, calc(22px + 4 * (100vw - 375px) / 649), 26px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; line-height:1.6; margin-top:0; margin-bottom:32px; padding-left:0.5em;">様々な和栗のかたちを<br>贅沢に木箱に詰め込みました。</p>
+    <p class="pc-gap-80-before" style="font-size:clamp(22px, calc(22px + 4 * (100vw - 375px) / 649), 26px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; line-height:1.6; margin-top:0; margin-bottom:32px; padding-left:0.5em;">様々な和栗のかたちを<br>贅沢に木箱に詰め込みました。</p>
 
     <p style="font-size:clamp(23px, calc(23px + 3 * (100vw - 375px) / 649), 26px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.04em; color:#222; margin-top:0; margin-bottom:8px; padding-left:0.5em;">1. 風味　国産焼栗クリーム</p>
     <p class="pc-gap-80" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:24px; padding-left:0.5em;">国産焼栗を使用したこだわりのクリームで<br>和栗の香ばしい風味を。</p>
@@ -99,21 +102,21 @@
       <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026waguri_page3.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
     </picture>
 
-    <p class="pc-gap-40" style="font-size:clamp(22px, calc(22px + 4 * (100vw - 375px) / 649), 26px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; line-height:1.6; margin-top:0; margin-bottom:16px; padding-left:0.5em;">"栗本来の美味しさを"<br>国産和栗を贅沢に使用</p>
+    <p class="pc-gap-40 pc-gap-80-before" style="font-size:clamp(22px, calc(22px + 4 * (100vw - 375px) / 649), 26px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; line-height:1.6; margin-top:0; margin-bottom:16px; padding-left:0.5em;">"栗本来の美味しさを"<br>国産和栗を贅沢に使用</p>
 
     <p class="pc-gap-130" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:36px; padding-left:0.5em;">1台あたり約10〜11粒分と、熊本県産和栗の渋皮煮を<br>たっぷりと使用し、どこを食べても<br class="sp-br">贅沢な和栗をお楽しみいただけます。<br>さらに折り重なる和栗の層たち。<br>全体のおよそ40％が国産和栗という、栗の<br class="sp-br">魅力を惜しみなく詰め込んだ贅沢な一品です。<br>素材本来の美味しさを存分にお楽しみください。</p>
 
     <!-- 手間ひまかけた本物の美味しさ -->
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026waguri_page4.jpg">
-      <img class="pc-gap-60" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026waguri_page4.jpg" style="width:100%; height:auto; display:block; margin-top:70px; margin-bottom:20px;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026waguri_page4.jpg" style="width:100%; height:auto; display:block; margin-top:70px; margin-bottom:20px;">
     </picture>
 
-    <p class="pc-gap-40" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0; margin-bottom:20px;">手間ひまかけた本物の美味しさ</p>
+    <p class="pc-gap-40 pc-gap-80-before" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0; margin-bottom:20px;">手間ひまかけた本物の美味しさ</p>
 
     <p class="pc-gap-215" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:36px; padding-left:0.5em;">和栗のモンブランは、見た目も美しく、味も格別。<br>その秘密は、職人が一つひとつ<br class="sp-br">心を込めて手作りしていることにあります。<br>一層一層を丁寧に仕込み、時間をかけて<br class="sp-br">仕上げています。<br>そのため大量生産はできませんが、<br>その分、ひと口ごとに職人のこだわりを<br class="sp-br">感じていただけます。</p>
 
-    <p class="pc-gap-30" style="font-size:clamp(20px, calc(20px + 4 * (100vw - 375px) / 649), 24px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.04em; line-height:1.8; color:#222; margin-top:64px; margin-bottom:20px; padding-left:0.5em;">この一品を通して、<br>和栗の魅力を存分に感じて<br class="sp-br">いただけたら幸いです。</p>
+    <p class="pc-gap-30" style="font-size:clamp(21px, calc(21px + 4 * (100vw - 375px) / 649), 25px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.04em; line-height:1.8; color:#222; margin-top:64px; margin-bottom:20px; padding-left:0.5em;">この一品を通して、<br>和栗の魅力を存分に感じて<br class="sp-br">いただけたら幸いです。</p>
 
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026waguri_page5.jpg">
