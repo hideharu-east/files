@@ -4,14 +4,11 @@
   #tiramisu-img5 {
     width: 100%;
   }
-  .pc-gap-section::before,
-  .pc-gap-heading::after,
-  .pc-gap-text::before,
-  .pc-gap-intro::after {
-    content: "";
-    display: block;
-    height: 0;
-  }
+  /* SP実測（sptliramis.pdf）に基づく余白。PC側は別途pcteliramis.pdf実測値で上書き */
+  .gap-xl { margin-bottom: 270px; }
+  .gap-md { margin-bottom: 110px; }
+  .gap-sm { margin-bottom: 45px; }
+  .gap-ph { margin-bottom: 80px; }
   @media (min-width: 1024px) {
     br.sp-br {
       display: none;
@@ -24,22 +21,10 @@
       margin-left: auto;
       margin-right: auto;
     }
-    /* セクション見出しの上：PDF実測で約200px */
-    .pc-gap-section::before {
-      height: 180px;
-    }
-    /* 見出しと直下の写真の間：PDF実測で約36〜40px */
-    .pc-gap-heading::after {
-      height: 20px;
-    }
-    /* 写真と直後の本文の間：PDF実測で約70px */
-    .pc-gap-text::before {
-      height: 50px;
-    }
-    /* 冒頭ブロック（バナー・タイトル・説明文）：PDF実測で約90〜100px */
-    .pc-gap-intro::after {
-      height: 70px;
-    }
+    .gap-xl { margin-bottom: 220px; }
+    .gap-md { margin-bottom: 90px; }
+    .gap-sm { margin-bottom: 40px; }
+    .gap-ph { margin-bottom: 80px; }
   }
 </style>
 
@@ -55,14 +40,14 @@
   <!-- メインビジュアル（早期ご予約割引バナー） -->
   <picture>
     <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page1.jpg">
-    <img class="pc-gap-intro" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page1.jpg" style="width:100%; height:auto; display:block; margin-bottom:24px;">
+    <img class="gap-md" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page1.jpg" style="width:100%; height:auto; display:block;">
   </picture>
 
   <!-- 商品名 -->
-  <p class="pc-gap-intro" style="font-size:clamp(22px, calc(22px + 6 * (100vw - 375px) / 649), 28px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; line-height:1.6; color:#222; margin-top:0; margin-bottom:16px;">武蔵野茶房<br>ふんわりとろけるティラミス</p>
+  <p class="gap-md" style="font-size:clamp(22px, calc(22px + 6 * (100vw - 375px) / 649), 28px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; line-height:1.6; color:#222; margin-top:0;">武蔵野茶房<br>ふんわりとろけるティラミス</p>
 
   <!-- 説明文 -->
-  <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:32px;">濃厚クリームにふわっふわのメレンゲを合わせ、<br>"ふわっと口溶け食感"をお楽しみいただける木箱入のスイーツです。<br>贈り物にぜひいかがでしょうか。</p>
+  <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:60px;">濃厚クリームにふわっふわのメレンゲを合わせ、<br>"ふわっと口溶け食感"をお楽しみいただける木箱入のスイーツです。<br>贈り物にぜひいかがでしょうか。</p>
 
   <!-- もっと見るボタン -->
   <button id="tiramisu-toggle-btn" onclick="document.getElementById('tiramisu-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
@@ -75,47 +60,47 @@
     <!-- スプーンですくうカット写真 -->
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page2.jpg">
-      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page2.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
+      <img class="gap-xl" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page2.jpg" style="width:100%; height:auto; display:block;">
     </picture>
 
     <!-- 北海道産マスカルポーネ＆生クリーム使用 -->
-    <p class="pc-gap-section pc-gap-heading" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:16px; margin-bottom:20px;">北海道産マスカルポーネ＆<br class="sp-br">生クリーム使用</p>
+    <p class="gap-sm" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0;">北海道産マスカルポーネ＆<br class="sp-br">生クリーム使用</p>
 
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page3.jpg">
-      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page3.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
+      <img class="gap-ph" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page3.jpg" style="width:100%; height:auto; display:block;">
     </picture>
 
-    <p class="pc-gap-text" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:32px; padding-left:0.5em;">ティラミスの濃厚クリームには、<br>自然豊かな北海道の生乳を使用したマスカルポーネと生クリームを使用。<br>コクのある濃厚な味わいに仕上げ、少量でも<br>十分満足感を味わうことができます。</p>
+    <p class="gap-md" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; padding-left:0.5em;">ティラミスの濃厚クリームには、<br>自然豊かな北海道の生乳を使用したマスカルポーネと生クリームを使用。<br>コクのある濃厚な味わいに仕上げ、少量でも<br>十分満足感を味わうことができます。</p>
 
     <!-- マスカルポーネ / 生クリーム（写真・見出し・説明を含む完成グラフィック） -->
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page4.png">
-      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page4.png" style="width:100%; height:auto; display:block; margin-bottom:36px;">
+      <img class="gap-xl" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page4.png" style="width:100%; height:auto; display:block;">
     </picture>
 
     <!-- "ふわっと口溶け" -->
-    <p class="pc-gap-section pc-gap-heading" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:80px; margin-bottom:20px;">"ふわっと口溶け"</p>
+    <p class="gap-sm" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0;">"ふわっと口溶け"</p>
 
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page5.jpg">
-      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page5.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
+      <img class="gap-ph" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page5.jpg" style="width:100%; height:auto; display:block;">
     </picture>
 
-    <p class="pc-gap-text" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:36px; padding-left:0.5em;">濃厚な乳の味わいに合わせるのは、泡のようなふわっふわのメレンゲ。<br>クリーム生地を作る最後の工程でたっぷり含ませることによって、<br>"ふわっと泡のような食感"にすることができました。</p>
+    <p class="gap-xl" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; padding-left:0.5em;">濃厚な乳の味わいに合わせるのは、泡のようなふわっふわのメレンゲ。<br>クリーム生地を作る最後の工程でたっぷり含ませることによって、<br>"ふわっと泡のような食感"にすることができました。</p>
 
     <!-- こだわりのエスプレッソ -->
-    <p class="pc-gap-section pc-gap-heading" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0; margin-bottom:20px;">こだわりのエスプレッソ</p>
+    <p class="gap-sm" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0;">こだわりのエスプレッソ</p>
 
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page6.jpg">
-      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page6.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
+      <img class="gap-ph" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page6.jpg" style="width:100%; height:auto; display:block;">
     </picture>
 
-    <p class="pc-gap-text" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:24px; padding-left:0.5em;">こだわり豆で抽出したエスプレッソをたっぷり染み込ませ、<br>しっかりとした珈琲の香りとコクをプラス。<br>さらにスポンジにも同じ豆を加えた珈琲生地を使用し、<br>ティラミス全体のバランスをとりました。</p>
+    <p class="gap-md" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; padding-left:0.5em;">こだわり豆で抽出したエスプレッソをたっぷり染み込ませ、<br>しっかりとした珈琲の香りとコクをプラス。<br>さらにスポンジにも同じ豆を加えた珈琲生地を使用し、<br>ティラミス全体のバランスをとりました。</p>
 
     <!-- 使用豆ボックス（page7画像そのものをボックスとして使用、テキストは画像に追従する%位置で重ねる） -->
-    <div style="position:relative; margin-bottom:36px; overflow:hidden;">
+    <div class="gap-xl" style="position:relative; overflow:hidden;">
       <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page7.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top right; display:block; z-index:0;">
       <div style="position:relative; z-index:1; padding:28px 30% 28px 6%;">
         <p style="font-size:clamp(19px, calc(19px + 6 * (100vw - 375px) / 649), 25px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.04em; color:#7a5c00; margin-top:0; margin-bottom:14px;">〈 有機栽培 コロンビア豆使用 〉</p>
@@ -124,14 +109,14 @@
     </div>
 
     <!-- 贈り物にぜひいかがでしょうか -->
-    <p class="pc-gap-section pc-gap-heading" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0; margin-bottom:20px;">贈り物にぜひいかがでしょうか</p>
+    <p class="gap-sm" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0;">贈り物にぜひいかがでしょうか</p>
 
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page8.jpg">
-      <img id="tiramisu-img5" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page8.jpg" style="height:auto; display:block; margin-bottom:20px;">
+      <img id="tiramisu-img5" class="gap-ph" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page8.jpg" style="height:auto; display:block;">
     </picture>
 
-    <p class="pc-gap-text" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:36px; padding-left:0.5em;">木箱いっぱいのティラミスは贈り物に大変喜ばれます。<br>誕生日などのお祝いスイーツなどにも是非ご利用くださいませ。</p>
+    <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:36px; padding-left:0.5em;">木箱いっぱいのティラミスは贈り物に大変喜ばれます。<br>誕生日などのお祝いスイーツなどにも是非ご利用くださいませ。</p>
 
     <!-- 閉じるボタン -->
     <div style="text-align:right; margin-top:20px;">
