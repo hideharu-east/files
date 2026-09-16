@@ -763,8 +763,8 @@ ul {
   margin: 10px 0 0 auto;
 }
 .product-card-page-btn img {
-  width: 180px;
-  height: auto;
+  width: auto;
+  height: 32.6px;
   display: block;
   margin: 10px 0 0 auto;
 }
@@ -807,7 +807,7 @@ ul {
 .product-card-btn-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 10px;
   margin-top: 10px;
 }
@@ -1285,7 +1285,8 @@ ul {
     width: 160px;
   }
   .product-card-page-btn img {
-    width: 140px;
+    width: auto;
+    height: 29px;
   }
 }
 
@@ -1642,9 +1643,14 @@ ul {
   }
 
   .product-card-lineup-btn img,
-  .product-card-page-btn img,
   .product-featured-lineup-btn img {
     width: 170px;
+    margin: 20px 0 0 0;
+  }
+
+  .product-card-page-btn img {
+    width: auto;
+    height: 30.8px;
     margin: 20px 0 0 0;
   }
 
