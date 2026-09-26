@@ -1,5 +1,43 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
+<!--
+  商品説明の共通の型（指示書 SPmilksizi / PCmilksizi 基準）
+  SP：枠W730pxの指示書 → 実機（枠 約365px）では 1/2 に換算
+  PC：枠W900pxの指示書 → そのままの数値
+  基準：幅390px（枠 約365px）でSP値、1024pxでPC値。その間は比例変化、390px未満はフォントを画面幅に比例縮小／900px〜で改行位置・字間をPC版に切り替え
+-->
+<style>
+  .sd-body { padding:clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  .sd-body picture, .sd-body .sd-link { display:block; }
+  .sd-body img { width:100%; height:auto; display:block; }
+  .sd-body .sd-img-small { width:50%; margin-left:auto; }
+  #itemDetail-wrap .sd-body .sd-name { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(65px, calc(65px + 5 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-name.sd-first { margin-top:0; }
+  #itemDetail-wrap .sd-body .sd-name-sub { font-size:clamp(14px, min(4.487vw, calc(17.5px + 9.5 * (100vw - 390px) / 634)), 27px); line-height:1.5; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-text { font-size:clamp(11.2px, min(3.59vw, calc(14px + 4 * (100vw - 390px) / 634)), 18px); line-height:1.9; letter-spacing:0; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-intro { margin-top:clamp(50px, calc(50px + 10 * (100vw - 390px) / 634), 60px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-text { margin-top:1.9em; }
+  #itemDetail-wrap .sd-body .sd-note { font-size:clamp(8.8px, min(2.821vw, calc(11px + 2 * (100vw - 390px) / 634)), 13px); line-height:1.8; margin:clamp(15px, calc(15px + 5 * (100vw - 390px) / 634), 20px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-title { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px) 0 clamp(15px, calc(15px + 25 * (100vw - 390px) / 634), 40px); padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px) 0 clamp(15px, calc(15px + 15 * (100vw - 390px) / 634), 30px); }
+  #itemDetail-wrap .sd-body .sd-sub { font-size:clamp(14.4px, min(4.615vw, calc(18px + 6 * (100vw - 390px) / 634)), 24px); line-height:1.6; margin:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-sub + .sd-text { margin-top:clamp(8px, calc(8px + 4 * (100vw - 390px) / 634), 12px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-sub { margin-top:clamp(35px, calc(35px + 15 * (100vw - 390px) / 634), 50px); }
+  #itemDetail-wrap .sd-body picture + .sd-text, #itemDetail-wrap .sd-body picture + .sd-title, #itemDetail-wrap .sd-body picture + .sd-sub { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-text + picture, #itemDetail-wrap .sd-body .sd-note + picture, #itemDetail-wrap .sd-body .sd-sub + picture { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-sect.sd-sect.sd-sect { margin-top:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px); }
+  .sd-toggle { margin-top:clamp(30px, calc(30px + 10 * (100vw - 390px) / 634), 40px); }
+  .sd-close { margin-top:clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  br.sd-pc-br { display:none; }
+
+  @media (min-width: 900px) {
+    #itemDetail-wrap .sd-body .sd-text { letter-spacing:0.05em; }
+    .sd-body .sd-img-small { width:35%; }
+    .sd-body .sd-img-narrow { width:90%; margin-left:auto; margin-right:auto; }
+    br.sd-sp-br { display:none; }
+    br.sd-pc-br { display:inline; }
+  }
+</style>
+
 <div style="margin:20px 0; margin-right:2px; background:#fff; border:1px solid #d4b86a; color:#333;">
 
   <!-- タイトル -->
@@ -7,58 +45,57 @@
     <span>商品説明</span>
   </div>
 
-  <div style="padding:16px;">
+  <div class="sd-body">
+    <!-- メインビジュアル -->
+    <picture>
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/cheese_page1.jpg" alt="特製焼チーズケーキ">
+    </picture>
+    
+    <!-- 商品名 -->
+    <p class="sd-name" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">武蔵野茶房<br>特製焼チーズケーキ<br class="sd-sp-br">【木箱入】</p>
+    
+    <!-- 説明文 -->
+    <p class="sd-text sd-intro" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">濃厚な味わいながら、滑らかな口どけの<br>木箱入のチーズケーキです。<br>武蔵野茶房で"30年以上愛される"<br>究極の逸品をご堪能ください。</p>
 
-  <!-- メインビジュアル -->
-  <img src="https://www.shop-musashinosabo.jp/pic-labo/cheese_page1.jpg" style="width:100%; height:auto; display:block; margin-bottom:24px;">
+    <!-- もっと見るボタン -->
+    <button id="cheese-toggle-btn" class="sd-toggle" onclick="document.getElementById('cheese-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+      <span>もっと見る</span>
+      <span style="font-size:18px; line-height:1;">＋</span>
+    </button>
 
-  <!-- 商品名 -->
-  <p style="font-size:clamp(22px, calc(22px + 6 * (100vw - 375px) / 649), 28px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; line-height:1.6; color:#222; margin:0 0 16px;">武蔵野茶房<br>特製焼チーズケーキ【木箱入】</p>
-
-  <!-- 説明文 -->
-  <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 6px;">濃厚な味わいながら、滑らかな口どけの<br>木箱入のチーズケーキです。</p>
-  <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 32px;">武蔵野茶房で"30年以上愛される"<br>究極の逸品をご堪能ください。</p>
-
-  <!-- もっと見るボタン -->
-  <button id="cheese-toggle-btn" onclick="document.getElementById('cheese-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
-    <span>もっと見る</span>
-    <span style="font-size:18px; line-height:1;">＋</span>
-  </button>
-
-  <div id="cheese-more" style="display:none; padding-top:16px;">
-
+    <div id="cheese-more" style="display:none;">
+    
     <!-- 濃厚でいて 爽やかな味わいを追求 -->
-    <p style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin:80px 0 20px;">濃厚でいて<br>爽やかな味わいを追求</p>
-
-    <img src="https://www.shop-musashinosabo.jp/pic-labo/cheese_page2.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
-
-    <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 20px; padding-left:0.5em;">"チーズの配合率は約70%"からなる特別感と<br>スッと溶けてしまうような滑らかな口溶けが特徴です。<br><br>オーストラリア産クリームチーズで濃厚に、<br>フランス産フロマージュブランで爽やかな味わいに<br>仕上げています。<br><br>また、上質で滑らかな食感になるよう国産バターを使用。<br>千葉県産「農家の朝」、群馬県産「榛名山麓のこだわり卵」<br>などの厳選卵の卵黄のみを使用し、<br>より深みのある味わいを楽しめます。</p>
-
-    <p style="font-size:clamp(11px, calc(11px + 2 * (100vw - 375px) / 649), 13px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.8; color:#333; margin:0 0 36px; padding-left:0.5em;">※厳選した卵を使用するため、卵によりチーズケーキの色味が変わる場合がございます。</p>
-
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">濃厚でいて<br>爽やかな味わいを追求</p>
+    <picture>
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/cheese_page2.jpg" alt="濃厚でいて爽やかな味わい">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">"チーズの配合率は約70%"からなる特別感と<br>スッと溶けてしまうような<br class="sd-sp-br">滑らかな口溶けが特徴です。<br><br>オーストラリア産クリームチーズで濃厚に、<br>フランス産フロマージュブランで爽やかな味わいに<br>仕上げています。<br><br>また、上質で滑らかな食感になるよう<br class="sd-sp-br">国産バターを使用。<br>千葉県産「農家の朝」、<br class="sd-sp-br">群馬県産「榛名山麓のこだわり卵」<br>などの厳選卵の卵黄のみを使用し、<br>より深みのある味わいを楽しめます。</p>
+    <p class="sd-note" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">※厳選した卵を使用するため、卵によりチーズケーキの色味が変わる場合がございます。</p>
+    
     <!-- "本当に美味しいものを届けたい"という想い -->
-    <p style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin:80px 0 20px;">"本当に美味しいものを<br>届けたい"という想い</p>
-
-    <img src="https://www.shop-musashinosabo.jp/pic-labo/cheese_page3.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
-
-    <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 36px; padding-left:0.5em;">私たちは東京の小さな工房で<br>特製焼チーズケーキを作っています。<br><br>職人の手で、一つ一つ丁寧に、時には<br>虫眼鏡を使い商品のチェックをしています。<br><br>いつでもお客様に美味しいものを届けたい、<br>そんな想いで作っています。</p>
-
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">"本当に美味しいものを<br>届けたい"という想い</p>
+    <picture>
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/cheese_page3.jpg" alt="東京の小さな工房">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">私たちは東京の小さな工房で<br>特製焼チーズケーキを作っています。<br><br>職人の手で、一つ一つ丁寧に、時には<br>虫眼鏡を使い商品のチェックをしています。<br><br>いつでもお客様に美味しいものを届けたい、<br>そんな想いで作っています。</p>
+    
     <!-- 上質な木箱に美味しさを込めて -->
-    <p style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin:80px 0 20px;">上質な木箱に<br>美味しさを込めて</p>
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">上質な木箱に<br>美味しさを込めて</p>
+    <picture>
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/cheese_page4.jpg" alt="木箱入">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">特製焼チーズケーキがぴったりと収まる<br>専用の木箱入。<br><br>こんがりと美しい焼き色とともに、<br>蓋を開けた瞬間から特別な感動を演出する、<br>記憶に残る一品です。<br><br>お祝いや大切な方への贈りものとしても<br>おすすめです。</p>
 
-    <img src="https://www.shop-musashinosabo.jp/pic-labo/cheese_page4.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
+      <!-- 閉じるボタン -->
+      <div class="sd-close" style="text-align:right;">
+        <button onclick="document.getElementById('cheese-more').style.display='none';document.getElementById('cheese-toggle-btn').style.display='flex';document.getElementById('cheese-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+          <span>閉じる</span>
+          <span style="font-size:13px; line-height:1;">－</span>
+        </button>
+      </div>
 
-    <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 36px; padding-left:0.5em;">特製焼チーズケーキがぴったりと収まる<br>専用の木箱入。<br><br>こんがりと美しい焼き色とともに、<br>蓋を開けた瞬間から特別な感動を演出する、<br>記憶に残る一品です。<br><br>お祝いや大切な方への贈りものとしても<br>おすすめです。</p>
-
-    <!-- 閉じるボタン -->
-    <div style="text-align:right; margin-top:20px;">
-      <button onclick="document.getElementById('cheese-more').style.display='none';document.getElementById('cheese-toggle-btn').style.display='flex';document.getElementById('cheese-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
-        <span>閉じる</span>
-        <span style="font-size:13px; line-height:1;">－</span>
-      </button>
     </div>
-
-  </div>
 
   </div>
 </div>

@@ -1,27 +1,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
+<!--
+  商品説明の共通の型（指示書 SPmilksizi / PCmilksizi 基準）
+  SP：枠W730pxの指示書 → 実機（枠 約365px）では 1/2 に換算
+  PC：枠W900pxの指示書 → そのままの数値
+  基準：幅390px（枠 約365px）でSP値、1024pxでPC値。その間は比例変化、390px未満はフォントを画面幅に比例縮小／900px〜で改行位置・字間をPC版に切り替え
+-->
 <style>
-  .cs-text {
-    line-height: 1.9;
-  }
-  .cs-title {
-    line-height: 1.6;
-  }
-  @media (min-width: 1024px) {
-    #cheesesand-img5 {
-      width: 35%;
-      max-width: 380px;
-    }
-    .cs-heading,
-    .cs-text {
-      margin-left: 44px;
-    }
-    .cs-heading {
-      line-height: 1.4;
-    }
-    .cs-text {
-      line-height: 1.7;
-    }
+  .sd-body { padding:clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  .sd-body picture, .sd-body .sd-link { display:block; }
+  .sd-body img { width:100%; height:auto; display:block; }
+  .sd-body .sd-img-small { width:50%; margin-left:auto; }
+  .sd-body .sd-img-small.cs-img5 { width:65%; }
+  #itemDetail-wrap .sd-body .sd-name { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(65px, calc(65px + 5 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-name.sd-first { margin-top:0; }
+  #itemDetail-wrap .sd-body .sd-name-sub { font-size:clamp(14px, min(4.487vw, calc(17.5px + 9.5 * (100vw - 390px) / 634)), 27px); line-height:1.5; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-text { font-size:clamp(11.2px, min(3.59vw, calc(14px + 4 * (100vw - 390px) / 634)), 18px); line-height:1.9; letter-spacing:0; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-intro { margin-top:clamp(50px, calc(50px + 10 * (100vw - 390px) / 634), 60px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-text { margin-top:1.9em; }
+  #itemDetail-wrap .sd-body .sd-note { font-size:clamp(8.8px, min(2.821vw, calc(11px + 2 * (100vw - 390px) / 634)), 13px); line-height:1.8; margin:clamp(15px, calc(15px + 5 * (100vw - 390px) / 634), 20px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-title { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px) 0 clamp(15px, calc(15px + 25 * (100vw - 390px) / 634), 40px); padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px) 0 clamp(15px, calc(15px + 15 * (100vw - 390px) / 634), 30px); }
+  #itemDetail-wrap .sd-body .sd-sub { font-size:clamp(14.4px, min(4.615vw, calc(18px + 6 * (100vw - 390px) / 634)), 24px); line-height:1.6; margin:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-sub + .sd-text { margin-top:clamp(8px, calc(8px + 4 * (100vw - 390px) / 634), 12px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-sub { margin-top:clamp(35px, calc(35px + 15 * (100vw - 390px) / 634), 50px); }
+  #itemDetail-wrap .sd-body picture + .sd-text, #itemDetail-wrap .sd-body picture + .sd-title, #itemDetail-wrap .sd-body picture + .sd-sub { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-text + picture, #itemDetail-wrap .sd-body .sd-note + picture, #itemDetail-wrap .sd-body .sd-sub + picture { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-sect.sd-sect.sd-sect { margin-top:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px); }
+  .sd-toggle { margin-top:clamp(30px, calc(30px + 10 * (100vw - 390px) / 634), 40px); }
+  .sd-close { margin-top:clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  br.sd-pc-br { display:none; }
+  /* 1行が長い段落（モックアップで枠の右端近くまで伸びている行）用：右余白なし・PCも字間0 */
+  #itemDetail-wrap .sd-body .sd-text.sd-text-wide { padding-right:0; }
+
+  @media (min-width: 900px) {
+    #itemDetail-wrap .sd-body .sd-text { letter-spacing:0.05em; }
+    .sd-body .sd-img-small { width:35%; }
+    .sd-body .sd-img-small.cs-img5 { width:55%; }
+    .sd-body .sd-img-narrow { width:90%; margin-left:auto; margin-right:auto; }
+    br.sd-sp-br { display:none; }
+    br.sd-pc-br { display:inline; }
+    #itemDetail-wrap .sd-body .sd-text.sd-text-wide { letter-spacing:0; }
   }
 </style>
 
@@ -32,97 +50,80 @@
     <span>商品説明</span>
   </div>
 
-  <div style="padding:16px;">
-
-  <!-- メインビジュアル -->
-  <a href="https://www.otoriyose.net/best/2026?utm_source=otoriyose&utm_medium=banner&utm_campaign=sptopa" target="_blank" rel="noopener">
+  <div class="sd-body">
+    <!-- メイン画像 -->
     <picture>
-      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026otoriyose_cheesesand1.png">
-      <img id="cheesesand-mainvisual" src="https://www.shop-musashinosabo.jp/pic-labo/2026otoriyose_cheesesand1.png" style="width:100%; height:auto; display:block; margin-bottom:24px;">
-    </picture>
-  </a>
-
-  <!-- 商品名 -->
-  <p class="cs-heading cs-title" style="font-size:clamp(22px, calc(22px + 3 * (100vw - 375px) / 649), 25px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0; margin-bottom:16px;">武蔵野茶房<br>チーズケーキサンド〈プレーン〉<br>- CHEESE CAKE SAND -</p>
-
-  <!-- 説明文 -->
-  <p class="cs-text" style="font-size:clamp(14px, calc(14px + 2 * (100vw - 375px) / 649), 16px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333; margin-top:0; margin-bottom:6px;">特製焼チーズケーキをサクサクのクッキー生地で<br>サンドした「チーズケーキサンド」です。</p>
-  <p class="cs-text" style="font-size:clamp(14px, calc(14px + 2 * (100vw - 375px) / 649), 16px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333; margin-top:0; margin-bottom:32px;">小花やフルーツのイラストをあしらったオリジナル<br>パッケージ入りで、贈り物にもおすすめです。</p>
-
-  <!-- もっと見るボタン -->
-  <button id="cheesesand-toggle-btn" onclick="document.getElementById('cheesesand-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
-    <span>もっと見る</span>
-    <span style="font-size:18px; line-height:1;">＋</span>
-  </button>
-
-  <div id="cheesesand-more" style="display:none; padding-top:16px;">
-
-    <!-- ふたつの食感がたまらない！ -->
-    <p class="cs-heading" style="font-size:clamp(24px, calc(24px + 3 * (100vw - 375px) / 649), 27px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:80px; margin-bottom:20px;">ふたつの食感がたまらない！</p>
-
-    <picture>
-      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand1.jpg">
-      <img id="cheesesand-img1" src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand1.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand_page1.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026cheesesand_page1.jpg" alt="チーズケーキサンド">
     </picture>
 
-    <p class="cs-text" style="font-size:clamp(14px, calc(14px + 2 * (100vw - 375px) / 649), 16px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333; margin-top:0; margin-bottom:20px; padding-left:0.5em;">濃厚チーズとサクサククッキーの夏のご褒美スイーツ。<br>冷蔵庫で少し短めに解凍すると、ひんやり<br>アイスチーズケーキ食感に。しっかり解凍では<br>定番のしっとり濃厚食感に。<br>解凍時間で変わる、"ふたつのおいしさ"を<br>お楽しみください。</p>
+    <!-- 商品名 -->
+    <p class="sd-name" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">武蔵野茶房<br>チーズケーキサンド<br class="sd-sp-br">〈プレーン〉</p>
+    <p class="sd-name-sub" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.02em;">- CHEESE CAKE SAND -</p>
+    
+    <!-- 説明文 -->
+    <p class="sd-text sd-intro" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">特製焼チーズケーキをサクサクのクッキー生地で<br>サンドした「チーズケーキサンド」です。</p>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">小花やフルーツのイラストをあしらったオリジナル<br>パッケージ入りで、贈り物にもおすすめです。</p>
 
-    <!-- 解凍比較 -->
-    <div style="display:flex; gap:12px; margin-bottom:12px;">
-      <picture>
-        <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand2.png">
-        <img id="cheesesand-img2" src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand2.png" style="width:100%; height:auto; display:block;">
-      </picture>
-    </div>
+    <!-- もっと見るボタン -->
+    <button id="cheesesand-toggle-btn" class="sd-toggle" onclick="document.getElementById('cheesesand-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+      <span>もっと見る</span>
+      <span style="font-size:18px; line-height:1;">＋</span>
+    </button>
+
+    <div id="cheesesand-more" style="display:none;">
 
     <!-- 焼き加減と厚みにこだわったクッキーに人気no.1 特製焼チーズケーキをサンド -->
-    <p class="cs-heading" style="font-size:clamp(24px, calc(24px + 3 * (100vw - 375px) / 649), 27px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:80px; margin-bottom:20px;">焼き加減と厚みにこだわったクッキーに<br>人気no.1 特製焼チーズケーキをサンド</p>
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">焼き加減と厚みにこだわった<br class="sd-sp-br">クッキーに<br class="sd-pc-br">人気no.1 <br class="sd-sp-br">特製焼チーズケーキをサンド</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand3.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand3.jpg" alt="クッキーとチーズケーキ">
+    </picture>
+    <p class="sd-text sd-text-wide" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">程よい厚みのクッキー生地は、チーズケーキに<br class="sd-sp-br">触れる面のサクサク感を大切にしながら、<br>一体感のある食感に仕上げました。<br>特製焼チーズケーキと合わせることで、重すぎず、<br class="sd-sp-br">濃厚でなめらかな口どけをより引き立てます。<br>“また次のひと口がほしくなる”――<br>そんなチーズケーキサンドをお楽しみいただけます。</p>
 
-    <div style="display:flex; gap:12px; margin-bottom:20px;">
-      <picture>
-        <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand3.jpg">
-        <img id="cheesesand-img3" src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand3.jpg" style="width:100%; height:auto; display:block;">
-      </picture>
-    </div>
+    <!-- ふたつの食感がたまらない！ -->
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">ふたつの食感がたまらない！</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand1.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand1.jpg" alt="ふたつの食感">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">濃厚チーズとサクサククッキーのご褒美スイーツ。<br>冷蔵庫で少し短めに解凍すると、ひんやり<br class="sd-sp-br">アイスチーズケーキ食感に。<br class="sd-pc-br">しっかり解凍では<br class="sd-sp-br">定番のしっとり濃厚食感に。<br>解凍時間で変わる、“ふたつのおいしさ”を<br class="sd-sp-br">お楽しみください。</p>
 
-    <p class="cs-text" style="font-size:clamp(14px, calc(14px + 2 * (100vw - 375px) / 649), 16px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333; margin-top:0; margin-bottom:36px; padding-left:0.5em;">程よい厚みのクッキー生地は、チーズケーキに触れる<br>面のサクサク感を大切にしながら、<br>一体感のある食感に仕上げました。<br>特製焼チーズケーキと合わせることで、重すぎず、<br>濃厚でなめらかな口どけをより引き立てます。<br><br>"また次のひと口がほしくなる"――<br>そんなチーズケーキサンドをお楽しみください。</p>
+    <!-- 解凍比較 -->
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand_page4.png">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026cheesesand_page4.png" alt="解凍時間による食感の違い">
+    </picture>
 
     <!-- ギフトに最適なパッケージでお届け -->
-    <p class="cs-heading" style="font-size:clamp(24px, calc(24px + 3 * (100vw - 375px) / 649), 27px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:80px; margin-bottom:20px;">ギフトに最適なパッケージでお届け</p>
-
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">ギフトに最適な<br class="sd-sp-br">パッケージでお届け</p>
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand4.jpg">
-      <img id="cheesesand-img4" src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand4.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand4.jpg" alt="ギフトパッケージ">
     </picture>
-
-    <p class="cs-text" style="font-size:clamp(14px, calc(14px + 2 * (100vw - 375px) / 649), 16px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333; margin-top:0; margin-bottom:20px; padding-left:0.5em;">小花やフルーツのイラストをあしらった<br>オリジナルイラスト入りのパッケージにて<br>ご用意いたします。<br>オレンジ色の箔押しのパッケージは、<br>高級感もあり、贈り物にぴったり。</p>
-
-    <picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">小花やフルーツのイラストをあしらった<br>オリジナルイラスト入りのパッケージにて<br class="sd-sp-br">ご用意いたします。<br>オレンジ色の箔押しのパッケージは、<br class="sd-sp-br">高級感もあり、贈り物にぴったり。</p>
+    <picture class="sd-img-small cs-img5">
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand5.png">
-      <img id="cheesesand-img5" src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand5.png" style="width:60%; height:auto; display:block; margin-left:auto; margin-bottom:36px;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand5.png" alt="パッケージ">
     </picture>
 
-    <!-- ベストお取り寄せ大賞2026にノミネート中！ -->
-    <p class="cs-heading" style="font-size:clamp(24px, calc(24px + 3 * (100vw - 375px) / 649), 27px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:80px; margin-bottom:20px;">ベストお取り寄せ大賞2026にノミネート中！</p>
-
+    <!-- お取り寄せ大賞を受賞したチーズケーキ -->
+    <p class="sd-title sd-sect" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">お取り寄せ大賞を<br class="sd-sp-br">受賞したチーズケーキ</p>
     <picture>
-      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026otoriyose_cheesesand2.jpg">
-      <img id="cheesesand-otoriyose2" src="https://www.shop-musashinosabo.jp/pic-labo/2026otoriyose_cheesesand2.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand_page7.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026cheesesand_page7.jpg" alt="特製焼チーズケーキ">
     </picture>
+    <p class="sd-text sd-text-wide" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">クッキー生地でサンドされているチーズケーキは、<br class="sd-sp-br">当店人気 NO.1 の「特製焼チーズケーキ」です。<br>そんな「特製焼チーズケーキ」は、日本最大級の<br class="sd-sp-br">お取り寄せ情報サイト『おとりよせネット』の<br>『年間総合大賞』に輝いた実績もある、<br class="sd-sp-br">当店自慢のチーズケーキです。<br>クッキーとチーズケーキが織りなす、新しい<br class="sd-sp-br">チーズケーキの味わいを、ぜひご堪能ください。</p>
 
-    <p class="cs-text" style="font-size:clamp(14px, calc(14px + 2 * (100vw - 375px) / 649), 16px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333; margin-top:0; margin-bottom:20px; padding-left:0.5em;">この度、日本最大級のお取り寄せ情報サイト<br>『おとりよせネット』の<br>年に一度の『ベストお取り寄せ大賞2026』にて、<br>チーズケーキサンド〈プレーン〉が<br>見事、ノミネートされました！<br>「お取り寄せしてみたい！」「とても美味しかった！」<br>「応援したい！！」という方は<br>ぜひとも、チーズケーキサンド〈プレーン〉に<br>投票をいただけますと幸いです！</p>
+      <!-- 閉じるボタン -->
+      <div class="sd-close" style="text-align:right;">
+        <button onclick="document.getElementById('cheesesand-more').style.display='none';document.getElementById('cheesesand-toggle-btn').style.display='flex';document.getElementById('cheesesand-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+          <span>閉じる</span>
+          <span style="font-size:13px; line-height:1;">－</span>
+        </button>
+      </div>
 
-    <p class="cs-text" style="font-size:clamp(14px, calc(14px + 2 * (100vw - 375px) / 649), 16px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333; margin-top:0; margin-bottom:36px; padding-left:0.5em;">投票先はこちらから<br>→<a href="https://www.otoriyose.net/best/2026?utm_source=otoriyose&utm_medium=banner&utm_campaign=sptopa" target="_blank" rel="noopener" style="color:#7a5c00;">https://www.otoriyose.net/best/2026/</a></p>
-
-    <!-- 閉じるボタン -->
-    <div style="text-align:right; margin-top:20px;">
-      <button onclick="document.getElementById('cheesesand-more').style.display='none';document.getElementById('cheesesand-toggle-btn').style.display='flex';document.getElementById('cheesesand-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
-        <span>閉じる</span>
-        <span style="font-size:13px; line-height:1;">－</span>
-      </button>
     </div>
-
-  </div>
 
   </div>
 </div>

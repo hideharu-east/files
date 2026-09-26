@@ -1,36 +1,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
+<!--
+  商品説明の共通の型（指示書 SPmilksizi / PCmilksizi 基準）
+  SP：枠W730pxの指示書 → 実機（枠 約365px）では 1/2 に換算
+  PC：枠W900pxの指示書 → そのままの数値
+  基準：幅390px（枠 約365px）でSP値、1024pxでPC値。その間は比例変化、390px未満はフォントを画面幅に比例縮小／900px〜で改行位置・字間をPC版に切り替え
+-->
 <style>
-  #tiramisu-img5 {
-    width: 100%;
-  }
-  /* SP実測（sptliramis.pdf）に基づく余白。PC側は別途pcteliramis.pdf実測値で上書き */
-  .gap-xl { margin-bottom: 180px; }
-  .gap-md { margin-bottom: 110px; }
-  .gap-sm { margin-bottom: 45px; }
-  .gap-ph { margin-bottom: 80px; }
-  .gap-title { margin-bottom: 70px; }
-  .gap-ph-sm { margin-bottom: 50px; }
-  .gap-md-sm { margin-bottom: 60px; }
-  @media (min-width: 1024px) {
-    br.sp-br {
-      display: none;
-    }
-    .tiramisu-text > p {
-      margin-left: 64px;
-    }
-    #tiramisu-img5 {
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .gap-xl { margin-bottom: 220px; }
-    .gap-md { margin-bottom: 90px; }
-    .gap-sm { margin-bottom: 40px; }
-    .gap-ph { margin-bottom: 80px; }
-    .gap-title { margin-bottom: 90px; }
-    .gap-ph-sm { margin-bottom: 80px; }
-    .gap-md-sm { margin-bottom: 90px; }
+  .sd-body { padding:clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  .sd-body picture, .sd-body .sd-link { display:block; }
+  .sd-body img { width:100%; height:auto; display:block; }
+  .sd-body .sd-img-small { width:50%; margin-left:auto; }
+  #itemDetail-wrap .sd-body .sd-name { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(65px, calc(65px + 5 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-name.sd-first { margin-top:0; }
+  #itemDetail-wrap .sd-body .sd-name-sub { font-size:clamp(14px, min(4.487vw, calc(17.5px + 9.5 * (100vw - 390px) / 634)), 27px); line-height:1.5; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-text { font-size:clamp(11.2px, min(3.59vw, calc(14px + 4 * (100vw - 390px) / 634)), 18px); line-height:1.9; letter-spacing:0; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-intro { margin-top:clamp(50px, calc(50px + 10 * (100vw - 390px) / 634), 60px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-text { margin-top:1.9em; }
+  #itemDetail-wrap .sd-body .sd-note { font-size:clamp(8.8px, min(2.821vw, calc(11px + 2 * (100vw - 390px) / 634)), 13px); line-height:1.8; margin:clamp(15px, calc(15px + 5 * (100vw - 390px) / 634), 20px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-title { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px) 0 clamp(15px, calc(15px + 25 * (100vw - 390px) / 634), 40px); padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px) 0 clamp(15px, calc(15px + 15 * (100vw - 390px) / 634), 30px); }
+  #itemDetail-wrap .sd-body .sd-sub { font-size:clamp(14.4px, min(4.615vw, calc(18px + 6 * (100vw - 390px) / 634)), 24px); line-height:1.6; margin:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-sub + .sd-text { margin-top:clamp(8px, calc(8px + 4 * (100vw - 390px) / 634), 12px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-sub { margin-top:clamp(35px, calc(35px + 15 * (100vw - 390px) / 634), 50px); }
+  #itemDetail-wrap .sd-body picture + .sd-text, #itemDetail-wrap .sd-body picture + .sd-title, #itemDetail-wrap .sd-body picture + .sd-sub { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-text + picture, #itemDetail-wrap .sd-body .sd-note + picture, #itemDetail-wrap .sd-body .sd-sub + picture { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-sect.sd-sect.sd-sect { margin-top:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px); }
+  .sd-toggle { margin-top:clamp(30px, calc(30px + 10 * (100vw - 390px) / 634), 40px); }
+  .sd-close { margin-top:clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  br.sd-pc-br { display:none; }
+
+  @media (min-width: 900px) {
+    #itemDetail-wrap .sd-body .sd-text { letter-spacing:0.05em; }
+    .sd-body .sd-img-small { width:35%; }
+    .sd-body .sd-img-narrow { width:90%; margin-left:auto; margin-right:auto; }
+    br.sd-sp-br { display:none; }
+    br.sd-pc-br { display:inline; }
   }
 </style>
 
@@ -41,95 +45,85 @@
     <span>商品説明</span>
   </div>
 
-  <div class="tiramisu-text" style="padding:16px;">
-
-  <!-- メインビジュアル（早期ご予約割引バナー） -->
-  <picture>
-    <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/2026tiramisu_page9.jpg">
-    <img class="gap-title" src="https://www.shop-musashinosabo.jp/pic-labo/2026tiramisu_page9.jpg" style="width:100%; height:auto; display:block;">
-  </picture>
-
-  <!-- 商品名 -->
-  <p class="gap-title" style="font-size:clamp(22px, calc(22px + 6 * (100vw - 375px) / 649), 28px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; line-height:1.6; color:#222; margin-top:0;">武蔵野茶房<br>ふんわりとろけるティラミス</p>
-
-  <!-- 説明文 -->
-  <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:60px;">濃厚クリームにふわっふわのメレンゲを合わせ、<br>"ふわっと口溶け食感"をお楽しみいただける木箱入のスイーツです。<br>贈り物にぜひいかがでしょうか。</p>
-
-  <!-- もっと見るボタン -->
-  <button id="tiramisu-toggle-btn" onclick="document.getElementById('tiramisu-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
-    <span>もっと見る</span>
-    <span style="font-size:18px; line-height:1;">＋</span>
-  </button>
-
-  <div id="tiramisu-more" class="tiramisu-text" style="display:none; padding-top:16px;">
-
-    <!-- スプーンですくうカット写真 -->
+  <div class="sd-body">
+    <!-- メインビジュアル -->
     <picture>
-      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page2.jpg">
-      <img class="gap-xl" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page2.jpg" style="width:100%; height:auto; display:block;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026tiramisu_page9.jpg" alt="ふんわりとろけるティラミス">
     </picture>
+    
+    <!-- 商品名 -->
+    <p class="sd-name" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">武蔵野茶房<br>ふんわりとろけるティラミス</p>
+    
+    <!-- 説明文 -->
+    <p class="sd-text sd-intro" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">濃厚クリームにふわっふわのメレンゲを合わせ、<br>"ふわっと口溶け食感"をお楽しみいただける<br class="sd-sp-br">木箱入のスイーツです。<br>贈り物にぜひいかがでしょうか。</p>
 
+    <!-- もっと見るボタン -->
+    <button id="tiramisu-toggle-btn" class="sd-toggle" onclick="document.getElementById('tiramisu-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+      <span>もっと見る</span>
+      <span style="font-size:18px; line-height:1;">＋</span>
+    </button>
+
+    <div id="tiramisu-more" style="display:none;">
+    
+    <!-- スプーンですくうカット写真 -->
+    <picture class="sd-sect">
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page2.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page2.jpg" alt="ティラミスをすくう">
+    </picture>
+    
     <!-- 北海道産マスカルポーネ＆生クリーム使用 -->
-    <p class="gap-sm" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0;">北海道産マスカルポーネ＆<br class="sp-br">生クリーム使用</p>
-
+    <p class="sd-title sd-sect" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">北海道産マスカルポーネ＆<br class="sd-sp-br">生クリーム使用</p>
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page3.jpg">
-      <img class="gap-ph-sm" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page3.jpg" style="width:100%; height:auto; display:block;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page3.jpg" alt="マスカルポーネと生クリーム">
     </picture>
-
-    <p class="gap-md-sm" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; padding-left:0.5em;">ティラミスの濃厚クリームには、<br>自然豊かな北海道の生乳を使用したマスカルポーネと生クリームを使用。<br>コクのある濃厚な味わいに仕上げ、少量でも<br>十分満足感を味わうことができます。</p>
-
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">ティラミスの濃厚クリームには、<br>自然豊かな北海道の生乳を使用した<br class="sd-sp-br">マスカルポーネと生クリームを使用。<br>コクのある濃厚な味わいに仕上げ、少量でも<br>十分満足感を味わうことができます。</p>
+    
     <!-- マスカルポーネ / 生クリーム（写真・見出し・説明を含む完成グラフィック） -->
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page4.png">
-      <img class="gap-xl" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page4.png" style="width:100%; height:auto; display:block;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page4.png" alt="マスカルポーネ・生クリーム">
     </picture>
-
+    
     <!-- "ふわっと口溶け" -->
-    <p class="gap-sm" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0;">"ふわっと口溶け"</p>
-
+    <p class="sd-title sd-sect" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">"ふわっと口溶け"</p>
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page5.jpg">
-      <img class="gap-ph" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page5.jpg" style="width:100%; height:auto; display:block;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page5.jpg" alt="ふわっと口溶け">
     </picture>
-
-    <p class="gap-xl" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; padding-left:0.5em;">濃厚な乳の味わいに合わせるのは、泡のようなふわっふわのメレンゲ。<br>クリーム生地を作る最後の工程でたっぷり含ませることによって、<br>"ふわっと泡のような食感"にすることができました。</p>
-
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">濃厚な乳の味わいに合わせるのは、<br class="sd-sp-br">泡のようなふわっふわのメレンゲ。<br>クリーム生地を作る最後の工程で<br class="sd-sp-br">たっぷり含ませることによって、<br>"ふわっと泡のような食感"に<br class="sd-sp-br">することができました。</p>
+    
     <!-- こだわりのエスプレッソ -->
-    <p class="gap-sm" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0;">こだわりのエスプレッソ</p>
-
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">こだわりのエスプレッソ</p>
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page6.jpg">
-      <img class="gap-ph-sm" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page6.jpg" style="width:100%; height:auto; display:block;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page6.jpg" alt="こだわりのエスプレッソ">
     </picture>
-
-    <p class="gap-md-sm" style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; padding-left:0.5em;">こだわり豆で抽出したエスプレッソをたっぷり染み込ませ、<br>しっかりとした珈琲の香りとコクをプラス。<br>さらにスポンジにも同じ豆を加えた珈琲生地を使用し、<br>ティラミス全体のバランスをとりました。</p>
-
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">こだわり豆で抽出したエスプレッソを<br class="sd-sp-br">たっぷり染み込ませ、<br>しっかりとした珈琲の香りとコクをプラス。<br>さらにスポンジにも同じ豆を加えた<br class="sd-sp-br">珈琲生地を使用し、<br>ティラミス全体のバランスをとりました。</p>
+    
     <!-- 使用豆（一式画像） -->
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page8.png">
-      <img class="gap-xl" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page8.png" style="width:100%; height:auto; display:block;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page8.png" alt="使用豆">
     </picture>
-
+    
     <!-- 贈り物にぜひいかがでしょうか -->
-    <p class="gap-sm" style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin-top:0;">贈り物にぜひいかがでしょうか</p>
-
-    <picture>
+    <p class="sd-title sd-sect" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">贈り物に<br class="sd-sp-br">ぜひいかがでしょうか</p>
+    <picture class="sd-img-narrow">
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026tiramisu_page8.jpg">
-      <img id="tiramisu-img5" class="gap-ph" src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page8.jpg" style="height:auto; display:block;">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SP_2026tiramisu_page8.jpg" alt="木箱入ティラミス">
     </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">木箱いっぱいのティラミスは<br class="sd-sp-br">贈り物に大変喜ばれます。<br>誕生日などのお祝いスイーツなどにも<br class="sd-sp-br">是非ご利用くださいませ。</p>
 
-    <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin-top:0; margin-bottom:36px; padding-left:0.5em;">木箱いっぱいのティラミスは贈り物に大変喜ばれます。<br>誕生日などのお祝いスイーツなどにも是非ご利用くださいませ。</p>
+      <!-- 閉じるボタン -->
+      <div class="sd-close" style="text-align:right;">
+        <button onclick="document.getElementById('tiramisu-more').style.display='none';document.getElementById('tiramisu-toggle-btn').style.display='flex';document.getElementById('tiramisu-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+          <span>閉じる</span>
+          <span style="font-size:13px; line-height:1;">－</span>
+        </button>
+      </div>
 
-    <!-- 閉じるボタン -->
-    <div style="text-align:right; margin-top:20px;">
-      <button onclick="document.getElementById('tiramisu-more').style.display='none';document.getElementById('tiramisu-toggle-btn').style.display='flex';document.getElementById('tiramisu-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
-        <span>閉じる</span>
-        <span style="font-size:13px; line-height:1;">－</span>
-      </button>
     </div>
-
-  </div>
 
   </div>
 </div>

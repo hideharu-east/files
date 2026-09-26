@@ -1,29 +1,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
 <!--
-  指示書（SPmilksizi / PCmilksizi）の数値を反映
+  商品説明の共通の型（指示書 SPmilksizi / PCmilksizi 基準）
   SP：枠W730pxの指示書 → 実機（枠 約365px）では 1/2 に換算
   PC：枠W900pxの指示書 → そのままの数値
-  中間幅：375px〜1024pxで上記の値を比例変化
+  基準：幅390px（枠 約365px）でSP値、1024pxでPC値。その間は比例変化、390px未満はフォントを画面幅に比例縮小／900px〜で改行位置・字間をPC版に切り替え
 -->
 <style>
-  /* SP（375px）→ PC（1024px）の間は、フォント・余白ともに指示書の数値へ滑らかに変化させる */
-  .mt26-body { padding:clamp(8px, calc(8px + 12 * (100vw - 375px) / 649), 20px) clamp(8px, calc(8px + 12 * (100vw - 375px) / 649), 20px) clamp(40px, calc(40px + 20 * (100vw - 375px) / 649), 60px); }
-  .mt26-img { width:100%; height:auto; display:block; }
-  #itemDetail-wrap .mt26-name.mt26-name { font-size:clamp(22.5px, calc(22.5px + 7.5 * (100vw - 375px) / 649), 30px); line-height:1.5; margin:clamp(65px, calc(65px + 5 * (100vw - 375px) / 649), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 375px) / 649), 25px); }
-  #itemDetail-wrap .mt26-name-sub.mt26-name-sub { font-size:clamp(17.5px, calc(17.5px + 9.5 * (100vw - 375px) / 649), 27px); line-height:1.5; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 375px) / 649), 25px); }
-  #itemDetail-wrap .mt26-text.mt26-text { font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); line-height:1.9; letter-spacing:0; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 375px) / 649), 25px); }
-  #itemDetail-wrap .mt26-intro.mt26-intro { margin-top:clamp(50px, calc(50px + 10 * (100vw - 375px) / 649), 60px); }
-  #itemDetail-wrap .mt26-title.mt26-title { font-size:clamp(22.5px, calc(22.5px + 7.5 * (100vw - 375px) / 649), 30px); line-height:1.5; margin:clamp(125px, calc(125px + 75 * (100vw - 375px) / 649), 200px) 0 clamp(15px, calc(15px + 25 * (100vw - 375px) / 649), 40px); padding:0 clamp(7px, calc(7px + 18 * (100vw - 375px) / 649), 25px) 0 clamp(15px, calc(15px + 15 * (100vw - 375px) / 649), 30px); }
-  #itemDetail-wrap picture + .mt26-text.mt26-text { margin-top:clamp(35px, calc(35px + 35 * (100vw - 375px) / 649), 70px); }
-  .mt26-toggle { margin-top:clamp(30px, calc(30px + 10 * (100vw - 375px) / 649), 40px); }
-  br.mt26-pc-br { display:none; }
+  .sd-body { padding:clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  .sd-body picture, .sd-body .sd-link { display:block; }
+  .sd-body img { width:100%; height:auto; display:block; }
+  .sd-body .sd-img-small { width:50%; margin-left:auto; }
+  #itemDetail-wrap .sd-body .sd-name { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(65px, calc(65px + 5 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-name.sd-first { margin-top:0; }
+  #itemDetail-wrap .sd-body .sd-name-sub { font-size:clamp(14px, min(4.487vw, calc(17.5px + 9.5 * (100vw - 390px) / 634)), 27px); line-height:1.5; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-text { font-size:clamp(11.2px, min(3.59vw, calc(14px + 4 * (100vw - 390px) / 634)), 18px); line-height:1.9; letter-spacing:0; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-intro { margin-top:clamp(50px, calc(50px + 10 * (100vw - 390px) / 634), 60px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-text { margin-top:1.9em; }
+  #itemDetail-wrap .sd-body .sd-note { font-size:clamp(8.8px, min(2.821vw, calc(11px + 2 * (100vw - 390px) / 634)), 13px); line-height:1.8; margin:clamp(15px, calc(15px + 5 * (100vw - 390px) / 634), 20px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-title { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px) 0 clamp(15px, calc(15px + 25 * (100vw - 390px) / 634), 40px); padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px) 0 clamp(15px, calc(15px + 15 * (100vw - 390px) / 634), 30px); }
+  #itemDetail-wrap .sd-body .sd-sub { font-size:clamp(14.4px, min(4.615vw, calc(18px + 6 * (100vw - 390px) / 634)), 24px); line-height:1.6; margin:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-sub + .sd-text { margin-top:clamp(8px, calc(8px + 4 * (100vw - 390px) / 634), 12px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-sub { margin-top:clamp(35px, calc(35px + 15 * (100vw - 390px) / 634), 50px); }
+  #itemDetail-wrap .sd-body picture + .sd-text, #itemDetail-wrap .sd-body picture + .sd-title, #itemDetail-wrap .sd-body picture + .sd-sub { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-text + picture, #itemDetail-wrap .sd-body .sd-note + picture, #itemDetail-wrap .sd-body .sd-sub + picture { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-sect.sd-sect.sd-sect { margin-top:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px); }
+  .sd-toggle { margin-top:clamp(30px, calc(30px + 10 * (100vw - 390px) / 634), 40px); }
+  .sd-close { margin-top:clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  br.sd-pc-br { display:none; }
 
-  /* 900px〜：改行位置・字間をPC版に切り替え（PC版の最長行40字が収まる幅） */
   @media (min-width: 900px) {
-    #itemDetail-wrap .mt26-text.mt26-text { letter-spacing:0.05em; }
-    br.mt26-sp-br { display:none; }
-    br.mt26-pc-br { display:inline; }
+    #itemDetail-wrap .sd-body .sd-text { letter-spacing:0.05em; }
+    .sd-body .sd-img-small { width:35%; }
+    .sd-body .sd-img-narrow { width:90%; margin-left:auto; margin-right:auto; }
+    br.sd-sp-br { display:none; }
+    br.sd-pc-br { display:inline; }
   }
 </style>
 
@@ -34,63 +45,62 @@
     <span>商品説明</span>
   </div>
 
-  <div class="mt26-body">
-
+  <div class="sd-body">
     <!-- メイン画像 -->
     <picture>
       <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page1.jpg">
-      <img class="mt26-img" src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page1.jpg" alt="チーズケーキサンド ミルクティー">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page1.jpg" alt="チーズケーキサンド ミルクティー">
     </picture>
-
+    
     <!-- 商品名 -->
-    <p class="mt26-name" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222;">武蔵野茶房<br>チーズケーキサンド<br class="mt26-sp-br">〈ミルクティー〉</p>
-    <p class="mt26-name-sub" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.02em; color:#222;">- CHEESE CAKE SAND MILK TEA -</p>
-
+    <p class="sd-name" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">武蔵野茶房<br>チーズケーキサンド<br class="sd-sp-br">〈ミルクティー〉</p>
+    <p class="sd-name-sub" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.02em;">- CHEESE CAKE SAND MILK TEA -</p>
+    
     <!-- 説明文 -->
-    <p class="mt26-text mt26-intro" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">特製焼チーズケーキにアールグレイの風味が<br class="mt26-sp-br">口の中に広がる<br class="mt26-pc-br">この時期にしか出会えない<br class="mt26-sp-br">「チーズケーキサンド」です。<br>小花やフルーツのイラストをあしらったオリジナル<br>パッケージ入りで、贈り物にもおすすめです。</p>
+    <p class="sd-text sd-intro" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">特製焼チーズケーキにアールグレイの風味が<br class="sd-sp-br">口の中に広がる<br class="sd-pc-br">この時期にしか出会えない<br class="sd-sp-br">「チーズケーキサンド」です。<br>小花やフルーツのイラストをあしらったオリジナル<br>パッケージ入りで、贈り物にもおすすめです。</p>
 
     <!-- もっと見るボタン -->
-    <button id="mt26-toggle-btn" class="mt26-toggle" onclick="document.getElementById('mt26-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+    <button id="mt26-toggle-btn" class="sd-toggle" onclick="document.getElementById('mt26-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
       <span>もっと見る</span>
       <span style="font-size:18px; line-height:1;">＋</span>
     </button>
 
     <div id="mt26-more" style="display:none;">
-
-      <!-- 秋限定ミルクティー味 -->
-      <p class="mt26-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.1em; color:#222;">秋限定ミルクティー味</p>
-      <picture>
-        <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page2.jpg">
-        <img class="mt26-img" src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page2.jpg" alt="秋限定ミルクティー味">
-      </picture>
-      <p class="mt26-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">香りの良いスリランカ産のアールグレイを<br class="mt26-sp-br">使用したミルクティー味のチーズケーキサンドは<br>一口食べると紅茶の風味が口の中に広がり、<br>リラックスタイムのおやつにぴったりの一品です。<br>この時期だけの特別なティータイムを<br class="mt26-sp-br">お楽しみください。</p>
-
-      <!-- スリランカ産のアールグレイを使用 -->
-      <p class="mt26-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.1em; color:#222;">スリランカ産の<br class="mt26-sp-br">アールグレイを使用</p>
-      <picture>
-        <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page3.jpg">
-        <img class="mt26-img" src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page3.jpg" alt="スリランカ産のアールグレイ">
-      </picture>
-      <p class="mt26-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">厳選茶葉には香り豊かなスリランカ産の<br class="mt26-sp-br">アールグレイを使用し<br class="mt26-pc-br">北海道産の生クリームで<br class="mt26-sp-br">茶葉を丁寧に抽出しました。<br>柑橘系果実のベルガモットの爽やかな香りが加わった<br class="mt26-sp-br">風味豊かなチーズケーキを<br class="mt26-pc-br">お楽しみいただけます。</p>
-
-      <!-- パティシエこだわりの配合 -->
-      <p class="mt26-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.1em; color:#222;">パティシエこだわりの配合</p>
-      <picture>
-        <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page4.jpg">
-        <img class="mt26-img" src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page4.jpg" alt="パティシエこだわりの配合">
-      </picture>
-      <p class="mt26-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">紅茶とチーズケーキの黄金比を求めて、<br class="mt26-sp-br">濃厚チーズケーキの美味しさはそのままに、<br>紅茶の濃さやチーズケーキとのバランスを<br class="mt26-sp-br">なんどもの試作を繰り返し、<br class="mt26-pc-br">納得のいく仕上がりに<br class="mt26-sp-br">たどり着きました。</p>
-
-      <!-- ギフトに最適なパッケージでお届け -->
-      <p class="mt26-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.1em; color:#222;">ギフトに最適なパッケージでお届け</p>
-      <picture>
-        <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page5.jpg">
-        <img class="mt26-img" src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page5.jpg" alt="ギフトパッケージ">
-      </picture>
-      <p class="mt26-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">小花やフルーツのイラストをあしらった<br>オリジナルイラスト入りのパッケージにて<br class="mt26-sp-br">ご用意いたします。<br>オレンジ色の箔押しのパッケージは、<br class="mt26-sp-br">高級感もあり、贈り物にぴったり。</p>
+    
+    <!-- 秋限定ミルクティー味 -->
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">秋限定ミルクティー味</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page2.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page2.jpg" alt="秋限定ミルクティー味">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">香りの良いスリランカ産のアールグレイを<br class="sd-sp-br">使用したミルクティー味のチーズケーキサンドは<br>一口食べると紅茶の風味が口の中に広がり、<br>リラックスタイムのおやつにぴったりの一品です。<br>この時期だけの特別なティータイムを<br class="sd-sp-br">お楽しみください。</p>
+    
+    <!-- スリランカ産のアールグレイを使用 -->
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">スリランカ産の<br class="sd-sp-br">アールグレイを使用</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page3.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page3.jpg" alt="スリランカ産のアールグレイ">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">厳選茶葉には香り豊かなスリランカ産の<br class="sd-sp-br">アールグレイを使用し<br class="sd-pc-br">北海道産の生クリームで<br class="sd-sp-br">茶葉を丁寧に抽出しました。<br>柑橘系果実のベルガモットの<br class="sd-sp-br">爽やかな香りが加わった<br class="sd-sp-br">風味豊かなチーズケーキを<br class="sd-pc-br">お楽しみいただけます。</p>
+    
+    <!-- パティシエこだわりの配合 -->
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">パティシエこだわりの配合</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page4.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page4.jpg" alt="パティシエこだわりの配合">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">紅茶とチーズケーキの黄金比を求めて、<br class="sd-sp-br">濃厚チーズケーキの美味しさはそのままに、<br>紅茶の濃さやチーズケーキとのバランスを<br class="sd-sp-br">なんどもの試作を繰り返し、<br class="sd-pc-br">納得のいく仕上がりに<br class="sd-sp-br">たどり着きました。</p>
+    
+    <!-- ギフトに最適なパッケージでお届け -->
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">ギフトに最適な<br class="sd-sp-br">パッケージでお届け</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page5.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page5.jpg" alt="ギフトパッケージ">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">小花やフルーツのイラストをあしらった<br>オリジナルイラスト入りのパッケージにて<br class="sd-sp-br">ご用意いたします。<br>オレンジ色の箔押しのパッケージは、<br class="sd-sp-br">高級感もあり、贈り物にぴったり。</p>
 
       <!-- 閉じるボタン -->
-      <div style="text-align:right; margin-top:40px;">
+      <div class="sd-close" style="text-align:right;">
         <button onclick="document.getElementById('mt26-more').style.display='none';document.getElementById('mt26-toggle-btn').style.display='flex';document.getElementById('mt26-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
           <span>閉じる</span>
           <span style="font-size:13px; line-height:1;">－</span>

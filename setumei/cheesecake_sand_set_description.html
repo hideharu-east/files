@@ -1,5 +1,43 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
+<!--
+  商品説明の共通の型（指示書 SPmilksizi / PCmilksizi 基準）
+  SP：枠W730pxの指示書 → 実機（枠 約365px）では 1/2 に換算
+  PC：枠W900pxの指示書 → そのままの数値
+  基準：幅390px（枠 約365px）でSP値、1024pxでPC値。その間は比例変化、390px未満はフォントを画面幅に比例縮小／900px〜で改行位置・字間をPC版に切り替え
+-->
+<style>
+  .sd-body { padding:clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  .sd-body picture, .sd-body .sd-link { display:block; }
+  .sd-body img { width:100%; height:auto; display:block; }
+  .sd-body .sd-img-small { width:50%; margin-left:auto; }
+  #itemDetail-wrap .sd-body .sd-name { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(65px, calc(65px + 5 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-name.sd-first { margin-top:0; }
+  #itemDetail-wrap .sd-body .sd-name-sub { font-size:clamp(14px, min(4.487vw, calc(17.5px + 9.5 * (100vw - 390px) / 634)), 27px); line-height:1.5; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-text { font-size:clamp(11.2px, min(3.59vw, calc(14px + 4 * (100vw - 390px) / 634)), 18px); line-height:1.9; letter-spacing:0; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-intro { margin-top:clamp(50px, calc(50px + 10 * (100vw - 390px) / 634), 60px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-text { margin-top:1.9em; }
+  #itemDetail-wrap .sd-body .sd-note { font-size:clamp(8.8px, min(2.821vw, calc(11px + 2 * (100vw - 390px) / 634)), 13px); line-height:1.8; margin:clamp(15px, calc(15px + 5 * (100vw - 390px) / 634), 20px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-title { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px) 0 clamp(15px, calc(15px + 25 * (100vw - 390px) / 634), 40px); padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px) 0 clamp(15px, calc(15px + 15 * (100vw - 390px) / 634), 30px); }
+  #itemDetail-wrap .sd-body .sd-sub { font-size:clamp(14.4px, min(4.615vw, calc(18px + 6 * (100vw - 390px) / 634)), 24px); line-height:1.6; margin:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-sub + .sd-text { margin-top:clamp(8px, calc(8px + 4 * (100vw - 390px) / 634), 12px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-sub { margin-top:clamp(35px, calc(35px + 15 * (100vw - 390px) / 634), 50px); }
+  #itemDetail-wrap .sd-body picture + .sd-text, #itemDetail-wrap .sd-body picture + .sd-title, #itemDetail-wrap .sd-body picture + .sd-sub { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-text + picture, #itemDetail-wrap .sd-body .sd-note + picture, #itemDetail-wrap .sd-body .sd-sub + picture { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-sect.sd-sect.sd-sect { margin-top:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px); }
+  .sd-toggle { margin-top:clamp(30px, calc(30px + 10 * (100vw - 390px) / 634), 40px); }
+  .sd-close { margin-top:clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  br.sd-pc-br { display:none; }
+
+  @media (min-width: 900px) {
+    #itemDetail-wrap .sd-body .sd-text { letter-spacing:0.05em; }
+    .sd-body .sd-img-small { width:35%; }
+    .sd-body .sd-img-narrow { width:90%; margin-left:auto; margin-right:auto; }
+    br.sd-sp-br { display:none; }
+    br.sd-pc-br { display:inline; }
+  }
+</style>
+
 <div style="margin:20px 0; margin-right:2px; background:#fff; border:1px solid #d4b86a; color:#333;">
 
   <!-- タイトル -->
@@ -7,57 +45,54 @@
     <span>商品説明</span>
   </div>
 
-  <div style="padding:16px;">
+  <div class="sd-body">
+    <!-- 商品名 -->
+    <p class="sd-name sd-first" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">武蔵野茶房<br>チーズケーキサンド<br class="sd-sp-br">〈プレーン＆ミルクティー〉<br class="sd-sp-br">セット</p>
+    
+    <!-- 説明文 -->
+    <p class="sd-text sd-intro" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">濃厚チーズの味わいの〈プレーン〉と、<br>季節限定〈ミルクティー〉味をセットにしました。<br>小花やフルーツのイラストをあしらったオリジナル<br>パッケージ入りで、贈り物にもおすすめです。</p>
 
-  <!-- 商品名 -->
-  <p style="font-size:clamp(22px, calc(22px + 6 * (100vw - 375px) / 649), 28px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; line-height:1.6; color:#222; margin:0 0 16px;">武蔵野茶房<br>チーズケーキサンド〈プレーン＆ミルクティー〉セット</p>
+    <!-- もっと見るボタン -->
+    <button id="csset-toggle-btn" class="sd-toggle" onclick="document.getElementById('csset-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+      <span>もっと見る</span>
+      <span style="font-size:18px; line-height:1;">＋</span>
+    </button>
 
-  <!-- 説明文 -->
-  <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 6px;">濃厚チーズの味わいの〈プレーン〉と、<br>季節限定〈ミルクティー〉味をセットにしました。</p>
-  <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 32px;">小花やフルーツのイラストをあしらったオリジナル<br>パッケージ入りで、贈り物にもおすすめです。</p>
-
-  <!-- もっと見るボタン -->
-  <button id="csset-toggle-btn" onclick="document.getElementById('csset-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
-    <span>もっと見る</span>
-    <span style="font-size:18px; line-height:1;">＋</span>
-  </button>
-
-  <div id="csset-more" style="display:none; padding-top:16px;">
-
+    <div id="csset-more" style="display:none;">
+    
     <!-- 秋限定ミルクティー味 -->
-    <p style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin:80px 0 20px;">秋限定ミルクティー味</p>
-
-    <img src="https://www.shop-musashinosabo.jp/pic-labo/2026milkteasand.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
-
-    <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 20px; padding-left:0.5em;">香りの良いスリランカ産のアールグレイを使用した<br>ミルクティー味のチーズケーキサンドは<br>一口食べると紅茶の風味が口の中に広がり、<br>リラックスタイムのおやつにぴったりの一品です。<br>この時期だけの特別なティータイムを<br>お楽しみください。</p>
-
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">秋限定ミルクティー味</p>
+    <picture>
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026milkteasand.jpg" alt="秋限定ミルクティー味">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">香りの良いスリランカ産のアールグレイを使用した<br>ミルクティー味のチーズケーキサンドは<br>一口食べると紅茶の風味が口の中に広がり、<br>リラックスタイムのおやつにぴったりの一品です。<br>この時期だけの特別なティータイムを<br>お楽しみください。</p>
+    
     <!-- 焼き加減と厚みにこだわったクッキーに人気no.1 特製焼チーズケーキをサンド -->
-    <p style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin:80px 0 20px;">焼き加減と厚みにこだわったクッキーに<br>人気no.1 特製焼チーズケーキをサンド</p>
-
-    <div style="display:flex; gap:12px; margin-bottom:20px;">
-      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand3.jpg" style="width:100%; height:auto; display:block;">
-    </div>
-
-    <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 36px; padding-left:0.5em;">程よい厚みのクッキー生地は、チーズケーキに触れる<br>面のサクサク感を大切にしながら、<br>一体感のある食感に仕上げました。<br>特製焼チーズケーキと合わせることで、重すぎず、<br>濃厚でなめらかな口どけをより引き立てます。<br><br>"また次のひと口がほしくなる"――<br>そんなチーズケーキサンドをお楽しみください。</p>
-
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">焼き加減と厚みにこだわった<br class="sd-sp-br">クッキーに<br class="sd-pc-br">人気no.1 <br class="sd-sp-br">特製焼チーズケーキをサンド</p>
+    <picture>
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand3.jpg" alt="クッキーとチーズケーキ">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">程よい厚みのクッキー生地は、<br class="sd-sp-br">チーズケーキに触れる<br>面のサクサク感を大切にしながら、<br>一体感のある食感に仕上げました。<br>特製焼チーズケーキと合わせることで、重すぎず、<br>濃厚でなめらかな口どけをより引き立てます。<br><br>"また次のひと口がほしくなる"――<br>そんなチーズケーキサンドをお楽しみください。</p>
+    
     <!-- ギフトに最適なパッケージでお届け -->
-    <p style="font-size:clamp(26px, calc(26px + 6 * (100vw - 375px) / 649), 32px); font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; letter-spacing:0.06em; color:#222; margin:80px 0 20px;">ギフトに最適なパッケージでお届け</p>
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">ギフトに最適な<br class="sd-sp-br">パッケージでお届け</p>
+    <picture>
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand4.jpg" alt="ギフトパッケージ">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">小花やフルーツのイラストをあしらった<br>オリジナルイラスト入りのパッケージにて<br>ご用意いたします。<br>オレンジ色の箔押しのパッケージは、<br>高級感もあり、贈り物にぴったり。</p>
+    <picture class="sd-img-small">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand5.png" alt="パッケージ">
+    </picture>
 
-    <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand4.jpg" style="width:100%; height:auto; display:block; margin-bottom:20px;">
+      <!-- 閉じるボタン -->
+      <div class="sd-close" style="text-align:right;">
+        <button onclick="document.getElementById('csset-more').style.display='none';document.getElementById('csset-toggle-btn').style.display='flex';document.getElementById('csset-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+          <span>閉じる</span>
+          <span style="font-size:13px; line-height:1;">－</span>
+        </button>
+      </div>
 
-    <p style="font-size:clamp(14px, calc(14px + 4 * (100vw - 375px) / 649), 18px); font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; line-height:1.9; color:#333; margin:0 0 20px; padding-left:0.5em;">小花やフルーツのイラストをあしらった<br>オリジナルイラスト入りのパッケージにて<br>ご用意いたします。<br>オレンジ色の箔押しのパッケージは、<br>高級感もあり、贈り物にぴったり。</p>
-
-    <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand5.png" style="width:50%; height:auto; display:block; margin-left:auto; margin-bottom:36px;">
-
-    <!-- 閉じるボタン -->
-    <div style="text-align:right; margin-top:20px;">
-      <button onclick="document.getElementById('csset-more').style.display='none';document.getElementById('csset-toggle-btn').style.display='flex';document.getElementById('csset-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
-        <span>閉じる</span>
-        <span style="font-size:13px; line-height:1;">－</span>
-      </button>
     </div>
-
-  </div>
 
   </div>
 </div>
