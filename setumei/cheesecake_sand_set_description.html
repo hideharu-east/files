@@ -11,6 +11,7 @@
   .sd-body picture, .sd-body .sd-link { display:block; }
   .sd-body img { width:100%; height:auto; display:block; }
   .sd-body .sd-img-small { width:50%; margin-left:auto; }
+  .sd-body .sd-img-small.cs-img5 { width:65%; }
   #itemDetail-wrap .sd-body .sd-name { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(65px, calc(65px + 5 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
   #itemDetail-wrap .sd-body .sd-name.sd-first { margin-top:0; }
   #itemDetail-wrap .sd-body .sd-name-sub { font-size:clamp(14px, min(4.487vw, calc(17.5px + 9.5 * (100vw - 390px) / 634)), 27px); line-height:1.5; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
@@ -28,10 +29,16 @@
   .sd-toggle { margin-top:clamp(30px, calc(30px + 10 * (100vw - 390px) / 634), 40px); }
   .sd-close { margin-top:clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
   br.sd-pc-br { display:none; }
+  /* 商品名・最初の見出し：スマホでは字間を詰めて文字を少し小さくし、改行を増やさずに収める */
+  #itemDetail-wrap .sd-body .set-tight { letter-spacing:0.05em; }
+  @media (max-width: 899px) {
+    #itemDetail-wrap .sd-body .set-tight.set-tight { font-size:clamp(16.8px, min(5.385vw, calc(21px + 9 * (100vw - 390px) / 634)), 30px); letter-spacing:-0.03em; padding-right:0; }
+  }
 
   @media (min-width: 900px) {
     #itemDetail-wrap .sd-body .sd-text { letter-spacing:0.05em; }
     .sd-body .sd-img-small { width:35%; }
+    .sd-body .sd-img-small.cs-img5 { width:55%; }
     .sd-body .sd-img-narrow { width:90%; margin-left:auto; margin-right:auto; }
     br.sd-sp-br { display:none; }
     br.sd-pc-br { display:inline; }
@@ -46,11 +53,17 @@
   </div>
 
   <div class="sd-body">
+    <!-- メイン画像 -->
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasandset_page1.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasandset_page1.jpg" alt="チーズケーキサンド〈プレーン＆ミルクティー〉セット">
+    </picture>
+
     <!-- 商品名 -->
-    <p class="sd-name sd-first" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">武蔵野茶房<br>チーズケーキサンド<br class="sd-sp-br">〈プレーン＆ミルクティー〉<br class="sd-sp-br">セット</p>
-    
+    <p class="sd-name set-tight" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222;">武蔵野茶房<br>チーズケーキサンド<br>〈プレーン＆ミルクティー〉セット</p>
+
     <!-- 説明文 -->
-    <p class="sd-text sd-intro" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">濃厚チーズの味わいの〈プレーン〉と、<br>季節限定〈ミルクティー〉味をセットにしました。<br>小花やフルーツのイラストをあしらったオリジナル<br>パッケージ入りで、贈り物にもおすすめです。</p>
+    <p class="sd-text sd-intro" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">濃厚チーズの味わいの〈プレーン〉と、<br>季節限定〈ミルクティー〉味をセットにしました。<br>小花やフルーツのイラストをあしらった<br class="sd-sp-br">オリジナルパッケージ入りで、<br>贈り物にもおすすめです。</p>
 
     <!-- もっと見るボタン -->
     <button id="csset-toggle-btn" class="sd-toggle" onclick="document.getElementById('csset-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
@@ -59,28 +72,40 @@
     </button>
 
     <div id="csset-more" style="display:none;">
-    
+
+    <!-- 人気no.1 特製焼チーズケーキをクッキーでサンドした〈プレーン〉 -->
+    <p class="sd-title set-tight" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222;">人気no.1 特製焼チーズケーキを<br>クッキーでサンドした〈プレーン〉</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasandset_page2.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasandset_page2.jpg" alt="チーズケーキサンド〈プレーン〉">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">武蔵野菓子工房の大人気商品<br class="sd-sp-br">「特製焼チーズケーキ」をクッキー生地にサンド。<br>2種のチーズを使った濃厚なチーズケーキと<br class="sd-sp-br">サクサク生地の一体感をお楽しみください。</p>
+
     <!-- 秋限定ミルクティー味 -->
     <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">秋限定ミルクティー味</p>
     <picture>
-      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026milkteasand.jpg" alt="秋限定ミルクティー味">
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page2.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page2.jpg" alt="秋限定ミルクティー味">
     </picture>
-    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">香りの良いスリランカ産のアールグレイを使用した<br>ミルクティー味のチーズケーキサンドは<br>一口食べると紅茶の風味が口の中に広がり、<br>リラックスタイムのおやつにぴったりの一品です。<br>この時期だけの特別なティータイムを<br>お楽しみください。</p>
-    
-    <!-- 焼き加減と厚みにこだわったクッキーに人気no.1 特製焼チーズケーキをサンド -->
-    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">焼き加減と厚みにこだわった<br class="sd-sp-br">クッキーに<br class="sd-pc-br">人気no.1 <br class="sd-sp-br">特製焼チーズケーキをサンド</p>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">香りの良いスリランカ産のアールグレイを<br class="sd-sp-br">使用したミルクティー味のチーズケーキサンドは<br>一口食べると紅茶の風味が口の中に広がり、<br>リラックスタイムのおやつにぴったりの一品です。<br>この時期だけの特別なティータイムを<br class="sd-sp-br">お楽しみください。</p>
+
+    <!-- スリランカ産のアールグレイを使用 -->
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">スリランカ産の<br class="sd-sp-br">アールグレイを使用</p>
     <picture>
-      <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand3.jpg" alt="クッキーとチーズケーキ">
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCmilkteasand_page3.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPmilkteasand_page3.jpg" alt="スリランカ産のアールグレイ">
     </picture>
-    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">程よい厚みのクッキー生地は、<br class="sd-sp-br">チーズケーキに触れる<br>面のサクサク感を大切にしながら、<br>一体感のある食感に仕上げました。<br>特製焼チーズケーキと合わせることで、重すぎず、<br>濃厚でなめらかな口どけをより引き立てます。<br><br>"また次のひと口がほしくなる"――<br>そんなチーズケーキサンドをお楽しみください。</p>
-    
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">厳選茶葉には香り豊かなスリランカ産の<br class="sd-sp-br">アールグレイを使用し<br class="sd-pc-br">北海道産の生クリームで<br class="sd-sp-br">茶葉を丁寧に抽出しました。<br>柑橘系果実のベルガモットの<br class="sd-sp-br">爽やかな香りが加わった<br class="sd-sp-br">風味豊かなチーズケーキを<br class="sd-pc-br">お楽しみいただけます。</p>
+
     <!-- ギフトに最適なパッケージでお届け -->
     <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">ギフトに最適な<br class="sd-sp-br">パッケージでお届け</p>
     <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand4.jpg">
       <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand4.jpg" alt="ギフトパッケージ">
     </picture>
-    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">小花やフルーツのイラストをあしらった<br>オリジナルイラスト入りのパッケージにて<br>ご用意いたします。<br>オレンジ色の箔押しのパッケージは、<br>高級感もあり、贈り物にぴったり。</p>
-    <picture class="sd-img-small">
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">小花やフルーツのイラストをあしらった<br>オリジナルイラスト入りのパッケージにて<br class="sd-sp-br">ご用意いたします。<br>オレンジ色の箔押しのパッケージは、<br class="sd-sp-br">高級感もあり、贈り物にぴったり。</p>
+    <picture class="sd-img-small cs-img5">
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PC_2026cheesesand5.png">
       <img src="https://www.shop-musashinosabo.jp/pic-labo/2026cheesesand5.png" alt="パッケージ">
     </picture>
 
