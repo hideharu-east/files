@@ -105,13 +105,17 @@
           <p>お使いのブラウザは動画の再生に対応していません。</p>
         </video>
         <div class="hero-image-pc" id="heroPcSlideshow">
+          <!-- 誓文祭（2026年10月の金・土・日のみ表示。表示切替は末尾のスクリプト） -->
+          <a href="https://www.shop-musashinosabo.jp/SHOP/190398/list.html" class="hero-pc-slide seimon-only is-active">
+            <img src="picture/2026seimonnsai_sr.jpg" alt="年に一度の大感謝祭 武蔵野茶房オンラインショップ 誓文祭 10月2日（金）〜25日（日）の間 対象商品が「感謝価格」でご購入いただけます">
+          </a>
           <a href="https://www.shop-musashinosabo.jp/SHOP/E001.html" class="hero-pc-slide">
             <img src="picture/pctop_slide5.jpg" alt="武蔵野茶房 特製焼チーズケーキ">
           </a>
           <a href="https://www.shop-musashinosabo.jp/SHOP/milktea_cheesecake_sand.html" class="hero-pc-slide">
             <img src="picture/milkteasand_sr.jpg" alt="武蔵野茶房 特製焼チーズケーキ">
           </a>
-          <a href="https://www.shop-musashinosabo.jp/SHOP/212049/list.html" class="hero-pc-slide is-active">
+          <a href="https://www.shop-musashinosabo.jp/SHOP/212049/list.html" class="hero-pc-slide hero-pc-default">
             <img src="picture/2026autumn_sr.jpg" alt="武蔵野茶房 特製焼チーズケーキ">
           </a>
         </div>
@@ -151,9 +155,15 @@
       <h2 class="section-title"><img src="SVG/oshirase.svg" alt="おしらせ"></h2>
       <ul class="news-list">
         <li class="news-item">
-          <a href="https://www.shop-musashinosabo.jp/hpgen/HPB/entries/12.html" class="news-link-wrap">
-            <span class="news-date">2026.0920</span>
-            <span class="news-text">・ヤマト運輸　台風・大雨による配送遅延について</span>
+          <a href="https://www.shop-musashinosabo.jp/hpgen/HPB/entries/15.html" class="news-link-wrap">
+            <span class="news-date">2026.1009</span>
+            <span class="news-text">・価格改定のお知らせ</span>
+          </a>
+        </li>
+        <li class="news-item seimon-only" hidden>
+          <a href="https://www.shop-musashinosabo.jp/SHOP/190398/list.html" class="news-link-wrap">
+            <span class="news-date">2026.1002</span>
+            <span class="news-text">・【年に一度の大感謝祭】感謝の誓文祭開催中！</span>
           </a>
         </li>
         <li class="news-item">
@@ -168,12 +178,6 @@
             <span class="news-text">・サイトリニューアルのお知らせ</span>
           </a>
         </li>
-        <li class="news-item">
-          <a href="https://www.shop-musashinosabo.jp/hpgen/HPB/entries/10.html" class="news-link-wrap">
-            <span class="news-date">2026.0625</span>
-            <span class="news-text">・夏季の焼菓子配送について</span>
-          </a>
-        </li>
       </ul>
     </section>
 
@@ -182,6 +186,15 @@
       <h2 class="section-title"><img src="SVG/tokushyuu.svg" alt="季節のおすすめ"></h2>
       <div class="seasonal-slideshow" id="seasonalSlideshow">
         <div class="slideshow-track" id="slideshowTrack">
+          <div class="slide seimon-only" hidden>
+            <a href="https://www.shop-musashinosabo.jp/SHOP/190398/list.html" class="seasonal-item">
+              <picture>
+                <source media="(min-width: 1024px)" srcset="picture/2026seimonnsai_br.jpg">
+                <img src="picture/2026seimonnsai_br.jpg" alt="年に一度の大感謝祭開催中！">
+              </picture>
+              <span class="seasonal-label">年に一度の大感謝祭開催中！</span>
+            </a>
+          </div>
           <div class="slide">
             <a href="https://www.shop-musashinosabo.jp/SHOP/212049/list.html" class="seasonal-item">
               <picture>
@@ -209,7 +222,7 @@
               <span class="seasonal-label">果実をたのしむ</span>
             </a>
           </div>
-          <div class="slide">
+          <div class="slide seimon-hide">
             <a href="https://www.shop-musashinosabo.jp/hpgen/HPB/entries/13.html" class="seasonal-item">
               <picture>
                 <source media="(min-width: 1024px)" srcset="picture/tenntouuketori_br.jpg">
@@ -220,10 +233,11 @@
           </div>
         </div>
         <div class="slideshow-dots" id="slideshowDots">
+          <span class="dot seimon-only" hidden></span>
           <span class="dot active"></span>
           <span class="dot"></span>
           <span class="dot"></span>
-          <span class="dot"></span>
+          <span class="dot seimon-hide"></span>
         </div>
       </div>
     </section>
@@ -418,6 +432,35 @@
     <p class="footer-copy">&copy; 2009 Musashinosabo co.ltd, Allrights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+  /* 誓文祭：2026年10月2日〜25日の金・土・日（日本時間）だけ表示を切り替える
+     動作確認用：URLの末尾に ?seimon=2026-10-03 のように日付を付けるとその日として表示 */
+  (function () {
+    var test = location.search.match(/[?&]seimon=(\d{4})-(\d{2})-(\d{2})/);
+    var d = test ? new Date(Date.UTC(+test[1], +test[2] - 1, +test[3]))
+                 : new Date(Date.now() + 9 * 60 * 60 * 1000);
+    var y = d.getUTCFullYear(), m = d.getUTCMonth() + 1, day = d.getUTCDate(), w = d.getUTCDay();
+    var active = y === 2026 && m === 10 && day >= 2 && day <= 25 && (w === 5 || w === 6 || w === 0);
+    var items = document.querySelectorAll('.seimon-only');
+    for (var i = 0; i < items.length; i++) {
+      if (active) { items[i].hidden = false; }
+      else { items[i].parentNode.removeChild(items[i]); }
+    }
+    if (!active) {
+      // 誓文祭以外の日はPCヒーローを秋の贈り物から始める（誓文祭の日はHTMLの時点で誓文祭画像が表示状態）
+      var def = document.querySelector('#heroPcSlideshow .hero-pc-default');
+      if (def) { def.classList.add('is-active'); }
+    }
+    if (active) {
+      // PDFどおり特集は4枠にする（店頭受取のご案内を外す）
+      var hides = document.querySelectorAll('.seimon-hide');
+      for (var h = 0; h < hides.length; h++) { hides[h].parentNode.removeChild(hides[h]); }
+      // 特集の先頭ドットを選択状態に
+      var dots = document.querySelectorAll('#slideshowDots .dot');
+      for (var k = 0; k < dots.length; k++) { dots[k].classList.toggle('active', k === 0); }
+    }
+  })();
+  </script>
+  <script src="script.js?v=20261002"></script>
 </body>
 </html>

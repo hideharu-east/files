@@ -189,7 +189,11 @@
   var slides = wrap.querySelectorAll('.hero-pc-slide');
   if (slides.length < 2) return;
 
-  var current = 2;
+  // is-active が付いているスライドから開始（誓文祭の日は先頭の誓文祭画像から）
+  var current = 0;
+  for (var i = 0; i < slides.length; i++) {
+    if (slides[i].classList.contains('is-active')) { current = i; break; }
+  }
   setInterval(function () {
     slides[current].classList.remove('is-active');
     current = (current + 1) % slides.length;

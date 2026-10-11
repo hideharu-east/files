@@ -2770,6 +2770,66 @@
  section#itemDetail-wrap p.cancel a, section#itemDetail-wrap p.review_txt a {
    display: block;
  }
+ /*お客様の声 カートボタン下：レビューがある商品はボタン風にして一覧ページへの入口をわかりやすく*/
+ section#itemDetail-wrap p.review_txt:has(a) {
+   position: relative;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   column-gap: 2px;
+   row-gap: 4px;
+   font-size: 14px;
+   line-height: 1.4;
+   color: #7a5c00;
+   background: #faf5e4;
+   border: 1px solid #d4b86a;
+   border-radius: 4px;
+   padding: 12px 36px 12px 14px;
+   margin: 10px 0 15px;
+   transition: background-color 0.2s;
+ }
+ section#itemDetail-wrap p.review_txt:has(a):hover {
+   background: #f3e8c6;
+ }
+ section#itemDetail-wrap p.review_txt:has(a) img {
+   width: 16px;
+   height: 16px;
+   vertical-align: middle;
+ }
+ section#itemDetail-wrap p.review_txt:has(a) span {
+   font-size: 16px;
+   font-weight: bold;
+   margin: 0 10px 0 6px;
+ }
+ section#itemDetail-wrap p.review_txt:has(a) a {
+   display: inline;
+   color: #7a5c00;
+   font-weight: bold;
+   text-decoration: none;
+ }
+ section#itemDetail-wrap p.review_txt:has(a) a::before {
+   content: "レビュー一覧を見る";
+ }
+ /*ボタン全体をクリックできるようにする*/
+ section#itemDetail-wrap p.review_txt:has(a) a::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+ }
+ section#itemDetail-wrap p.review_txt:has(a)::after {
+   content: "";
+   position: absolute;
+   top: 50%;
+   right: 16px;
+   width: 8px;
+   height: 8px;
+   border-top: 2px solid #7a5c00;
+   border-right: 2px solid #7a5c00;
+   transform: translateY(-50%) rotate(45deg);
+ }
  /*SNS/問合わせ/紹介 カートボタン下*/
  .itemOutline ul.snsArea {
    overflow: hidden;

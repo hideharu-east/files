@@ -1,0 +1,142 @@
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+
+<!--
+  商品説明の共通の型（指示書 SPmilksizi / PCmilksizi 基準）
+  SP：枠W730pxの指示書 → 実機（枠 約365px）では 1/2 に換算
+  PC：枠W900pxの指示書 → そのままの数値
+  基準：幅390px（枠 約365px）でSP値、1024pxでPC値。その間は比例変化、390px未満はフォントを画面幅に比例縮小／900px〜で改行位置・字間をPC版に切り替え
+-->
+<style>
+  .sd-body { padding:clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(8px, calc(8px + 12 * (100vw - 390px) / 634), 20px) clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  .sd-body picture, .sd-body .sd-link { display:block; }
+  .sd-body img { width:100%; height:auto; display:block; }
+  .sd-body .sd-img-small { width:50%; margin-left:auto; }
+  #itemDetail-wrap .sd-body .sd-name { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(65px, calc(65px + 5 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-name.sd-first { margin-top:0; }
+  #itemDetail-wrap .sd-body .sd-name-sub { font-size:clamp(14px, min(4.487vw, calc(17.5px + 9.5 * (100vw - 390px) / 634)), 27px); line-height:1.5; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-text { font-size:clamp(11.2px, min(3.59vw, calc(14px + 4 * (100vw - 390px) / 634)), 18px); line-height:1.9; letter-spacing:0; margin:0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-intro { margin-top:clamp(50px, calc(50px + 10 * (100vw - 390px) / 634), 60px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-text { margin-top:1.9em; }
+  #itemDetail-wrap .sd-body .sd-note { font-size:clamp(8.8px, min(2.821vw, calc(11px + 2 * (100vw - 390px) / 634)), 13px); line-height:1.8; margin:clamp(15px, calc(15px + 5 * (100vw - 390px) / 634), 20px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-title { font-size:clamp(18px, min(5.769vw, calc(22.5px + 7.5 * (100vw - 390px) / 634)), 30px); line-height:1.5; margin:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px) 0 clamp(15px, calc(15px + 25 * (100vw - 390px) / 634), 40px); padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px) 0 clamp(15px, calc(15px + 15 * (100vw - 390px) / 634), 30px); }
+  #itemDetail-wrap .sd-body .sd-sub { font-size:clamp(14.4px, min(4.615vw, calc(18px + 6 * (100vw - 390px) / 634)), 24px); line-height:1.6; margin:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px) 0 0; padding:0 clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px); }
+  #itemDetail-wrap .sd-body .sd-sub + .sd-text { margin-top:clamp(8px, calc(8px + 4 * (100vw - 390px) / 634), 12px); }
+  #itemDetail-wrap .sd-body .sd-text + .sd-sub { margin-top:clamp(35px, calc(35px + 15 * (100vw - 390px) / 634), 50px); }
+  #itemDetail-wrap .sd-body picture + .sd-text, #itemDetail-wrap .sd-body picture + .sd-title, #itemDetail-wrap .sd-body picture + .sd-sub { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-text + picture, #itemDetail-wrap .sd-body .sd-note + picture, #itemDetail-wrap .sd-body .sd-sub + picture { margin-top:clamp(35px, calc(35px + 35 * (100vw - 390px) / 634), 70px); }
+  #itemDetail-wrap .sd-body .sd-sect.sd-sect.sd-sect { margin-top:clamp(125px, calc(125px + 75 * (100vw - 390px) / 634), 200px); }
+  .sd-toggle { margin-top:clamp(30px, calc(30px + 10 * (100vw - 390px) / 634), 40px); }
+  .sd-close { margin-top:clamp(40px, calc(40px + 20 * (100vw - 390px) / 634), 60px); }
+  br.sd-pc-br { display:none; }
+
+  /* サントメ：キャッチコピー → 本文の間隔 */
+  #itemDetail-wrap .sd-body .st-catch + .sd-text { margin-top:clamp(40px, calc(40px + 10 * (100vw - 390px) / 634), 50px); }
+  /* 層のバランス：リード文（2行目を“の幅だけ下げる） */
+  #itemDetail-wrap .sd-body .sd-sub.st-lead { font-weight:500; letter-spacing:0.05em; font-size:clamp(12px, min(3.846vw, calc(15px + 9 * (100vw - 390px) / 634)), 24px); line-height:1.9; text-indent:-0.5em; padding-left:calc(clamp(7px, calc(7px + 18 * (100vw - 390px) / 634), 25px) + 0.5em); }
+  #itemDetail-wrap .sd-body .st-lead + .sd-sub { margin-top:clamp(35px, calc(35px + 25 * (100vw - 390px) / 634), 60px); }
+  /* 長い行：改行を増やさず字間を詰めて収める（SPはスマホ幅、PCは1行が長い段落） */
+  @media (max-width: 899px) {
+    #itemDetail-wrap .sd-body .sd-sub.st-lead { letter-spacing:0; font-weight:700; }
+    #itemDetail-wrap .sd-body .st-tight-sp.st-tight-sp { letter-spacing:-0.03em; }
+    #itemDetail-wrap .sd-body .sd-title.st-tight-title { font-size:clamp(16.8px, min(5.385vw, calc(21px + 9 * (100vw - 390px) / 634)), 30px); letter-spacing:-0.03em; padding-right:0; }
+  }
+  @media (min-width: 900px) {
+    #itemDetail-wrap .sd-body .sd-text.st-tight-pc { letter-spacing:0.02em; }
+    #itemDetail-wrap .sd-body .st-island + .sd-text { margin-top:30px; }
+  }
+
+  @media (min-width: 900px) {
+    #itemDetail-wrap .sd-body .sd-text { letter-spacing:0.05em; }
+    .sd-body .sd-img-small { width:35%; }
+    .sd-body .sd-img-narrow { width:90%; margin-left:auto; margin-right:auto; }
+    br.sd-sp-br { display:none; }
+    br.sd-pc-br { display:inline; }
+  }
+</style>
+
+<div style="margin:20px 0; margin-right:2px; background:#fff; border:1px solid #d4b86a; color:#333;">
+
+  <!-- タイトル -->
+  <div style="display:flex; justify-content:center; align-items:center; background:#f2efed; color:#7a5c00; border-bottom:1px solid #d4b86a; padding:12px 16px; font-size:14px; letter-spacing:0.1em; font-family:inherit;">
+    <span>商品説明</span>
+  </div>
+
+  <div class="sd-body">
+    <!-- メイン画像 -->
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCsaotome_page1.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPsaotome_page1.jpg" alt="サントメ ショコラ">
+    </picture>
+
+    <!-- 商品名 -->
+    <p class="sd-name" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">武蔵野茶房<br>サントメ ショコラ</p>
+
+    <!-- キャッチコピー -->
+    <p class="sd-text sd-intro st-catch" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">“濃厚さと口溶けを追求した逸品”</p>
+
+    <!-- 説明文 -->
+    <p class="sd-text st-tight-sp" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">カカオ成分が高い「サントメ島のオーガニック<br class="sd-sp-br">チョコレート」を使用。<br class="sd-pc-br">キルシュの風味をプラスし、<br class="sd-sp-br">濃厚でありながら上品な味わいに仕上げた<br>大人のチョコレートケーキです。<br>上質な木箱に収めてお届けするため、<br class="sd-sp-br">特別な日の贈り物にもぴったりです。</p>
+
+    <!-- もっと見るボタン -->
+    <button id="st26-toggle-btn" class="sd-toggle" onclick="document.getElementById('st26-more').style.display='block';this.style.display='none';" style="width:100%; display:flex; justify-content:center; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:12px 16px; font-size:14px; letter-spacing:0.1em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+      <span>もっと見る</span>
+      <span style="font-size:18px; line-height:1;">＋</span>
+    </button>
+
+    <div id="st26-more" style="display:none;">
+
+    <!-- サントメ島オーガニックチョコレート使用 -->
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">サントメ島オーガニック<br class="sd-sp-br">チョコレート使用</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCsaotome_page2.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPsaotome_page2.jpg" alt="サントメ島オーガニックチョコレート使用">
+    </picture>
+    <p class="sd-sub st-island" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">別名“チョコレート島”と呼ばれる島</p>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">カカオ成分が高く、コクのあるチョコレートを<br class="sd-sp-br">探し、辿り着いたのが<br>「サントメ島オーガニックチョコレート」。<br>ハイカカオのチョコを使用することにより、<br class="sd-sp-br">際立つ濃厚さを実現しました。</p>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">そんな「サントメ島」は、アフリカの赤道上にある<br class="sd-sp-br">小さい島であり、カカオ栽培に最適で<br class="sd-pc-br">良質な<br class="sd-sp-br">カカオが獲れることから別名“チョコレート島”と<br class="sd-sp-br">呼ばれています。</p>
+
+    <!-- 口溶けなめらかさを納得がいくまで追求 -->
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">口溶けなめらかさを<br class="sd-sp-br">納得がいくまで追求</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCsaotome_page3.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPsaotome_page3.jpg" alt="口溶けなめらかさを納得がいくまで追求">
+    </picture>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">一口食べた時に「全ての層が口の中で合わさり、<br class="sd-sp-br">溶けてなくなる」ことにこだわりを持ち、<br>使用する材料や配合など、試行錯誤しながら<br class="sd-sp-br">試作を重ね作り上げました。</p>
+
+    <!-- 層のバランス -->
+    <p class="sd-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">層のバランス</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCsaotome_page4.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPsaotome_page4.jpg" alt="生チョコレート・チョコレートムース・チョコレートスポンジの層">
+    </picture>
+    <p class="sd-sub st-lead" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; color:#222;">“濃厚さ”と“口溶け感”を存分に<br>感じられるよう、『層』にもこだわりました。</p>
+
+    <p class="sd-sub" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">〈生チョコレート〉</p>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">濃厚さを出すために、コクのあるサントメ島の<br class="sd-sp-br">オーガニックチョコレートを使用。<br>層のトップと中間の２層に入れることで、<br class="sd-sp-br">納得のいく濃厚さとバランスに。</p>
+
+    <p class="sd-sub" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">〈チョコレートムース〉</p>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">サントメ島のオーガニックチョコレートと北海道産<br class="sd-sp-br">生クリームの配合にとことんこだわり、<br>口溶けなめらかなムースに仕上げた。</p>
+
+    <p class="sd-sub" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222; letter-spacing:0.05em;">〈チョコレートスポンジ〉</p>
+    <p class="sd-text" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">しっとりとしたアーモンド生地に、さらに<br class="sd-sp-br">苦味が効いたブラックココアパウダーを合わせ、<br>味全体のバランスを調和させた。</p>
+
+    <!-- “大人向け”のチョコレートケーキ -->
+    <p class="sd-title st-tight-title" style="font-family:'Shippori Mincho B1','游明朝','YuMincho',serif; font-weight:500; color:#222;">“大人向け”のチョコレートケーキ</p>
+    <picture>
+      <source media="(min-width: 1024px)" srcset="https://www.shop-musashinosabo.jp/pic-labo/PCsaotome_page5.jpg">
+      <img src="https://www.shop-musashinosabo.jp/pic-labo/SPsaotome_page5.jpg" alt="大人向けのチョコレートケーキ">
+    </picture>
+    <p class="sd-text st-tight-pc" style="font-family:'Noto Sans JP','游ゴシック',sans-serif; font-weight:400; color:#333;">濃厚さと口溶けを追求したこのチョコレート<br class="sd-sp-br">ケーキは、キルシュを使用しフルーティーな香りと<br>コクがプラスされ“大人向け”のチョコレート<br class="sd-sp-br">ケーキに仕上がりました。<br>チョコレートがお好きな方には、ぜひ味わって<br class="sd-sp-br">いただきたい一品です。</p>
+
+      <!-- 閉じるボタン -->
+      <div class="sd-close" style="text-align:right;">
+        <button onclick="document.getElementById('st26-more').style.display='none';document.getElementById('st26-toggle-btn').style.display='flex';document.getElementById('st26-toggle-btn').scrollIntoView({behavior:'smooth',block:'center'});" style="display:inline-flex; align-items:center; gap:4px; background:#c9a84c; color:#fff; border:none; border-radius:4px; padding:6px 14px; font-size:12px; letter-spacing:0.05em; cursor:pointer; font-family:inherit; box-shadow:0 2px 4px rgba(0,0,0,0.15);">
+          <span>閉じる</span>
+          <span style="font-size:13px; line-height:1;">－</span>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
